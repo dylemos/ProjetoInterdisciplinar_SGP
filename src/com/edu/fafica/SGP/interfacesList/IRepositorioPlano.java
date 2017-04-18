@@ -1,4 +1,4 @@
-package com.edu.fafica.SGP.interfaces;
+package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;

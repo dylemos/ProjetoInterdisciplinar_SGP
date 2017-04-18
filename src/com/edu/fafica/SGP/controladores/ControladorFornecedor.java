@@ -3,12 +3,12 @@ package com.edu.fafica.SGP.controladores;
 import java.sql.SQLException;
 import java.util.HashSet;
 
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
 import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
-import com.edu.fafica.SGP.interfaces.IRepositorioFornecedor;
-import com.edu.fafica.SGP.pessoas.Fornecedor;
-import com.edu.fafica.SGP.repositorios.RepositorioFornecedorList;
+import com.edu.fafica.SGP.interfacesList.IRepositorioFornecedor;
+import com.edu.fafica.SGP.repositoriosList.RepositorioFornecedorList;
 import com.edu.fafica.SGP.util.ValidarCNPJ;
 
 public class ControladorFornecedor {

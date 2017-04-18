@@ -1,4 +1,4 @@
-package com.edu.fafica.SGP.conta;
+package com.edu.fafica.SGP.entidades;
 
 
 public class Conta {

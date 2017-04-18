@@ -3,12 +3,12 @@ package com.edu.fafica.SGP.controladores;
 import java.sql.SQLException;
 import java.util.HashSet;
 
-import com.edu.fafica.SGP.chamado.Chamado;
+import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
-import com.edu.fafica.SGP.interfaces.IRepositorioChamado;
-import com.edu.fafica.SGP.repositorios.RepositorioChamadoList;
+import com.edu.fafica.SGP.interfacesList.IRepositorioChamado;
+import com.edu.fafica.SGP.repositoriosList.RepositorioChamadoList;
 
 public class ControladorChamado {
 	

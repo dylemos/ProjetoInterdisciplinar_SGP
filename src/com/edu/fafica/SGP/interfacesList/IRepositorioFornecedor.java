@@ -1,11 +1,12 @@
-package com.edu.fafica.SGP.interfaces;
+package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
 import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.Fornecedor;
 
 public interface IRepositorioFornecedor {
 

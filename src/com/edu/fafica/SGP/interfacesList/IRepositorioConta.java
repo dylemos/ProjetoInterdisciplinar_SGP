@@ -1,8 +1,9 @@
-package com.edu.fafica.SGP.interfaces;
+package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-import com.edu.fafica.SGP.conta.Conta;
+
+import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;

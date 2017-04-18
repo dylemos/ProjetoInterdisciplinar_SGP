@@ -2,6 +2,7 @@ package com.edu.fafica.SGP.launch;
 
 import java.sql.SQLException;
 
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -20,7 +21,6 @@ import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.Fornecedor;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {

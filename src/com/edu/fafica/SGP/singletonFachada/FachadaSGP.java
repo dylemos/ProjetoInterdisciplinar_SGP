@@ -2,14 +2,18 @@ package com.edu.fafica.SGP.singletonFachada;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-import com.edu.fafica.SGP.chamado.Chamado;
-import com.edu.fafica.SGP.conta.Conta;
+
 import com.edu.fafica.SGP.controladores.ControladorChamado;
 import com.edu.fafica.SGP.controladores.ControladorCliente;
 import com.edu.fafica.SGP.controladores.ControladorConta;
 import com.edu.fafica.SGP.controladores.ControladorFornecedor;
 import com.edu.fafica.SGP.controladores.ControladorPlano;
 import com.edu.fafica.SGP.controladores.ControladorUserAdmin;
+import com.edu.fafica.SGP.entidades.Chamado;
+import com.edu.fafica.SGP.entidades.Cliente;
+import com.edu.fafica.SGP.entidades.Conta;
+import com.edu.fafica.SGP.entidades.Fornecedor;
+import com.edu.fafica.SGP.entidades.UserAdmin;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -28,9 +32,6 @@ import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.Cliente;
-import com.edu.fafica.SGP.pessoas.Fornecedor;
-import com.edu.fafica.SGP.pessoas.UserAdmin;
 import com.edu.fafica.SGP.plano.Plano;
 
 public class FachadaSGP {

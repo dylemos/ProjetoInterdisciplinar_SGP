@@ -1,13 +1,13 @@
-package com.edu.fafica.SGP.repositorios;
+package com.edu.fafica.SGP.repositoriosList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
 
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
-import com.edu.fafica.SGP.interfaces.IRepositorioCliente;
-import com.edu.fafica.SGP.pessoas.Cliente;
+import com.edu.fafica.SGP.interfacesList.IRepositorioCliente;
 
 public class RepositorioClienteList implements IRepositorioCliente {
 

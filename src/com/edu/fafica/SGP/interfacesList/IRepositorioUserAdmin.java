@@ -1,11 +1,12 @@
-package com.edu.fafica.SGP.interfaces;
+package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+
+import com.edu.fafica.SGP.entidades.UserAdmin;
 import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.UserAdmin;
 
 
 public interface IRepositorioUserAdmin {

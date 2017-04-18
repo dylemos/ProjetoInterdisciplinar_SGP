@@ -3,12 +3,12 @@ package com.edu.fafica.SGP.controladores;
 import java.sql.SQLException;
 import java.util.HashSet;
 
-import com.edu.fafica.SGP.conta.Conta;
+import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
-import com.edu.fafica.SGP.interfaces.IRepositorioConta;
-import com.edu.fafica.SGP.repositorios.RepositorioContaList;
+import com.edu.fafica.SGP.interfacesList.IRepositorioConta;
+import com.edu.fafica.SGP.repositoriosList.RepositorioContaList;
 
 public class ControladorConta {
 	

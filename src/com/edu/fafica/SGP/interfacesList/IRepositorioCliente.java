@@ -1,12 +1,12 @@
-package com.edu.fafica.SGP.interfaces;
+package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
 
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.Cliente;
 
 
 public interface IRepositorioCliente {

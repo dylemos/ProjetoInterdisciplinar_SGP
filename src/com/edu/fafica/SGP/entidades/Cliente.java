@@ -1,4 +1,4 @@
-package com.edu.fafica.SGP.pessoas;
+package com.edu.fafica.SGP.entidades;
 
 import java.util.Calendar;
 
