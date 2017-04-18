@@ -20,7 +20,7 @@ import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
-import com.edu.fafica.SGP.pessoas.Cliente;
+import com.edu.fafica.SGP.pessoas.Fornecedor;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {
@@ -78,7 +78,7 @@ public class Launch {
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		/*
+		
 		
 		Fornecedor f1 = new Fornecedor("FaficaADS", "26.975.874/0001-58", "fafica.ads@faculdade.edu.com", "81 37280099", "81 997785644", "TIM", "Caruaru-PE", "ADS_PROVIMENTOS");
 		sgp.cadastrarFornecedor(f1);
@@ -100,7 +100,7 @@ public class Launch {
 		
 		sgp.procurarFornecedor(f2.getCnpj());
 
-		*/
+		/*		*/
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
