@@ -10,7 +10,7 @@ public class Conta {
 	private Double valor;				 
 	private Double desconto;
 	private Double multa;
-	private Double valorTotal;
+	private int qtdParcelas;
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
@@ -87,12 +87,12 @@ public class Conta {
 		this.multa = multa;
 	}
 
-	public Double getValorTotal() {
-		return valorTotal;
+	public int getValorTotal() {
+		return qtdParcelas;
 	}
 
-	public void setValorTotal(Double valorTotal) {
-		this.valorTotal = valorTotal;
+	public void setValorTotal(int valorTotal) {
+		this.qtdParcelas = valorTotal;
 	}
 
 	

@@ -2,10 +2,11 @@ package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+
+import com.edu.fafica.SGP.entidades.Plano;
 import com.edu.fafica.SGP.exceptions.PlanoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.PlanoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
-import com.edu.fafica.SGP.plano.Plano;
 
 public interface IRepositorioPlano {
 

@@ -1,4 +1,4 @@
-package com.edu.fafica.SGP.plano;
+package com.edu.fafica.SGP.entidades;
 
 
 public class Plano {

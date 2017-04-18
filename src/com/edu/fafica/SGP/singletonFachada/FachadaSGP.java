@@ -13,6 +13,7 @@ import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.entidades.Fornecedor;
+import com.edu.fafica.SGP.entidades.Plano;
 import com.edu.fafica.SGP.entidades.UserAdmin;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
@@ -32,7 +33,6 @@ import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
-import com.edu.fafica.SGP.plano.Plano;
 
 public class FachadaSGP {
 	

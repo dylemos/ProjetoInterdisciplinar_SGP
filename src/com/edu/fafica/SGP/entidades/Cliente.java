@@ -18,14 +18,14 @@ public class Cliente {
 	private String enderecoCliente;
 	private Calendar dataCadasatro;
 	private String tipoPlano;
-	private Calendar vencimentoPlano;
+	private int vencimentoPlano;
 	
 	public Cliente() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email,Calendar dataNascimento,String enderecoCliente,Calendar dataCadasatro,String tipoPlano,Calendar vencimentoPlano) {
+	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email,Calendar dataNascimento,String enderecoCliente,Calendar dataCadasatro,String tipoPlano,int vencimentoPlano) {
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -192,11 +192,11 @@ public class Cliente {
 		this.tipoPlano = tipoPlano;
 	}
 
-	public Calendar getVencimentoPlano() {
+	public int getVencimentoPlano() {
 		return vencimentoPlano;
 	}
 
-	public void setVencimentoPlano(Calendar vencimentoPlano) {
+	public void setVencimentoPlano(int vencimentoPlano) {
 		this.vencimentoPlano = vencimentoPlano;
 	}
 
