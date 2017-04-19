@@ -40,7 +40,7 @@
 								<li><a href="#fornecedor" id="top-link" class="skel-layers-ignoreHref"><span class="icon fa-wpforms">Cadastro de Fornecedor</span></a></li>
 								<li><a href="#planos" id="portfolio-link" class="skel-layers-ignoreHref"><span class="icon fa-th">Planos de Acesso</span></a></li>
 								<li><a href="#financeiro" id="about-link" class="skel-layers-ignoreHref"><span class="icon fa-usd">Financeiro</span></a></li>
-								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-phone">Atendimento</span></a></li>
+								<li><a href="#atendimento" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-phone">Atendimento</span></a></li>
 								<li><a href="#contact" id="contact-link" class="skel-layers-ignoreHref"><span class="icon fa-cogs">Configurações</span></a></li>
 							</ul>
 						</nav>
@@ -73,7 +73,7 @@
 								<h2>Cadastro de Cliente</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Inserir"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>
@@ -132,7 +132,7 @@
 								<h2>Cadastro de Fornecedor</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Inserir"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>
@@ -178,7 +178,7 @@
 								<h2>Planos de Acesso</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Inserir"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>
@@ -204,7 +204,7 @@
 								<h2>Financeiro</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Inserir"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>
@@ -247,24 +247,18 @@
 					</section>
 
 				<!-- Contact -->
-					<section id="contact" class="four">
+					<section id="atendimento" class="four">
 						<div class="container">
 
 							<header>
-								<h2>Contact</h2>
+								<h2>Atendimento</h2>
 							</header>
-
-							<p>Elementum sem parturient nulla quam placerat viverra
-							mauris non cum elit tempus ullamcorper dolor. Libero rutrum ut lacinia
-							donec curae mus. Eleifend id porttitor ac ultricies lobortis sem nunc
-							orci ridiculus faucibus a consectetur. Porttitor curae mauris urna mi dolor.</p>
-
 							<form method="post" action="#">
 								<div class="row">
 									<div class="6u 12u$(mobile)"><input type="text" name="name" placeholder="Name" /></div>
 									<div class="6u$ 12u$(mobile)"><input type="text" name="email" placeholder="Email" /></div>
 									<div class="12u$">
-										<textarea name="message" placeholder="Message"></textarea>
+										<textarea name="obs" placeholder="Descrição do Problema"></textarea>
 									</div>
 									<div class="12u$">
 										<input type="submit" value="Send Message" />
