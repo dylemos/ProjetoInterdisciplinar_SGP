@@ -66,14 +66,14 @@ public class Launch {
 		java.sql.Date dateDB6 = new java.sql.Date(dateStr4.getTime());
 	
 		
-		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400",dateDB1,dateDB2,"AceleraNet",10);
+/*		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400",dateDB1,dateDB2,"AceleraNet",10);
 		sgp.cadastrarCliente(cl1);
 
 		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566",dateDB3,dateDB4,"Acelera+",15);
 		sgp.cadastrarCliente(cl2);
-					
+*/					
 		Cliente cl3 = new Cliente("Mylena", "MylenaLogin", "MylenaSH", "4.986.745","108.550.874-98", "81 30452340", "81 994538973", "Claro", "mylena_fafica@gmail.com", "Guaratinguetá", "02A", "Centro","Caruaru","PE","55044-230",dateDB5,dateDB6,"Plus++",30);
 		sgp.cadastrarCliente(cl3);
 		System.out.println("\n");

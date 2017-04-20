@@ -25,7 +25,6 @@ public class ControladorCliente {
 		
 		//Inicializa Lista
 		listaCliente = new HashSet<Cliente>();
-		index = 1;
 	}
 
 	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClienteCpfInvalidoException {
@@ -36,7 +35,6 @@ public class ControladorCliente {
 					cliente.setId(index);
 					this.listaCliente.add(cliente);
 					this.repositorioCliente.cadastrarCliente(cliente);
-					index++;
 				}else{
 					throw new ClienteCpfInvalidoException();
 				}
