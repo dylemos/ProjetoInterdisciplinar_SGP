@@ -5,7 +5,7 @@ public class UserAdminNaoEncontradoException extends Exception{
 	private static final long serialVersionUID = 1L;
 
 	public UserAdminNaoEncontradoException() {
-		super(" Não Encontrado!");
+		super(" Não Encontrado!\n");
 	}
 
 }

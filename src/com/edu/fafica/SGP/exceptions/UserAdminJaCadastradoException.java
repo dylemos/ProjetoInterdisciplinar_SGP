@@ -5,7 +5,7 @@ public class UserAdminJaCadastradoException extends Exception{
 	private static final long serialVersionUID = 1L;
 
 	public UserAdminJaCadastradoException() {
-		super(" já cadastrado!");
+		super(" já cadastrado!\n");
 	}
 
 }

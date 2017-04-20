@@ -1,6 +1,6 @@
 package com.edu.fafica.SGP.entidades;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class Cliente {
 	
@@ -14,9 +14,14 @@ public class Cliente {
 	private String celular;
 	private String operadora;
 	private String email;
-	private Calendar dataNascimento;
-	private String enderecoCliente;
-	private Calendar dataCadasatro;
+	private String rua;
+	private String numero;
+	private String bairro;
+	private String cidade;
+	private String uf;
+	private String cep;
+	private Date dataNascimento;
+	private Date dataCadasatro;
 	private String tipoPlano;
 	private int vencimentoPlano;
 	
@@ -25,7 +30,7 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email,Calendar dataNascimento,String enderecoCliente,Calendar dataCadasatro,String tipoPlano,int vencimentoPlano) {
+	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep,Date dataNascimento,Date dataCadasatro,String tipoPlano,int vencimentoPlano) {
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -35,15 +40,20 @@ public class Cliente {
 		setCelular(celular);
 		setOperadora(operadora);
 		setEmail(email);
+		setRua(rua);
+		setNumero(numero);
+		setBairro(bairro);
+		setCidade(cidade);
+		setUf(uf);
+		setCep(cep);
 		setDataNascimento(dataNascimento);
-		setEnderecoCliente(enderecoCliente);
 		setDataCadasatro(dataCadasatro);
 		setTipoPlano(tipoPlano);
 		setVencimentoPlano(vencimentoPlano);
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String cpf,String celular,String operadora,String email,String enderecoCliente,String tipoPlano) {
+	public Cliente(String nomeCliente,String login,String senha,String cpf,String celular,String operadora,String email,String cep,String tipoPlano) {
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -51,7 +61,7 @@ public class Cliente {
 		setCelular(celular);
 		setOperadora(operadora);
 		setEmail(email);
-		setEnderecoCliente(enderecoCliente);
+		setCep(cep);
 		setTipoPlano(tipoPlano);
 	}
 		
@@ -64,7 +74,8 @@ public class Cliente {
 		String clienteDetalhe = "{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				" | Senha: "+getSenha()+" | RG: "+getRg()+" |\n CPF: "+getCpf()+" | Telefone: "+getTelefone()+
 				" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+" | Email: "+getEmail()+
-				"|\n Endereco do Cliente: "+getEnderecoCliente()+" | }";
+				"|\n Endereco do Cliente: [ Rua "+getRua()+" - N° "+getNumero()+" - Bairro "+getBairro()+
+				" - Cidade "+getCidade()+" - UF "+getUf()+" - CEP "+getCep()+" ] }";
 		
 		return clienteDetalhe;
 	}
@@ -74,7 +85,7 @@ public class Cliente {
 		
 		String clienteDetalhe = "{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				"\n | Senha: "+getSenha()+" | CPF: "+getCpf()+" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+
-				"\n | Email: "+getEmail()+"| Endereco do Cliente: "+getEnderecoCliente()+" | }";
+				"\n | Email: "+getEmail()+"| Rua do Cliente: "+getRua()+" | }";
 		
 		return clienteDetalhe;
 	}
@@ -160,27 +171,82 @@ public class Cliente {
 		this.email = email;
 	}
 
-	public Calendar getDataNascimento() {
+	
+	
+	public String getRua() {
+		return rua;
+	}
+
+
+	public void setRua(String rua) {
+		this.rua = rua;
+	}
+
+
+	public String getNumero() {
+		return numero;
+	}
+
+
+	public void setNumero(String numero) {
+		this.numero = numero;
+	}
+
+
+	public String getBairro() {
+		return bairro;
+	}
+
+
+	public void setBairro(String bairro) {
+		this.bairro = bairro;
+	}
+
+
+	public String getCidade() {
+		return cidade;
+	}
+
+
+	public void setCidade(String cidade) {
+		this.cidade = cidade;
+	}
+
+
+	public String getUf() {
+		return uf;
+	}
+
+
+	public void setUf(String uf) {
+		this.uf = uf;
+	}
+
+
+	public String getCep() {
+		return cep;
+	}
+
+
+	public void setCep(String cep) {
+		this.cep = cep;
+	}
+
+
+	public Date getDataNascimento() {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Calendar dataNascimento) {
+	public void setDataNascimento(Date dataNascimento) {
 		this.dataNascimento = dataNascimento;
 	}
 
-	public String getEnderecoCliente() {
-		return enderecoCliente;
-	}
 
-	public void setEnderecoCliente(String enderecoCliente) {
-		this.enderecoCliente = enderecoCliente;
-	}
-
-	public Calendar getDataCadasatro() {
+	public Date getDataCadasatro() {
 		return dataCadasatro;
 	}
 
-	public void setDataCadasatro(Calendar dataCadasatro) {
+	public void setDataCadasatro(Date dataCadasatro) {
 		this.dataCadasatro = dataCadasatro;
 	}
 

@@ -45,7 +45,7 @@ public class FachadaSGP {
 	private ControladorConta controladorConta;
 	private ControladorChamado controladorChamado;
 	
-	public FachadaSGP() throws ClassNotFoundException{
+	private FachadaSGP() throws ClassNotFoundException{
 		
 		System.err.println("\t\t <<< SGP em funcionamento >>>\n");
 		
@@ -60,16 +60,20 @@ public class FachadaSGP {
 
 	public static FachadaSGP getUniqueInstance() throws ClassNotFoundException{
 		
-		if(uniqueInstance == null){
-			synchronized (FachadaSGP.class) {
-				if(uniqueInstance == null){
-					uniqueInstance = new FachadaSGP();
-				}else{
-					return null;
+		try {
+			if(uniqueInstance == null){
+				synchronized (FachadaSGP.class) {
+					if(uniqueInstance == null){
+						uniqueInstance = new FachadaSGP();
+					}else{
+						return null;
+					}
 				}
+			}else{
+				System.err.println("\n\t\t\tO SGP já está em funcionamento!\n");
 			}
-		}else{
-			System.err.println("\n\t\t\tO SGP já está em funcionamento!");
+		} catch (Exception e) {
+			System.out.println("\nErro: "+e.getMessage()+"\n");
 		}
 		
 		return uniqueInstance;

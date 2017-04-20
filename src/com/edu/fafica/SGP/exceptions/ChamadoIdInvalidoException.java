@@ -5,7 +5,7 @@ public class ChamadoIdInvalidoException  extends Exception{
 	private static final long serialVersionUID = 1L;
 	
 	public ChamadoIdInvalidoException() {
-		super(" Id Inválido!");
+		super(" Id Inválido!\n");
 	}
 
 }

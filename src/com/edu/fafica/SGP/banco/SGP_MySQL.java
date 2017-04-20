@@ -2,16 +2,40 @@ package com.edu.fafica.SGP.banco;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.Statement;
 
 public class SGP_MySQL {
 
 	
-	private static String status = "";
+	private static String status = "O MySQL ainda não foi Concetado!";
+	private volatile static SGP_MySQL instance;
+	private static Connection connection = null;
+	
+	private SGP_MySQL() throws ClassNotFoundException{
+		
+	}
+	
+	
+	public static SGP_MySQL getInstance() throws ClassNotFoundException{
+		
+		try {
+			if(instance == null){
+				synchronized(SGP_MySQL.class){
+					if(instance == null){
+						instance = new SGP_MySQL();
+					}
+				}
+			}else{
+				System.err.println("\n\t\t\tO SGP_MySQL já está em funcionamento!\n");
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		return instance;
+	}
+	
 	
 	public static Connection conectarBD(){
-		
-		Connection connection = null;
 		
 		String URL = "jdbc:mysql://localhost:3306/projetointerdisciplinar_sgp";
 		String USUARIO = "root";
@@ -22,11 +46,11 @@ public class SGP_MySQL {
 			Class.forName(DRIVER).newInstance();
 			connection = DriverManager.getConnection(URL, USUARIO, SENHA);
 			status = "Connection Opened";
-			System.out.println(status+" Conectado ao MySQL com sucesso!");
+			System.out.println("\n"+status+" Conectado ao MySQL com sucesso!\n");
 		} catch (Exception e) {
 			status = e.getMessage();
 			System.out.println(status);
-			throw new RuntimeException("Erro na conexão: ",e);
+			throw new RuntimeException("\nErro na conexão: ",e);
 		}
 		
 		return connection;
@@ -37,12 +61,19 @@ public class SGP_MySQL {
 	{
 		try {
 		//	connection.close();
-			System.out.println("Conexão ao MySQL finalizada com sucesso!");
+			System.out.println("\nConexão ao MySQL finalizada com sucesso!\n");
 		} catch (Exception e) {
-			System.out.println("Erro ao fechar conexão com MySQL: "+e.getMessage());
+			System.out.println("\nErro ao fechar conexão com MySQL: "+e.getMessage()+"\n");
 		}
 		
 	}
-	
+
+
+	public static String getStatus() {
+		System.out.println("Status SGP_MySQL: "+status+"\n");
+		return status;
+	}
+
+
 
 }

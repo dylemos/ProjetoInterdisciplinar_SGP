@@ -8,7 +8,7 @@ import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioCliente;
-import com.edu.fafica.SGP.repositoriosList.RepositorioClienteList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioClienteJDBC;
 import com.edu.fafica.SGP.util.ValidarCPF;
 
 public class ControladorCliente {
@@ -18,9 +18,10 @@ public class ControladorCliente {
 	private int index;
 	
 	
-	public ControladorCliente() {
-		//Define aqui qual repositório usar
-		this.repositorioCliente = new RepositorioClienteList();
+	public ControladorCliente() throws ClassNotFoundException {
+//		Define aqui qual repositório usar
+//		this.repositorioCliente = new RepositorioClienteList();
+		this.repositorioCliente = new RepositorioClienteJDBC();
 		
 		//Inicializa Lista
 		listaCliente = new HashSet<Cliente>();

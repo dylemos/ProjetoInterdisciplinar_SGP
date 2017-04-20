@@ -5,7 +5,7 @@ public class FornecedorCNPJInvalidoException extends Exception{
 	private static final long serialVersionUID = 1L;
 	
 	public FornecedorCNPJInvalidoException() {
-		super(" Com CNPJ Invalido!");
+		super(" Com CNPJ Invalido!\n");
 	}
 
 }

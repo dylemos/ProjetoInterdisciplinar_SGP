@@ -5,6 +5,6 @@ public class ClienteJaCadastradoException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	public ClienteJaCadastradoException() {
-		super(" Já está Cadastrado!");
+		super(" Já está Cadastrado!\n");
 	}
 }

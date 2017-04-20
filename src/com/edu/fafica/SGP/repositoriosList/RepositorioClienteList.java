@@ -23,12 +23,18 @@ public class RepositorioClienteList implements IRepositorioCliente {
 		try {
 
 			this.listaClienteRepositorio.add(cliente);
-			System.out.println(cliente.toStringBasica());
+			if(cliente.getNomeCliente() == null){
+				System.out.println(cliente.toString());
+			}
+			if(cliente.getCep() == null){
+				System.out.println(cliente.toStringBasica());
+			}else{
+				System.out.println(cliente.toStringCompleta());
+			}
 			System.out.println("***Cadastrado Com Sucesso***");
 			System.out.println();
 		} catch (Exception e) {
 			System.out.println(cliente.getNomeCliente()+e.getMessage());
-			System.out.println("");
 		}
 
 	}
