@@ -3,6 +3,7 @@ package com.edu.fafica.SGP.launch;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
@@ -34,11 +35,14 @@ public class Launch {
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
-		String dtNasc1="1992-12-18";
+		String dtNasc1="1993-06-21";
 		String dtCadastro1 = "2017-01-20";
 		
 		String dtNasc2="1987-05-14";
 		String dtCadastro2 = "2017-04-05";
+		
+		String dtNasc3="1977-05-14";
+		String dtCadastro3 = "2017-01-05";
 		
 		//Formata a data
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); // your template here
@@ -54,23 +58,27 @@ public class Launch {
 		
 		java.util.Date dateStr4 = formatter.parse(dtCadastro2);
 		java.sql.Date dateDB4 = new java.sql.Date(dateStr4.getTime());
+		
+		java.util.Date dateStr5 = formatter.parse(dtNasc3);
+		java.sql.Date dateDB5 = new java.sql.Date(dateStr3.getTime());
+		
+		java.util.Date dateStr6 = formatter.parse(dtCadastro3);
+		java.sql.Date dateDB6 = new java.sql.Date(dateStr4.getTime());
 	
-	
-		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "9.089.777","147.488.021-54", "81 30452000", "81 992638973", "Claro", "dyego_fafica@gmail.com", "Lagoa de Ouro", "1002", "Centro","Carpina","PE","55026-890",dateDB1,dateDB2,"ComboPlus",10); 
-			//	Cliente("Dyego", "DyegoLogin", "DyegoSenha", "147.488.021-54", "81 992638973", "Claro", "dyego_fafica@gmail.com", "Caruaru-PE", "Ouro");
+		
+		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400",dateDB1,dateDB2,"AceleraNet",10);
 		sgp.cadastrarCliente(cl1);
 
-		
-//		sgp.cadastrarCliente(cl1);		//DUPLICADO
+		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566",dateDB3,dateDB4,"Acelera+",15);
 		sgp.cadastrarCliente(cl2);
-
-		/*			
-		Cliente cl3 = new Cliente("Mylena", "MyleLogin", "MyleSenha", "108.550.874-98", "81 997358970", "Oi", "myle_fafica@gmail.com", "Caruaru-PE", "Platinum");
+					
+		Cliente cl3 = new Cliente("Mylena", "MylenaLogin", "MylenaSH", "4.986.745","108.550.874-98", "81 30452340", "81 994538973", "Claro", "mylena_fafica@gmail.com", "Guaratinguetá", "02A", "Centro","Caruaru","PE","55044-230",dateDB5,dateDB6,"Plus++",30);
 		sgp.cadastrarCliente(cl3);
 		System.out.println("\n");
 		
+		/*	
 		
 		sgp.procurarCliente("147.488.021-54");
 		System.out.println();
