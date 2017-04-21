@@ -8,7 +8,7 @@ import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioChamado;
-import com.edu.fafica.SGP.repositoriosList.RepositorioChamadoList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioChamadoJDBC;
 
 public class ControladorChamado {
 	
@@ -16,13 +16,14 @@ public class ControladorChamado {
 	private HashSet<Chamado> listaChamado;
 	private int index;
 	
-	public ControladorChamado() {
+	public ControladorChamado() throws ClassNotFoundException {
 		// Define qual repositorio usar
-		this.repositorioChamado = new RepositorioChamadoList();
+//		this.repositorioChamado = new RepositorioChamadoList();
+		this.repositorioChamado = new RepositorioChamadoJDBC();
 		
 		//Implementa a lista
 		this.listaChamado = new HashSet<Chamado>();
-		this.index = 1;
+//		this.index = 1;
 	}
 	
 
@@ -35,7 +36,7 @@ public class ControladorChamado {
 				chamado.setId(index);
 				this.listaChamado.add(chamado);
 				this.repositorioChamado.cadastrarChamado(chamado);
-				this.index++;
+//				this.index++;											válido pra List
 				
 			}else{
 				throw new ChamadoJaCadastradoException();

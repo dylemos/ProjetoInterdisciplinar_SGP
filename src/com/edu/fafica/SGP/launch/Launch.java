@@ -2,7 +2,8 @@ package com.edu.fafica.SGP.launch;
 
 import java.sql.SQLException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
+import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
@@ -34,22 +35,22 @@ public class Launch {
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
-		
-/*		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
+/*			
+		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
 		sgp.cadastrarCliente(cl1);
 
 		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
 		sgp.cadastrarCliente(cl2);
-*/					
+					
 		Cliente cl3 = new Cliente("Mylena", "MylenaLogin", "MylenaSH", "4.986.745","108.550.874-98", "81 30452340", "81 994538973", "Claro", "mylena_fafica@gmail.com", "Guaratinguetá", "02A", "Centro","Caruaru","PE","55044-230","1977-05-14","2017-01-05","Plus++",30);
 		sgp.cadastrarCliente(cl3);
 		System.out.println("\n");
+*/		
 		
-		/*	
 		
-		sgp.procurarCliente("147.488.021-54");
+/*		sgp.procurarCliente("147.488.021-54");
 		System.out.println();
 		
 		sgp.listarClientes();
@@ -178,9 +179,9 @@ public class Launch {
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-		/*
 	
-		Chamado ch1 = new Chamado("Reparo em HardWare", "Em Aberto", "CPU com Defeito");
+		/*	
+		Chamado ch1 = new Chamado("Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 		sgp.cadastrarChamado(ch1);
 		
 		Chamado ch2 = new Chamado("Compra de HardWare", "Em Aberto", "Compra de CPU");

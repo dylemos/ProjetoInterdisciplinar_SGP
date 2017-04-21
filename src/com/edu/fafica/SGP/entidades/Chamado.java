@@ -1,20 +1,24 @@
 package com.edu.fafica.SGP.entidades;
 
-import java.util.Calendar;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Chamado {
 	
 	private int id;
 	private int idCliente;				//referência a Cliente
 	private String tipoChamado;
-	private Calendar dataSolicitacao;
-	private String statusChamado;
 	private String descProblema;
+	private String statusChamado;
+	private Date dataAbertura;
+	private Date dataFechamento;
 	
-	public Chamado(String tipoChamado, String statusChamado, String descProblema) {
+	public Chamado(String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento) {
 		setTipoChamado(tipoChamado);
-		setStatusChamado(statusChamado);
 		setDescProblema(descProblema);
+		setStatusChamado(statusChamado);
+		setdataAbertura(dataAbertura);
+		setDataFechamento(dataFechamento);
 	}
 
 	public Chamado() {
@@ -53,12 +57,50 @@ public class Chamado {
 		this.tipoChamado = tipoChamado;
 	}
 
-	public Calendar getDataSolicitacao() {
-		return dataSolicitacao;
+	
+	public Date getDataAbertura() {
+		return dataAbertura;
 	}
 
-	public void setDataSolicitacao(Calendar dataSolicitacao) {
-		this.dataSolicitacao = dataSolicitacao;
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+
+	public Date getDataFechamento() {
+		return dataFechamento;
+	}
+
+	public void setDataFechamento(Date dataFechamento) {
+		this.dataFechamento = dataFechamento;
+	}
+
+
+	public void setDataFechamento(String dataFechamento) {
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataFechamento);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataFechamento = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+	}
+
+
+	public void setdataAbertura(String dataAbertura) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataAbertura);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataAbertura = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
 	}
 
 	public String getStatusChamado() {

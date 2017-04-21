@@ -254,6 +254,16 @@ public class Cliente {
 	}
 
 
+	public void setDataNascimento(Date dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+
+	public void setDataCadasatro(Date dataCadasatro) {
+		this.dataCadasatro = dataCadasatro;
+	}
+
+
 	public Date getDataCadasatro() {
 		return dataCadasatro;
 	}

@@ -10,9 +10,9 @@ import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 
 public interface IRepositorioChamado {
 
-	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException;
+	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException, ClassNotFoundException, ChamadoIdInvalidoException, Exception;
 
-	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException;
+	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException;
 
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
 

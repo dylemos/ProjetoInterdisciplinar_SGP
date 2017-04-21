@@ -3,6 +3,7 @@ package com.edu.fafica.SGP.controladores;
 import java.sql.SQLException;
 import java.util.HashSet;
 
+import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
@@ -25,6 +26,7 @@ public class ControladorCliente {
 		
 		//Inicializa Lista
 		listaCliente = new HashSet<Cliente>();
+//		this.index = 1;
 	}
 
 	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClienteCpfInvalidoException {
@@ -35,6 +37,7 @@ public class ControladorCliente {
 					cliente.setId(index);
 					this.listaCliente.add(cliente);
 					this.repositorioCliente.cadastrarCliente(cliente);
+//					this.index++;                                                válido pra List
 				}else{
 					throw new ClienteCpfInvalidoException();
 				}

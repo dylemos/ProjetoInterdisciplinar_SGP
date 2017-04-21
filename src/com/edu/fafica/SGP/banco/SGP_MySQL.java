@@ -25,7 +25,7 @@ public class SGP_MySQL {
 					}
 				}
 			}else{
-				System.err.println("\n\t\t\tO SGP_MySQL já está em funcionamento!\n");
+				System.err.println("\n\tO SGP_MySQL já está em funcionamento!\n");
 			}
 			
 		} catch (Exception e) {
