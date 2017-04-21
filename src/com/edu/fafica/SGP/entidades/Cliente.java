@@ -1,5 +1,6 @@
 package com.edu.fafica.SGP.entidades;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class Cliente {
@@ -30,7 +31,7 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep,Date dataNascimento,Date dataCadasatro,String tipoPlano,int vencimentoPlano) {
+	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String dataNascimento, String dataCadasatro,String tipoPlano,int vencimentoPlano) {
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -237,8 +238,19 @@ public class Cliente {
 		return dataNascimento;
 	}
 
-	public void setDataNascimento(Date dataNascimento) {
-		this.dataNascimento = dataNascimento;
+	public void setDataNascimento(String dataNascimento) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataNascimento);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataNascimento = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
 	}
 
 
@@ -246,8 +258,19 @@ public class Cliente {
 		return dataCadasatro;
 	}
 
-	public void setDataCadasatro(Date dataCadasatro) {
-		this.dataCadasatro = dataCadasatro;
+	public void setDataCadasatro(String dataCadasatro) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataCadasatro);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataCadasatro = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
 	}
 
 	public String getTipoPlano() {
