@@ -3,8 +3,8 @@ package com.edu.fafica.SGP.launch;
 import java.sql.SQLException;
 import java.text.ParseException;
 
-import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -35,10 +35,10 @@ public class Launch {
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------		
 		
-/*			
+	
 		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
 		sgp.cadastrarCliente(cl1);
-
+/*
 		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
@@ -76,12 +76,12 @@ public class Launch {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 		
-		/*	
-		Fornecedor f1 = new Fornecedor("FaficaADS", "26.975.874/0001-58", "fafica.ads@faculdade.edu.com", "81 37280099", "81 997785644", "TIM", "Caruaru-PE", "ADS_PROVIMENTOS");
+			
+		Fornecedor f1 = new Fornecedor("FaficaADS", "26.975.874/0001-58", "Guaratinguetá", "01", "Centro","Caruaru","PE","55044-230", "fornecedor.ads@faculdade.edu.com", "81 37280099", "81 997785644", "TIM", "Caruaru-PE", "ADS_PROVIMENTOS");
 		sgp.cadastrarFornecedor(f1);
 		
 		sgp.cadastrarFornecedor(f1); //DUPLICADO
-		
+		/*		
 		//Atualizando
 		f1.setRazaoSocial("Faculdade de Filosofia Ciências e Letras");
 		sgp.atualizarFornecedor(f1);
@@ -179,12 +179,12 @@ public class Launch {
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-	
-		/*	
-		Chamado ch1 = new Chamado("Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
-		sgp.cadastrarChamado(ch1);
+					/*		
 		
-		Chamado ch2 = new Chamado("Compra de HardWare", "Em Aberto", "Compra de CPU");
+		Chamado ch1 = new Chamado("Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
+		sgp.cadastrarChamado(ch1,cl1);
+		
+			Chamado ch2 = new Chamado("Compra de HardWare", "Em Aberto", "Compra de CPU");
 		sgp.cadastrarChamado(ch2);
 		
 		sgp.cadastrarChamado(ch1); // Duplicado

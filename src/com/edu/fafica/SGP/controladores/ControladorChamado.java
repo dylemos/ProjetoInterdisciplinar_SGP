@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 
 import com.edu.fafica.SGP.entidades.Chamado;
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -16,7 +17,7 @@ public class ControladorChamado {
 	private HashSet<Chamado> listaChamado;
 	private int index;
 	
-	public ControladorChamado() throws ClassNotFoundException {
+	public ControladorChamado() throws Exception {
 		// Define qual repositorio usar
 //		this.repositorioChamado = new RepositorioChamadoList();
 		this.repositorioChamado = new RepositorioChamadoJDBC();
@@ -27,15 +28,16 @@ public class ControladorChamado {
 	}
 	
 
-	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
+	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException {
 
 		try {
 			
 			if(!listaChamado.contains(chamado)){
 				
-				chamado.setId(index);
+//				chamado.setId(index);
+//				chamado.setIdCliente(cliente.getId());
 				this.listaChamado.add(chamado);
-				this.repositorioChamado.cadastrarChamado(chamado);
+				this.repositorioChamado.cadastrarChamado(chamado, cliente);
 //				this.index++;											válido pra List
 				
 			}else{
@@ -49,19 +51,25 @@ public class ControladorChamado {
 		
 	}
 
-	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException {
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
 		
 		if(this.listaChamado.contains(chamado)){
 			
 			try {
-				int i = chamado.getIdCliente();
 				
 				for (Chamado chamados : listaChamado) {
-					if(i == chamados.getIdCliente()){
+					if(chamados.getIdCliente() == cliente.getId()){
+						
+//	só pra list			int i = chamados.getId();
+						int ic = cliente.getId();
+						
 						this.listaChamado.remove(chamados);
-						chamado.setId(++i);
+						
+//	só pra list					chamado.setId(i);         
+						chamado.setIdCliente(ic);
+						
 						this.listaChamado.add(chamado);
-						this.repositorioChamado.atualizarChamado(chamado);
+						this.repositorioChamado.atualizarChamado(chamado, cliente);
 					}
 				}
 			} catch (Exception e) {

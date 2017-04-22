@@ -8,7 +8,7 @@ import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
 import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioFornecedor;
-import com.edu.fafica.SGP.repositoriosList.RepositorioFornecedorList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioFornecedorJDBC;
 import com.edu.fafica.SGP.util.ValidarCNPJ;
 
 public class ControladorFornecedor {
@@ -17,13 +17,14 @@ public class ControladorFornecedor {
 	private HashSet<Fornecedor> listaFornecedor;
 	private int index;
 
-	public ControladorFornecedor() {
+	public ControladorFornecedor() throws Exception {
 		// Define qual repositório usar
-		this.repositorioFornecedor = new RepositorioFornecedorList();
+//		this.repositorioFornecedor = new RepositorioFornecedorList();
+		this.repositorioFornecedor = new RepositorioFornecedorJDBC();
 
 		// Implementa a lista
 		this.listaFornecedor = new HashSet<Fornecedor>();
-		this.index = 1;
+//		this.index = 1;
 	}
 
 	public void cadastrarFornecedor(Fornecedor fornecedor)
@@ -35,10 +36,10 @@ public class ControladorFornecedor {
 
 				if (ValidarCNPJ.validaCNPJ(fornecedor.getCnpj())) {
 
-					fornecedor.setId(index);
+//					fornecedor.setId(index);
 					listaFornecedor.add(fornecedor);
 					this.repositorioFornecedor.cadastrarFornecedor(fornecedor);
-					index++;
+//					index++;											válido pra List
 
 				} else {
 					throw new FornecedorCNPJInvalidoException();

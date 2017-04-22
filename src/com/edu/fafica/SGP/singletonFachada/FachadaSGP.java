@@ -45,7 +45,7 @@ public class FachadaSGP {
 	private ControladorConta controladorConta;
 	private ControladorChamado controladorChamado;
 	
-	private FachadaSGP() throws ClassNotFoundException{
+	private FachadaSGP() throws Exception{
 		
 		System.err.println("\t\t <<< SGP em funcionamento >>>\n");
 		
@@ -206,12 +206,12 @@ public class FachadaSGP {
 	
 //	------------------------------------------- Chamado ----------------------------------------------------------------
 	
-	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
-		this.controladorChamado.cadastrarChamado(chamado);
+	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException {
+		this.controladorChamado.cadastrarChamado(chamado, cliente);
 	}
 	
-	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException {
-		this.controladorChamado.atualizarChamado(chamado);
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
+		this.controladorChamado.atualizarChamado(chamado, cliente);
 	}
 	
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {

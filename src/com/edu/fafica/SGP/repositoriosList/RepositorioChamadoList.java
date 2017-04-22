@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 
 import com.edu.fafica.SGP.entidades.Chamado;
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -18,7 +19,7 @@ public class RepositorioChamadoList implements IRepositorioChamado{
 	}
 
 	@Override
-	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
+	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException {
 		
 		try {
 			this.listaChamadoRepositorio.add(chamado);
@@ -33,7 +34,7 @@ public class RepositorioChamadoList implements IRepositorioChamado{
 	}
 
 	@Override
-	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException {
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
 		try {
 			this.listaChamadoRepositorio.add(chamado);
 			System.out.println(chamado.toString());

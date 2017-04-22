@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.HashSet;
 
 import com.edu.fafica.SGP.entidades.Chamado;
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidadesDAO.ChamadoDAO;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
@@ -14,17 +15,17 @@ public class RepositorioChamadoJDBC implements IRepositorioChamado {
 	
 	private ChamadoDAO chamadoDAO;
 	
-	public RepositorioChamadoJDBC() throws ClassNotFoundException {
+	public RepositorioChamadoJDBC() throws Exception {
 		this.chamadoDAO = new ChamadoDAO();
 	}
 
 	@Override
-	public void cadastrarChamado(Chamado chamado) throws ClassNotFoundException, ChamadoIdInvalidoException, ChamadoJaCadastradoException, Exception {
-		this.chamadoDAO.cadastrarChamadoNoBancoDeDados(chamado);
+	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws ClassNotFoundException, ChamadoIdInvalidoException, ChamadoJaCadastradoException, Exception {
+		this.chamadoDAO.cadastrarChamadoNoBancoDeDados(chamado, cliente);
 	}
 
 	@Override
-	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException {
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
 		// TODO Auto-generated method stub
 		
 	}
