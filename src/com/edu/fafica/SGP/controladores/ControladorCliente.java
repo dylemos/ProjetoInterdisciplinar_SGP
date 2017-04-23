@@ -2,8 +2,6 @@ package com.edu.fafica.SGP.controladores;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
-import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
@@ -16,7 +14,7 @@ public class ControladorCliente {
 	
 	private IRepositorioCliente repositorioCliente;
 	private HashSet<Cliente> listaCliente;
-	private int index;
+//	private int index;
 	
 	
 	public ControladorCliente() throws ClassNotFoundException {
@@ -34,7 +32,7 @@ public class ControladorCliente {
 		try {
 			if(!listaCliente.contains(cliente)){
 				if(ValidarCPF.validaCPF(cliente.getCpf())){
-					cliente.setId(index);
+//					cliente.setId(index);
 					this.listaCliente.add(cliente);
 					this.repositorioCliente.cadastrarCliente(cliente);
 //					this.index++;                                                válido pra List

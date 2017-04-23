@@ -1,12 +1,15 @@
 package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashSet;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
+import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 
 public class ChamadoDAO {
 
@@ -34,6 +37,32 @@ public class ChamadoDAO {
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
 		}
+	}
+
+
+	public void atualizarChamadoNoBancoDeDados(Chamado chamado, Cliente cliente)
+			throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public void removerChamadoNoBancoDeDados(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+	public Chamado procurarChamadoNoBancoDeDados(int id)
+			throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	public HashSet<Chamado> listarChamadosNoBancoDeDados() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

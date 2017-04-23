@@ -2,27 +2,27 @@ package com.edu.fafica.SGP.controladores;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioConta;
-import com.edu.fafica.SGP.repositoriosList.RepositorioContaList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioContaJDBC;
 
 public class ControladorConta {
 	
 	private IRepositorioConta repositorioConta;
 	private HashSet<Conta> listaConta;
-	private int index;
+//	private int index;
 	
-	public ControladorConta() {
+	public ControladorConta() throws Exception {
 		//Define qual repositório usar
-		this.repositorioConta = new RepositorioContaList();
+//		this.repositorioConta = new RepositorioContaList();
+		this.repositorioConta = new RepositorioContaJDBC();
 		
 		//Inicializa a lista
 		this.listaConta = new HashSet<Conta>();
-		this.index = 1;
+//		this.index = 1;
 	}
 
 	public void cadastrarConta(Conta conta) throws SQLException, ContaJaCadastradaException {
@@ -31,10 +31,10 @@ public class ControladorConta {
 			
 			if(!listaConta.contains(conta)){
 				
-				conta.setId(index);
+//				conta.setId(index); 						válido pra List
 				this.listaConta.add(conta);
 				this.repositorioConta.cadastrarConta(conta);
-				index++;
+//				index++;
 				
 			}else{
 				

@@ -9,17 +9,20 @@ public class Conta {
 	private String statusConta;			//referência a StatusConta
 	private Double valor;				 
 	private Double desconto;
-	private Double multa;
+	private Double acrescimo;
 	private int qtdParcelas;
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Conta(String tipoConta, Double valor, String statusConta) {
+	public Conta(String tipoConta, String statusConta, Double valor, Double desconto, Double acrescimo, int qtdParcelas) {
 		setTipoConta(tipoConta);
-		setValor(valor);
 		setStatusConta(statusConta);
+		setValor(valor);
+		setDesconto(desconto);
+		setAcrescimo(acrescimo);
+		setQtdParcelas(qtdParcelas);
 	}
 	
 	
@@ -79,23 +82,22 @@ public class Conta {
 		this.desconto = desconto;
 	}
 
-	public Double getMulta() {
-		return multa;
+	public Double getAcrescimo() {
+		return acrescimo;
 	}
 
-	public void setMulta(Double multa) {
-		this.multa = multa;
+	public void setAcrescimo(Double acrescimo) {
+		this.acrescimo = acrescimo;
 	}
 
-	public int getValorTotal() {
+	public int getQtdParcelas() {
 		return qtdParcelas;
 	}
 
-	public void setValorTotal(int valorTotal) {
-		this.qtdParcelas = valorTotal;
+	public void setQtdParcelas(int qtdParcelas) {
+		this.qtdParcelas = qtdParcelas;
 	}
 
-	
 	
 
 }
