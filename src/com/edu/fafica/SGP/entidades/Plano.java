@@ -5,18 +5,18 @@ public class Plano {
 
 	private int id;
 	private String nomePlano;
-	private String upload;
-	private String download;
+	private int upload;
+	private int download;
 	private Double valor;
 	
 	public Plano() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Plano(String nomePlano, String download, String upload, Double valor) {
+	public Plano(String nomePlano, int upload, int download, Double valor) {
 		setNomePlano(nomePlano);
-		setDownload(download);
 		setUpload(upload);
+		setDownload(download);
 		setValor(valor);
 	}
 	
@@ -49,22 +49,22 @@ public class Plano {
 	}
 
 
-	public String getUpload() {
+	public int getUpload() {
 		return upload;
 	}
 
 
-	public void setUpload(String upload) {
+	public void setUpload(int upload) {
 		this.upload = upload;
 	}
 
 
-	public String getDownload() {
+	public int getDownload() {
 		return download;
 	}
 
 
-	public void setDownload(String download) {
+	public void setDownload(int download) {
 		this.download = download;
 	}
 

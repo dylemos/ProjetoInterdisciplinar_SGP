@@ -8,7 +8,7 @@ import com.edu.fafica.SGP.exceptions.PlanoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.PlanoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioPlano;
-import com.edu.fafica.SGP.repositoriosList.RepositorioPlanoList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioPlanoJDBC;
 
 public class ControladorPlano {
 
@@ -16,13 +16,14 @@ public class ControladorPlano {
 	private HashSet<Plano> listaPlanos;
 	private int index;
 	
-	public ControladorPlano() {
+	public ControladorPlano() throws Exception {
 		//Define o repositório a utilizar
-		this.repositorioPlano = new RepositorioPlanoList();
+//		this.repositorioPlano = new RepositorioPlanoList();
+		this.repositorioPlano = new RepositorioPlanoJDBC();
 		
 		//Implementa a Lista
 		this.listaPlanos = new HashSet<Plano>();
-		this.index = 1;
+//		this.index = 1;
 	}
 	
 	public void cadastrarPlano(Plano plano) throws SQLException, PlanoJaCadastradoException {
@@ -31,10 +32,10 @@ public class ControladorPlano {
 			
 			if(!listaPlanos.contains(plano)){
 				
-				plano.setId(index);
+//				plano.setId(index);			válido para List
 				listaPlanos.add(plano);
 				this.repositorioPlano.cadastrarPlano(plano);
-				index++;
+//				index++;
 				
 			}else{
 				throw new PlanoJaCadastradoException();
