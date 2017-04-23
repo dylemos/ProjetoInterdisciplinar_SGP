@@ -86,7 +86,7 @@ public class FachadaSGP {
 		this.controladorCliente.cadastrarCliente(cliente);
 	}
 
-	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
+	public void atualizarCliente(Cliente cliente) throws ClienteCpfInvalidoException, Exception {
 		this.controladorCliente.atualizarCliente(cliente);
 		
 	}

@@ -1,6 +1,8 @@
 package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
@@ -39,8 +41,51 @@ public class ClienteDAO {
 	}
 
 
-	public void atualizarClienteNoBancoDeDados(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
-		// TODO Auto-generated method stub
+	public void atualizarClienteNoBancoDeDados(Cliente cliente) throws Exception, ClienteJaCadastradoException, ClienteCpfInvalidoException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "update cliente set  nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where cpf = ?";
+		
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement;
+			
+			
+			preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, cliente.getNomeCliente());
+			preStatement.setString(2, cliente.getRg());
+			preStatement.setString(3, cliente.getCpf());
+			preStatement.setDate(4, (Date) cliente.getDataNascimento());
+			preStatement.setDate(5, (Date) cliente.getDataCadasatro());
+			preStatement.setString(6, cliente.getEmail());
+			preStatement.setString(7, cliente.getTelefone());
+			preStatement.setString(8,cliente.getCelular());
+			preStatement.setInt(9, cliente.getVencimentoPlano());
+			preStatement.setString(10,cliente.getRua());
+			preStatement.setString(11,cliente.getNumero());
+			preStatement.setString(12,cliente.getBairro());
+			preStatement.setString(13, cliente.getCidade());
+			preStatement.setString(14,cliente.getUf());
+			preStatement.setString(15,cliente.getCep());
+			preStatement.setString(16,cliente.getLogin());
+			preStatement.setString(17,cliente.getSenha());
+			preStatement.setString(18,cliente.getTipoPlano());
+			preStatement.setString(19,cliente.getOperadora());
+			
+			preStatement.setString(20, cliente.getCpf());
+
+			// Executando atualização
+			preStatement.executeUpdate();
+			
+			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Atualizado no Banco de Dados! \n");
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+		}
 		
 	}
 

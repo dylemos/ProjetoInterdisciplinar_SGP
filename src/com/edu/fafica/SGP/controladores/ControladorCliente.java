@@ -2,6 +2,7 @@ package com.edu.fafica.SGP.controladores;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
@@ -13,7 +14,7 @@ import com.edu.fafica.SGP.util.ValidarCPF;
 public class ControladorCliente {
 	
 	private IRepositorioCliente repositorioCliente;
-	private HashSet<Cliente> listaCliente;
+	private HashSet<Cliente> listaControladorCliente;
 //	private int index;
 	
 	
@@ -23,17 +24,17 @@ public class ControladorCliente {
 		this.repositorioCliente = new RepositorioClienteJDBC();
 		
 		//Inicializa Lista
-		listaCliente = new HashSet<Cliente>();
+		listaControladorCliente = new HashSet<Cliente>();
 //		this.index = 1;
 	}
 
 	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClienteCpfInvalidoException {
 		
 		try {
-			if(!listaCliente.contains(cliente)){
+			if(!listaControladorCliente.contains(cliente)){
 				if(ValidarCPF.validaCPF(cliente.getCpf())){
 //					cliente.setId(index);
-					this.listaCliente.add(cliente);
+					this.listaControladorCliente.add(cliente);
 					this.repositorioCliente.cadastrarCliente(cliente);
 //					this.index++;                                                válido pra List
 				}else{
@@ -50,18 +51,19 @@ public class ControladorCliente {
 
 	}
 
-	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
+	public void atualizarCliente(Cliente cliente) throws ClienteCpfInvalidoException, Exception {
 
-		if(this.listaCliente.contains(cliente)){
+/*List	
+		if(this.listaControladorCliente.contains(cliente)){
 			
 			int i = cliente.getId();
 			
 			try {
-				for (Cliente clientes : listaCliente) {
+				for (Cliente clientes : listaControladorCliente) {
 					if(i == clientes.getId()){
-						this.listaCliente.remove(clientes);
+						this.listaControladorCliente.remove(clientes);
 						cliente.setId(i);
-						this.listaCliente.add(cliente);
+						this.listaControladorCliente.add(cliente);
 						this.repositorioCliente.atualizarCliente(cliente);
 					}
 				}
@@ -73,6 +75,11 @@ public class ControladorCliente {
 		}else{
 			System.err.println("\n\t\t O Cliente Ainda Não Foi Cadastrado!");
 		}
+*/
+		
+		//JDBC
+		this.repositorioCliente.atualizarCliente(cliente);
+		
 		
 	}
 	
@@ -86,10 +93,10 @@ public class ControladorCliente {
 			
 			if(ValidarCPF.validaCPF(cpf)){
 				
-					for (Cliente cliente : listaCliente) {
+					for (Cliente cliente : listaControladorCliente) {
 						
 						if(cliente.getCpf().equals(cpf)){
-							this.listaCliente.remove(cliente);
+							this.listaControladorCliente.remove(cliente);
 							this.repositorioCliente.removerCliente(cpf);
 						}
 					}
@@ -113,7 +120,7 @@ public class ControladorCliente {
 			
 			if(ValidarCPF.validaCPF(cpf)){
 				
-				for (Cliente cliente : listaCliente) {
+				for (Cliente cliente : listaControladorCliente) {
 					if(cliente.getCpf().equals(cpf)){
 						this.repositorioCliente.procurarCliente(cpf);
 						return cliente;

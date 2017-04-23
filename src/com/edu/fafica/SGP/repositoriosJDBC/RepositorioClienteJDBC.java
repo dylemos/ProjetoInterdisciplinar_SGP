@@ -2,7 +2,6 @@ package com.edu.fafica.SGP.repositoriosJDBC;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidadesDAO.ClienteDAO;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
@@ -24,9 +23,8 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 	}
 
 	@Override
-	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
-		// TODO Auto-generated method stub
-		
+	public void atualizarCliente(Cliente cliente) throws Exception, ClienteCpfInvalidoException, Exception {
+		this.clienteDAO.atualizarClienteNoBancoDeDados(cliente);
 	}
 
 	@Override
@@ -48,6 +46,7 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
 
 	
 	

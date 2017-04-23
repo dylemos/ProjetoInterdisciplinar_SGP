@@ -13,7 +13,7 @@ public interface IRepositorioCliente {
 
 	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClassNotFoundException, ClienteCpfInvalidoException, Exception;
 
-	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException;
+	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException, Exception, ClienteCpfInvalidoException;
 
 	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException;
 
