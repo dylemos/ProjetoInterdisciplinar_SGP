@@ -24,25 +24,23 @@ public class RepositorioContaJDBC implements IRepositorioConta{
 
 	@Override
 	public void atualizarConta(Conta conta) throws SQLException, ContaNaoEncontradaException {
-		// TODO Auto-generated method stub
-		
+		this.cDAO.atualizarContaNoBancoDeDados(conta);
 	}
 
 	@Override
 	public void removerConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
-		// TODO Auto-generated method stub
-		
+		this.cDAO.removerContaNoBancoDeDados(id);
 	}
 
 	@Override
 	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
-		// TODO Auto-generated method stub
+		this.cDAO.procurarContaNoBancoDeDados(id);
 		return null;
 	}
 
 	@Override
 	public HashSet<Conta> listarContas() {
-		// TODO Auto-generated method stub
+		this.cDAO.listarContasNoBancoDeDados();
 		return null;
 	}
 	

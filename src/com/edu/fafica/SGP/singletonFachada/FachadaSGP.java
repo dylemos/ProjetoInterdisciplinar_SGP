@@ -111,7 +111,7 @@ public class FachadaSGP {
 	}
 
 	
-	public void atualizarUserAdmin(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
+	public void atualizarUserAdmin(UserAdmin userAdmin) throws Exception {
 		this.controladorUserAdimin.atualizarUserAdmin(userAdmin);
 	}
 
@@ -138,7 +138,7 @@ public class FachadaSGP {
 	}
 	
 	
-	public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException {
+	public void atualizarFornecedor(Fornecedor fornecedor) throws Exception {
 		this.controladorFornecedor.atualizarFornecedor(fornecedor);
 	}
 	
@@ -210,7 +210,7 @@ public class FachadaSGP {
 		this.controladorChamado.cadastrarChamado(chamado, cliente);
 	}
 	
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, Exception {
 		this.controladorChamado.atualizarChamado(chamado, cliente);
 	}
 	

@@ -51,6 +51,7 @@ public class ControladorConta {
 
 	public void atualizarConta(Conta conta) throws SQLException, ContaNaoEncontradaException {
 
+/*List
 		if(this.listaConta.contains(conta)){
 			
 			int i = conta.getIdCliente();
@@ -77,6 +78,10 @@ public class ControladorConta {
 			System.err.println("\n\t\t A Conta Ainda Não Foi Cadastrada!");
 		}
 		
+		*/
+		
+		//JDBC
+		this.repositorioConta.atualizarConta(conta);
 	}
 
 	

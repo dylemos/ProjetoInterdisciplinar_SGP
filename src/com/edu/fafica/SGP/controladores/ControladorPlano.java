@@ -50,6 +50,7 @@ public class ControladorPlano {
 
 	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException {
 		
+/*List
 		if(this.listaPlanos.contains(plano)){
 			
 			int i = plano.getId();
@@ -71,7 +72,10 @@ public class ControladorPlano {
 		}else{
 			System.err.println("\n\t\t O Plano Ainda Não Foi Cadastrado!");
 		}
-		
+*/
+		//JDBC
+		this.repositorioPlano.atualizarPlano(plano);
+
 	}
 
 	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {

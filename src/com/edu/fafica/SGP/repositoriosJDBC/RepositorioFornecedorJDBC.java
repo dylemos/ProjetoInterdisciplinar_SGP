@@ -24,27 +24,23 @@ public class RepositorioFornecedorJDBC implements IRepositorioFornecedor{
 
 	@Override
 	public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException {
-		// TODO Auto-generated method stub
-		
+		this.fDAO.atualizarFornecedorNoBancoDeDados(fornecedor);
 	}
 
 	@Override
-	public void removerFornecedor(String cnpj)
-			throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-		// TODO Auto-generated method stub
-		
+	public void removerFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+		this.fDAO.removerFornecedorNoBancoDeDados(cnpj);
 	}
 
 	@Override
-	public Fornecedor procurarFornecedor(String cnpj)
-			throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-		// TODO Auto-generated method stub
+	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+		this.fDAO.procurarFornecedorNoBancoDeDados(cnpj);
 		return null;
 	}
 
 	@Override
 	public HashSet<Fornecedor> listarFornecedores() {
-		// TODO Auto-generated method stub
+		this.fDAO.listarFornecedoresNoBancoDeDados();
 		return null;
 	}
 

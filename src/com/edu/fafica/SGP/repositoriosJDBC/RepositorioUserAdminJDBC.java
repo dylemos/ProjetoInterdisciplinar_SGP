@@ -24,27 +24,23 @@ public class RepositorioUserAdminJDBC implements IRepositorioUserAdmin{
 
 	@Override
 	public void atualizarUserAdmin(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
-		// TODO Auto-generated method stub
-		
+		this.uDAO.atualizarUserAdminNoBancoDeDados(userAdmin);
 	}
 
 	@Override
-	public void removerUserAdmin(String cpf)
-			throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
-		// TODO Auto-generated method stub
-		
+	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+		this.uDAO.removerUserAdminNoBancoDeDados(cpf);
 	}
 
 	@Override
-	public UserAdmin procurarUserAdmin(String cpf)
-			throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
-		// TODO Auto-generated method stub
+	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+		this.uDAO.procurarUserAdminNoBancoDeDados(cpf);
 		return null;
 	}
 
 	@Override
 	public HashSet<UserAdmin> listarUserAdmins() {
-		// TODO Auto-generated method stub
+		this.uDAO.listarUserAdminsNoBancoDeDados();
 		return null;
 	}
 

@@ -25,27 +25,24 @@ public class RepositorioChamadoJDBC implements IRepositorioChamado {
 	}
 
 	@Override
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
-		// TODO Auto-generated method stub
-		
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, Exception {
+		this.chamadoDAO.atualizarChamadoNoBancoDeDados(chamado, cliente);
 	}
 
 	@Override
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-		// TODO Auto-generated method stub
-		
+		this.chamadoDAO.removerChamadoNoBancoDeDados(id);
 	}
 
 	@Override
-	public Chamado procurarChamado(int id)
-			throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-		// TODO Auto-generated method stub
+	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+		this.chamadoDAO.procurarChamadoNoBancoDeDados(id);
 		return null;
 	}
 
 	@Override
 	public HashSet<Chamado> listarChamados() {
-		// TODO Auto-generated method stub
+		this.chamadoDAO.listarChamadosNoBancoDeDados();
 		return null;
 	}
 	

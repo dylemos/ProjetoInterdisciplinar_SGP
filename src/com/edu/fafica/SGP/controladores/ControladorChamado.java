@@ -51,8 +51,9 @@ public class ControladorChamado {
 		
 	}
 
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException {
-		
+	public void atualizarChamado(Chamado chamado, Cliente cliente) throws Exception {
+
+/*List
 		if(this.listaChamado.contains(chamado)){
 			
 			try {
@@ -80,6 +81,10 @@ public class ControladorChamado {
 		}else{
 			System.err.println("\n\t\t O Chamado Ainda Não Foi Cadastrado!");
 		}
+	*/
+		
+		//JDBC
+		this.repositorioChamado.atualizarChamado(chamado, cliente);
 		
 	}
 

@@ -56,8 +56,9 @@ public class ControladorFornecedor {
 
 	}
 
-	public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException {
+	public void atualizarFornecedor(Fornecedor fornecedor) throws Exception {
 
+/*List		
 		if (this.listaFornecedor.contains(fornecedor)) {
 
 			int i = fornecedor.getId();
@@ -81,6 +82,9 @@ public class ControladorFornecedor {
 		} else {
 			System.err.println("\n\t\t O Fornecedor Ainda Não Foi Cadastrado!");
 		}
+	*/
+		//JDBC
+		this.repositorioFornecedor.atualizarFornecedor(fornecedor);
 
 	}
 

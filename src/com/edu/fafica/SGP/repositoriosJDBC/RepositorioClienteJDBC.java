@@ -28,22 +28,19 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 	}
 
 	@Override
-	public void removerCliente(String cpf)
-			throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
-		// TODO Auto-generated method stub
-		
+	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+		this.clienteDAO.removerClienteNoBancoDeDados(cpf);
 	}
 
 	@Override
-	public Cliente procurarCliente(String cpf)
-			throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
-		// TODO Auto-generated method stub
+	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+		this.clienteDAO.procurarClienteNoBancoDeDados(cpf);
 		return null;
 	}
 
 	@Override
 	public HashSet<Cliente> listarClientes() {
-		// TODO Auto-generated method stub
+		this.clienteDAO.listarClientesNoBancoDeDados();
 		return null;
 	}
 

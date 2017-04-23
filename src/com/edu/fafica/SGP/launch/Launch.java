@@ -1,27 +1,6 @@
 package com.edu.fafica.SGP.launch;
 
-import java.sql.SQLException;
-import java.text.ParseException;
-
-import com.edu.fafica.SGP.entidades.Cliente;
-import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
-import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
-import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
-import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
-import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
-import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
-import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
-import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
-import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
-import com.edu.fafica.SGP.exceptions.PlanoIdInvalidoException;
-import com.edu.fafica.SGP.exceptions.PlanoJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.PlanoNaoEncontradoException;
-import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
-import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {
@@ -36,9 +15,9 @@ public class Launch {
 	
 		
 		
-		
+		/*		
 		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
-		/*			sgp.cadastrarCliente(cl1);
+					sgp.cadastrarCliente(cl1);
 	
 		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
@@ -57,11 +36,10 @@ public class Launch {
 
 	*/
 	
-	/*				//ATUALIZANDO
+/*		//ATUALIZANDO
 		cl1.setNomeCliente("Dyego L de Lima");
 		cl1.setLogin("Dye_Login");
 		cl1.setSenha("Dye_Senha");
-		cl1.setCpf("077.795.324-29");
 		sgp.atualizarCliente(cl1);
 		
 		sgp.listarClientes();
@@ -77,17 +55,18 @@ public class Launch {
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-	/*
-			
+		/*		
 		Fornecedor f1 = new Fornecedor("FaficaADS", "26.975.874/0001-58", "Guaratinguetá", "01", "Centro","Caruaru","PE","55044-230", "fornecedor.ads@faculdade.edu.com", "81 37280099", "81 997785644", "TIM", "Caruaru-PE", "ADS_PROVIMENTOS");
-		sgp.cadastrarFornecedor(f1);
-		
-		sgp.cadastrarFornecedor(f1); //DUPLICADO
+//		sgp.cadastrarFornecedor(f1);
+	
+				
+//		sgp.cadastrarFornecedor(f1); //DUPLICADO
 				
 		//Atualizando
-		f1.setRazaoSocial("Faculdade de Filosofia Ciências e Letras");
+		f1.setRazaoSocial("Filosofia Ciências e Letras");
 		sgp.atualizarFornecedor(f1);
 		
+			
 		Fornecedor f2 = new Fornecedor("Faculdade-PE", "50.871.873/0001-48", "faculdade.ads@faculdade.edu.com", "81 37244499", "81 993455644", "Claro", "Caruaru-PE", "ComVC");
 		sgp.cadastrarFornecedor(f2);
 		

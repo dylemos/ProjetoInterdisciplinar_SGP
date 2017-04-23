@@ -25,25 +25,23 @@ public class RepositorioPlanoJDBC implements IRepositorioPlano{
 
 	@Override
 	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException {
-		// TODO Auto-generated method stub
-		
+		this.pDAO.atualizarPlanoNoBancoDeDados(plano);
 	}
 
 	@Override
 	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		// TODO Auto-generated method stub
-		
+		this.pDAO.removerPlanoNoBancoDeDados(id);
 	}
 
 	@Override
 	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		// TODO Auto-generated method stub
+		this.pDAO.procurarPlanoNoBancoDeDados(id);
 		return null;
 	}
 
 	@Override
 	public HashSet<Plano> listarPlanos() {
-		// TODO Auto-generated method stub
+		this.pDAO.listarPlanosNoBancoDeDados();
 		return null;
 	}
 

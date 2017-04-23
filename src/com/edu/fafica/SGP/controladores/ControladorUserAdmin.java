@@ -53,7 +53,8 @@ public class ControladorUserAdmin {
 		
 	}
 
-	public void atualizarUserAdmin(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
+	public void atualizarUserAdmin(UserAdmin userAdmin) throws Exception {
+/*List
 		
 		if(this.listaUserAdmin.contains(userAdmin)){
 			int i = userAdmin.getId();
@@ -77,7 +78,10 @@ public class ControladorUserAdmin {
 		}else{
 			System.err.println("\n\t\t O UserAdmin Ainda Não Foi Cadastrado!");
 		}
-		
+*/
+		//JDBC
+		this.repositorioUserAdmin.atualizarUserAdmin(userAdmin);
+
 	}
 
 	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {

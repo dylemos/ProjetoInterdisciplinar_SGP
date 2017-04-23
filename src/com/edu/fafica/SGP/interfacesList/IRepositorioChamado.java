@@ -13,7 +13,7 @@ public interface IRepositorioChamado {
 
 	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException, ClassNotFoundException, ChamadoIdInvalidoException, Exception;
 
-	public void atualizarChamado(Chamado chamado,Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException;
+	public void atualizarChamado(Chamado chamado,Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException, Exception;
 
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
 
