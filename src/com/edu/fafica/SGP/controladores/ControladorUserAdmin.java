@@ -8,22 +8,23 @@ import com.edu.fafica.SGP.exceptions.UserAdminCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.UserAdminJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioUserAdmin;
-import com.edu.fafica.SGP.repositoriosList.RepositorioUserAdminList;
+import com.edu.fafica.SGP.repositoriosJDBC.RepositorioUserAdminJDBC;
 import com.edu.fafica.SGP.util.ValidarCPF;
 
 public class ControladorUserAdmin {
 	
 	private IRepositorioUserAdmin repositorioUserAdmin;
 	private HashSet<UserAdmin> listaUserAdmin;
-	private int index;
+//	private int index;
 	
-	public ControladorUserAdmin() {
+	public ControladorUserAdmin() throws Exception {
 		//Define aqui qual repositório usar
-		this.repositorioUserAdmin = new RepositorioUserAdminList();
+//		this.repositorioUserAdmin = new RepositorioUserAdminList();
+		this.repositorioUserAdmin = new RepositorioUserAdminJDBC();
 		
 		//Inicializa a lista
 		this.listaUserAdmin = new HashSet<UserAdmin>();
-		this.index = 1;
+//		this.index = 1;
 	}
 	
 
@@ -34,10 +35,10 @@ public class ControladorUserAdmin {
 			
 			if(!this.listaUserAdmin.contains(userAdmin)){
 				if(ValidarCPF.validaCPF(userAdmin.getCpf())){
-					userAdmin.setId(index);
+//					userAdmin.setId(index);
 					this.listaUserAdmin.add(userAdmin);
 					this.repositorioUserAdmin.cadastrarUserAdmin(userAdmin);
-					index++;
+//					index++;				válido para List
 				}else{
 					throw new UserAdminCpfInvalidoException();
 				}

@@ -14,7 +14,7 @@ public class ControladorPlano {
 
 	private IRepositorioPlano repositorioPlano;
 	private HashSet<Plano> listaPlanos;
-	private int index;
+//	private int index;
 	
 	public ControladorPlano() throws Exception {
 		//Define o repositório a utilizar

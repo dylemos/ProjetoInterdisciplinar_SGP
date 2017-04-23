@@ -6,7 +6,6 @@ import java.util.HashSet;
 import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.entidadesDAO.FornecedorDAO;
 import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
-import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioFornecedor;
 

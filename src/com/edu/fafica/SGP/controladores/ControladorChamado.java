@@ -15,7 +15,7 @@ public class ControladorChamado {
 	
 	private IRepositorioChamado repositorioChamado;
 	private HashSet<Chamado> listaChamado;
-	private int index;
+//	private int index;
 	
 	public ControladorChamado() throws Exception {
 		// Define qual repositorio usar

@@ -4,13 +4,11 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
 import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.FornecedorNaoEncontradoException;
-import com.edu.fafica.SGP.interfacesList.IRepositorioFornecedor;
 
 public class FornecedorDAO  {
 	

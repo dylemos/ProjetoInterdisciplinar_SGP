@@ -15,7 +15,7 @@ public class ControladorFornecedor {
 
 	private IRepositorioFornecedor repositorioFornecedor;
 	private HashSet<Fornecedor> listaFornecedor;
-	private int index;
+//	private int index;
 
 	public ControladorFornecedor() throws Exception {
 		// Define qual repositório usar
