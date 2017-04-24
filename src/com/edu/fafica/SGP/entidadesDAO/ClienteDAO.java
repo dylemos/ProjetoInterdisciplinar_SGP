@@ -3,9 +3,11 @@ package com.edu.fafica.SGP.entidadesDAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
+
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
@@ -119,16 +121,112 @@ public class ClienteDAO {
 	}
 
 
-	public Cliente procurarClienteNoBancoDeDados(String cpf)
-			throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
-		// TODO Auto-generated method stub
-		return null;
+	public Cliente procurarClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		Cliente cliente = new Cliente();
+		
+		try {
+			
+
+			String sql = "select * from cliente where cpf=?";
+
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+			preStatement.setString(1, cpf);
+			
+			ResultSet resultSet = preStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				
+				int codigo = resultSet.getInt(1);
+				String nome = resultSet.getString(2);
+				String rg  = resultSet.getString(3);
+				String cpfCliente = resultSet.getString(4);
+				java.sql.Date dataNasc = resultSet.getDate(5);
+				java.sql.Date dataCadastro = resultSet.getDate(6);
+				String email = resultSet.getString(7);	
+				String telefone = resultSet.getString(8);
+				String celular = resultSet.getString(9);
+				int vencimento = resultSet.getInt(10);
+				String rua = resultSet.getString(11);
+				String numero = resultSet.getString(12);
+				String bairro = resultSet.getString(13);
+				String cidade = resultSet.getString(14);
+				String uf = resultSet.getString(15);
+				String cep = resultSet.getString(16);
+				String login = resultSet.getString(17);
+				String senha = resultSet.getString(18);
+				String plano = resultSet.getString(19);
+				String operadora = resultSet.getString(20);
+				
+				cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+				cliente.setId(codigo);
+				
+				System.out.println("Cliente localizado no Banco de Dados!");
+				
+			
+			}
+			
+			} catch (Exception e) {
+				System.out.println("Erro: "+e.getMessage());
+			}
+		
+		return cliente;
 	}
 
 
 	public HashSet<Cliente> listarClientesNoBancoDeDados() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		Cliente cliente = new Cliente();
+		HashSet<Cliente> arrayListCliente = new HashSet<Cliente>();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "select * from cliente";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			ResultSet resultSet = preStatement.executeQuery();
+
+			// Verifica se retornou dados na consulta
+			while (resultSet.next()) {
+				
+				int codigo = resultSet.getInt(1);
+				String nome = resultSet.getString(2);
+				String rg  = resultSet.getString(3);
+				String cpfCliente = resultSet.getString(4);
+				java.sql.Date dataNasc = resultSet.getDate(5);
+				java.sql.Date dataCadastro = resultSet.getDate(6);
+				String email = resultSet.getString(7);	
+				String telefone = resultSet.getString(8);
+				String celular = resultSet.getString(9);
+				int vencimento = resultSet.getInt(10);
+				String rua = resultSet.getString(11);
+				String numero = resultSet.getString(12);
+				String bairro = resultSet.getString(13);
+				String cidade = resultSet.getString(14);
+				String uf = resultSet.getString(15);
+				String cep = resultSet.getString(16);
+				String login = resultSet.getString(17);
+				String senha = resultSet.getString(18);
+				String plano = resultSet.getString(19);
+				String operadora = resultSet.getString(20);
+				
+				cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+				cliente.setId(codigo);
+				
+				arrayListCliente.add(cliente);
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
+		System.out.println("Clientes listados no Banco de Dados!");
+		return arrayListCliente;
 	}
 	
 	

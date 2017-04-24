@@ -120,7 +120,8 @@ public class ControladorCliente {
 	
 	
 	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
-		
+
+/*List			
 		try {
 			
 			if(ValidarCPF.validaCPF(cpf)){
@@ -140,12 +141,18 @@ public class ControladorCliente {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
+		
+*/
+		//JDBC
+		this.repositorioCliente.procurarCliente(cpf);
+		
 		return null;
 	}
 	
 	
 	public HashSet<Cliente> listarClientes(){
-		return repositorioCliente.listarClientes();
+		this.repositorioCliente.listarClientes();
+		return null;
 	}
 
 }

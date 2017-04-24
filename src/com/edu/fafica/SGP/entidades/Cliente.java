@@ -54,6 +54,29 @@ public class Cliente {
 	}
 	
 	
+	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, java.sql.Date dataNasc, java.sql.Date dataCadastro,String tipoPlano,int vencimentoPlano) {
+		setNomeCliente(nomeCliente);
+		setLogin(login);
+		setSenha(senha);
+		setRg(rg);
+		setCpf(cpf);
+		setTelefone(telefone);
+		setCelular(celular);
+		setOperadora(operadora);
+		setEmail(email);
+		setRua(rua);
+		setNumero(numero);
+		setBairro(bairro);
+		setCidade(cidade);
+		setUf(uf);
+		setCep(cep);
+		setDataNascimento(dataNasc);
+		setDataCadasatro(dataCadastro);
+		setTipoPlano(tipoPlano);
+		setVencimentoPlano(vencimentoPlano);
+	}
+	
+	
 	public Cliente(String nomeCliente,String login,String senha,String cpf,String celular,String operadora,String email,String cep,String tipoPlano) {
 		setNomeCliente(nomeCliente);
 		setLogin(login);
