@@ -14,7 +14,7 @@ public interface IRepositorioPlano {
 
 	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException;
 
-	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
 
 	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
 

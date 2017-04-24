@@ -79,9 +79,28 @@ public class FornecedorDAO  {
 
 	}
 
-	public void removerFornecedorNoBancoDeDados(String cnpj)
-			throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-		// TODO Auto-generated method stub
+	public void removerFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "delete from fornecedor where CNPJ = ?";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, cnpj);
+
+			// Executando o select
+			preStatement.executeUpdate();
+			
+			System.out.println("Fornecedor Removido do Banco de Dados com Sucesso!");
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
 
 	}
 

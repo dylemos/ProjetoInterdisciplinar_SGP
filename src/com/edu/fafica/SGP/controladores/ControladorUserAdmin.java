@@ -84,8 +84,9 @@ public class ControladorUserAdmin {
 
 	}
 
-	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public void removerUserAdmin(String cpf) throws Exception {
 		
+/*List
 		try {
 			
 			if(ValidarCPF.validaCPF(cpf)){
@@ -106,11 +107,15 @@ public class ControladorUserAdmin {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
+*/
 		
+		//JDBC
+		this.repositorioUserAdmin.removerUserAdmin(cpf);
 	}
 
-	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
-
+	public UserAdmin procurarUserAdmin(String cpf) throws Exception {
+		
+/*List	
 		try {
 			
 			if(ValidarCPF.validaCPF(cpf)){
@@ -128,7 +133,11 @@ public class ControladorUserAdmin {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
-
+*/
+		
+		//JDBC
+		this.repositorioUserAdmin.procurarUserAdmin(cpf);
+		
 		return null;
 	}
 

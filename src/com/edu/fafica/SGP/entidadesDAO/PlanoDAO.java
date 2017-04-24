@@ -69,9 +69,29 @@ public class PlanoDAO {
 		
 	}
 
-	public void removerPlanoNoBancoDeDados(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		// TODO Auto-generated method stub
+	public void removerPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "delete from plano where NOME = ?";
 
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, plano.getNomePlano());
+
+			// Executando o select
+			preStatement.executeUpdate();
+			
+			System.out.println("Plano Removido do Banco de Dados com Sucesso!");
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
 	}
 
 	public Plano procurarPlanoNoBancoDeDados(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {

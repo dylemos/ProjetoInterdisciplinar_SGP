@@ -88,9 +88,9 @@ public class ControladorFornecedor {
 
 	}
 
-	public void removerFornecedor(String cnpj)
-			throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-
+	public void removerFornecedor(String cnpj) throws Exception {
+		
+/*List
 		try {
 
 			if (ValidarCNPJ.validaCNPJ(cnpj)) {
@@ -112,11 +112,15 @@ public class ControladorFornecedor {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
-
+*/
+		
+		//JDBC
+		this.repositorioFornecedor.removerFornecedor(cnpj);
 	}
 
-	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-
+	public Fornecedor procurarFornecedor(String cnpj) throws Exception {
+		
+/*List
 		try {
 
 			if (ValidarCNPJ.validaCNPJ(cnpj)) {
@@ -135,8 +139,12 @@ public class ControladorFornecedor {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
-
+*/		
+		//JDBC
+		this.repositorioFornecedor.procurarFornecedor(cnpj);
+		
 		return null;
+
 	}
 
 	public HashSet<Fornecedor> listarFornecedores() {

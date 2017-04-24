@@ -88,7 +88,7 @@ public class ControladorCliente {
 
 	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
 
-		
+/*List			
 		try {
 			
 			if(ValidarCPF.validaCPF(cpf)){
@@ -109,6 +109,11 @@ public class ControladorCliente {
 			e.getMessage();
 			System.out.println();
 		}
+		
+*/
+		
+		//JDBC
+		this.repositorioCliente.removerCliente(cpf);
 	}
 
 	

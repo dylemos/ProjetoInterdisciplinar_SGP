@@ -1,7 +1,6 @@
 package com.edu.fafica.SGP.launch;
 
-import com.edu.fafica.SGP.entidades.Chamado;
-import com.edu.fafica.SGP.entidades.Cliente;
+import com.edu.fafica.SGP.entidades.Fornecedor;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {
@@ -16,11 +15,11 @@ public class Launch {
 	
 		
 		
-			
+		/*			
 		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
-//				sgp.cadastrarCliente(cl1);
+			sgp.cadastrarCliente(cl1);
 	
-				/*		sgp.cadastrarCliente(cl1);		//DUPLICADO
+					sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
 		sgp.cadastrarCliente(cl2);
@@ -45,22 +44,22 @@ public class Launch {
 		
 		sgp.listarClientes();
 
-
+ 	*/
  		//Removendo
 //		sgp.removerCliente(cl1.getCpf());
-		sgp.removerCliente(cl2.getCpf());
+
+//		sgp.removerCliente(cl2.getCpf());
 		
-		System.out.println();
-		sgp.listarClientes();
- 	*/		
+//		sgp.listarClientes();
+		
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		/*		
+			
 		Fornecedor f1 = new Fornecedor("FaficaADS", "26.975.874/0001-58", "Guaratinguetá", "01", "Centro","Caruaru","PE","55044-230", "fornecedor.ads@faculdade.edu.com", "81 37280099", "81 997785644", "TIM", "Caruaru-PE", "ADS_PROVIMENTOS");
 //		sgp.cadastrarFornecedor(f1);
 	
-				
+		/*				
 //		sgp.cadastrarFornecedor(f1); //DUPLICADO
 				
 		//Atualizando
@@ -73,21 +72,21 @@ public class Launch {
 		
 		sgp.listarFornecedores();
 		
-		sgp.removerFornecedor(f1.getCnpj());
-		
 		sgp.listarFornecedores();
 		
 		sgp.procurarFornecedor(f2.getCnpj());
 
+		sgp.removerFornecedor(f1.getCnpj());
 	*/
+		
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-/*	
-	
+
+/*		
 		UserAdmin u1 = new UserAdmin("DyegoLemos","847.523.884-05","admin","admin");
-		sgp.cadastrarUserAdmin(u1);
-		
+//		sgp.cadastrarUserAdmin(u1);
+				
 		UserAdmin u2 = new UserAdmin("RafaelJosevaldo","852.295.302-35","admin","admin");
 		sgp.cadastrarUserAdmin(u2);
 		
@@ -95,7 +94,6 @@ public class Launch {
 		
 		sgp.listarUserAdmins();
 		
-		sgp.removerUserAdmin(u1.getCpf());
 		
 		sgp.listarUserAdmins();
 		
@@ -105,33 +103,33 @@ public class Launch {
 		u1.setSenha("adminSenha");
 		sgp.atualizarUserAdmin(u1);
  
-*/
-		
+
+		sgp.removerUserAdmin(u1.getCpf());
+*/		
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-		/*	
+/*			
 		Plano p1 = new Plano("Plus++", 2, 25, 59.9);
 //		sgp.cadastrarPlano(p1);
-		
-		Plano p2 = new Plano("Extra+", "50mb", "15mb", 99.9);
-		sgp.cadastrarPlano(p2);
-		
+			
+		Plano p2 = new Plano("Economico", 1, 10, 29.9);
+//		sgp.cadastrarPlano(p2);
+			
 		sgp.cadastrarPlano(p1);      //DUPLICADO
 		
 		sgp.listarPlanos();
-		
-		sgp.removerPlano(p1.getId());
 		
 		sgp.listarPlanos();
 	
 		//Atualizando
 		p1.setUpload(10);
 		sgp.atualizarPlano(p1);
-*/	
+	
 //		sgp.procurarPlano(p2.getId());
 		
-		
+		sgp.removerPlano(p1);		
+*/
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
@@ -158,13 +156,13 @@ public class Launch {
 	 */
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
+		/*	
 							
 		
 		Chamado ch1 = new Chamado(cl1,"Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 				sgp.cadastrarChamado(ch1);
 	
-				/*			
+					
 		Chamado ch2 = new Chamado(cl1,"Compra de HardWare", "Mouse com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 		sgp.cadastrarChamado(ch2);
 			

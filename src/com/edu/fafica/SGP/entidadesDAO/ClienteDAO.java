@@ -93,9 +93,28 @@ public class ClienteDAO {
 	}
 
 
-	public void removerClienteNoBancoDeDados(String cpf)
-			throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
-		// TODO Auto-generated method stub
+	public void removerClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "delete from cliente where CPF = ?";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, cpf);
+
+			// Executando o select
+			preStatement.executeUpdate();
+			
+			System.out.println("Cliente Removido do Banco de Dados com Sucesso!");
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
 		
 	}
 

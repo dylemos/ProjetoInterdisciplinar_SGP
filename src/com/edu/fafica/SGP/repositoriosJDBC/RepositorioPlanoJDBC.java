@@ -29,8 +29,8 @@ public class RepositorioPlanoJDBC implements IRepositorioPlano{
 	}
 
 	@Override
-	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		this.pDAO.removerPlanoNoBancoDeDados(id);
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+		this.pDAO.removerPlanoNoBancoDeDados(plano);
 	}
 
 	@Override

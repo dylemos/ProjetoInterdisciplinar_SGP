@@ -30,6 +30,7 @@ public class ControladorChamado {
 
 	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
 
+		
 		try {
 			
 			if(!listaChamado.contains(chamado)){
@@ -90,6 +91,7 @@ public class ControladorChamado {
 
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
 		
+/*List
 		try {
 			
 			for (Chamado chamado : listaChamado) {
@@ -105,12 +107,18 @@ public class ControladorChamado {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
+		
+		*/
+		
+		//JDBC
+		this.repositorioChamado.removerChamado(id);
 	}
 
 	
 
 	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-
+		
+/*List
 		try {
 			
 			for (Chamado chamado : listaChamado) {
@@ -124,7 +132,11 @@ public class ControladorChamado {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
-
+*/
+		
+		//JDBC
+		this.repositorioChamado.procurarChamado(id);
+		
 		return null;
 	}
 	

@@ -47,12 +47,12 @@ public class RepositorioPlanoList implements IRepositorioPlano{
 	}
 
 	@Override
-	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
 		
 		try {
 			for (Plano planos : listaPlanoRepositorio) {
 				
-				if(id == planos.getId()){
+				if(plano.getId() == planos.getId()){
 					this.listaPlanoRepositorio.remove(planos);
 					System.out.println("Plano ID "+planos.getId()+" Removido com Sucesso!");
 					System.out.println();

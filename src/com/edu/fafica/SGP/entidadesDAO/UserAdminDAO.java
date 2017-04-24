@@ -27,8 +27,8 @@ public class UserAdminDAO {
 			
 			String query = "";
 			
-			query += "insert into userAdmin(ID_ADM, NOME, LOGIN, SENHA)";
-			query += "values('"+userAdmin.getId()+"','"+userAdmin.getNomeUserAdmin()+"', '"+userAdmin.getLogin()+"', '"+userAdmin.getSenha()+"')";
+			query += "insert into userAdmin(ID_ADM, NOME, CPF, LOGIN, SENHA)";
+			query += "values('"+userAdmin.getId()+"', '"+userAdmin.getNomeUserAdmin()+"',  '"+userAdmin.getCpf()+"', '"+userAdmin.getLogin()+"', '"+userAdmin.getSenha()+"')";
 			statement.execute(query);
 			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" Cadastrado no Banco de Dados! \n");
 			
@@ -70,9 +70,28 @@ public class UserAdminDAO {
 
 	}
 
-	public void removerUserAdminNoBancoDeDados(String cpf)
-			throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
-		// TODO Auto-generated method stub
+	public void removerUserAdminNoBancoDeDados(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "delete from userAdmin where CPF = ?";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, cpf);
+
+			// Executando o select
+			preStatement.executeUpdate();
+			
+			System.out.println("UserAdmin Removido do Banco de Dados com Sucesso!");
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
 
 	}
 

@@ -116,12 +116,12 @@ public class FachadaSGP {
 	}
 
 	
-	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public void removerUserAdmin(String cpf) throws Exception {
 		 this.controladorUserAdimin.removerUserAdmin(cpf);
 	}
 
 	
-	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public UserAdmin procurarUserAdmin(String cpf) throws Exception {
 		return this.controladorUserAdimin.procurarUserAdmin(cpf);
 	}
 	
@@ -143,12 +143,12 @@ public class FachadaSGP {
 	}
 	
 	
-	public void removerFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public void removerFornecedor(String cnpj) throws Exception {
 		this.controladorFornecedor.removerFornecedor(cnpj);
 	}
 	
 	
-	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public Fornecedor procurarFornecedor(String cnpj) throws Exception {
 		return this.controladorFornecedor.procurarFornecedor(cnpj);
 	}
 	
@@ -166,8 +166,8 @@ public class FachadaSGP {
 		this.controladorPlano.atualizarPlano(plano);
 	}
 	
-	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		this.controladorPlano.removerPlano(id);
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+		this.controladorPlano.removerPlano(plano);
 	}
 	
 	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {

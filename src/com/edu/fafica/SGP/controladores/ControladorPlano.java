@@ -78,8 +78,9 @@ public class ControladorPlano {
 
 	}
 
-	public void removerPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
 		
+/*List
 		try {
 			
 			for (Plano plano : listaPlanos) {
@@ -93,10 +94,15 @@ public class ControladorPlano {
 			System.out.println(e.getMessage());
 		}
 		
+*/
+		
+		//JDBC
+		this.repositorioPlano.removerPlano(plano);
 	}
 
 	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
 		
+/*List		
 		try {
 			
 			for (Plano plano : listaPlanos) {
@@ -110,6 +116,10 @@ public class ControladorPlano {
 			System.out.println(e.getMessage());
 			System.out.println();
 		}
+*/
+		
+		//JDBC
+		this.repositorioPlano.procurarPlano(id);
 		
 		return null;
 	}
