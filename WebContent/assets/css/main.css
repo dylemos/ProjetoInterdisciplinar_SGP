@@ -1865,6 +1865,22 @@
 
 	table {
 		width: 100%;
+		text-align: left;
+		background-color: #fff;
+	}
+
+	td, th {
+    border: 1px solid #bbb;
+    text-align: left;
+    padding: 8px;
+	}
+
+	tr:nth-child(even) {
+    background-color: #dddddd;
+	}
+
+	th {
+	font-weight:bold;
 	}
 
 		table.default {
@@ -2167,8 +2183,8 @@
 		}
 
 			#main > section.dark {
-				color: #ddd;
-				color: rgba(255, 255, 255, 0.75);
+/*				color: #ddd;
+				color: rgba(255, 255, 255, 0.75);*/
 			}
 
 				#main > section.dark h2, #main > section.dark h3, #main > section.dark h4, #main > section.dark h5, #main > section.dark h6 {
