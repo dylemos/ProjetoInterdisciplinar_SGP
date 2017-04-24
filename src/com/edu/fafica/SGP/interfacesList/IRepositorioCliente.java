@@ -11,7 +11,7 @@ import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 
 public interface IRepositorioCliente {
 
-	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClassNotFoundException, ClienteCpfInvalidoException, Exception;
+	public Cliente cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException, ClassNotFoundException, ClienteCpfInvalidoException, Exception;
 
 	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException, Exception, ClienteCpfInvalidoException;
 

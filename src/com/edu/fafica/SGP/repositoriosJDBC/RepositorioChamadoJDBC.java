@@ -20,13 +20,13 @@ public class RepositorioChamadoJDBC implements IRepositorioChamado {
 	}
 
 	@Override
-	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws ClassNotFoundException, ChamadoIdInvalidoException, ChamadoJaCadastradoException, Exception {
-		this.chamadoDAO.cadastrarChamadoNoBancoDeDados(chamado, cliente);
+	public void cadastrarChamado(Chamado chamado) throws ClassNotFoundException, ChamadoIdInvalidoException, ChamadoJaCadastradoException, Exception {
+		this.chamadoDAO.cadastrarChamadoNoBancoDeDados(chamado);
 	}
 
 	@Override
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, Exception {
-		this.chamadoDAO.atualizarChamadoNoBancoDeDados(chamado, cliente);
+	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, Exception {
+		this.chamadoDAO.atualizarChamadoNoBancoDeDados(chamado);
 	}
 
 	@Override

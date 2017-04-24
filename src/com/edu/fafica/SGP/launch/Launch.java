@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.launch;
 
-import com.edu.fafica.SGP.entidades.UserAdmin;
+import com.edu.fafica.SGP.entidades.Chamado;
+import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {
@@ -15,11 +16,11 @@ public class Launch {
 	
 		
 		
-		/*		
+			
 		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
-					sgp.cadastrarCliente(cl1);
+//				sgp.cadastrarCliente(cl1);
 	
-		sgp.cadastrarCliente(cl1);		//DUPLICADO
+				/*		sgp.cadastrarCliente(cl1);		//DUPLICADO
 
 		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
 		sgp.cadastrarCliente(cl2);
@@ -158,14 +159,15 @@ public class Launch {
 	
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-					/*		
+							
 		
-		Chamado ch1 = new Chamado("Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
-		sgp.cadastrarChamado(ch1,cl1);
-		
-			Chamado ch2 = new Chamado("Compra de HardWare", "Em Aberto", "Compra de CPU");
+		Chamado ch1 = new Chamado(cl1,"Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
+				sgp.cadastrarChamado(ch1);
+	
+				/*			
+		Chamado ch2 = new Chamado(cl1,"Compra de HardWare", "Mouse com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 		sgp.cadastrarChamado(ch2);
-		
+			
 		sgp.cadastrarChamado(ch1); // Duplicado
 		
 		sgp.listarChamados();
@@ -174,19 +176,18 @@ public class Launch {
 		
 		sgp.listarChamados();
 		
-	
+		
 		//Atualizando
 		ch1.setStatusChamado("Pendente");
 		sgp.atualizarChamado(ch1);
+		*/		
 		
-		
-		sgp.procurarChamado(ch1.getId());
+//		sgp.procurarChamado(ch1.getId());
 		
 		//Removendo
-		sgp.removerChamado(ch1.getId());
+//		sgp.removerChamado(ch1.getId());
 
 		
-			*/
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

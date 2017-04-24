@@ -206,12 +206,12 @@ public class FachadaSGP {
 	
 //	------------------------------------------- Chamado ----------------------------------------------------------------
 	
-	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException {
-		this.controladorChamado.cadastrarChamado(chamado, cliente);
+	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
+		this.controladorChamado.cadastrarChamado(chamado);
 	}
 	
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoNaoEncontradoException, Exception {
-		this.controladorChamado.atualizarChamado(chamado, cliente);
+	public void atualizarChamado(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, Exception {
+		this.controladorChamado.atualizarChamado(chamado);
 	}
 	
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {

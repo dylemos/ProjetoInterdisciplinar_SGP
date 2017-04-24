@@ -1,9 +1,12 @@
 package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
+import java.sql.Date;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
+
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Cliente;
@@ -18,20 +21,28 @@ public class ChamadoDAO {
 	}
 	
 	
-	public void cadastrarChamadoNoBancoDeDados(Chamado chamado, Cliente cliente) throws ClassNotFoundException, ChamadoJaCadastradoException, ChamadoIdInvalidoException, Exception{
+	public void cadastrarChamadoNoBancoDeDados(Chamado chamado) throws ClassNotFoundException, ChamadoJaCadastradoException, ChamadoIdInvalidoException, Exception{
 		
 		Connection conn = SGP_MySQL.conectarBD();
 		
 		try {
 			
-			Statement statement = conn.createStatement();
-			
 			String query = "";
 			
-			query += "insert into chamado(ID_CHAMADO, ID_CLIENTE, TIPOCHAMADO, DESCPROBLEMA, STATUS, DT_ABERTURA, DT_FECHAMENTO)";
-			query += "values('"+chamado.getId()+"','"+cliente.getId()+"', '"+chamado.getTipoChamado()+"', '"+chamado.getDescProblema()+"', '"+chamado.getStatusChamado()+"', '"+chamado.getDataAbertura()+"', '"+chamado.getDataFechamento()+"')";
-			statement.execute(query);
-		
+			query += "insert into chamado(ID_CLIENTE, TIPOCHAMADO, DESCPROBLEMA, STATUS, DT_ABERTURA, DT_FECHAMENTO)";
+			query += "values(?,?,?,?,?,?)";
+
+			PreparedStatement preStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			
+			preStatement.setInt(1, chamado.getIdCliente());
+			preStatement.setString(2, chamado.getTipoChamado());
+			preStatement.setString(3, chamado.getDescProblema());
+			preStatement.setString(4, chamado.getStatusChamado());
+			preStatement.setDate(5, (Date) chamado.getDataAbertura());
+			preStatement.setDate(6, (Date) chamado.getDataFechamento());
+			
+			preStatement.execute();
+			
 			System.out.println("\n Chamado "+chamado.getTipoChamado()+" Cadastrado no Banco de Dados! \n");
 			
 		} catch (Exception e) {
@@ -40,9 +51,37 @@ public class ChamadoDAO {
 	}
 
 
-	public void atualizarChamadoNoBancoDeDados(Chamado chamado, Cliente cliente)
-			throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
-		// TODO Auto-generated method stub
+	public void atualizarChamadoNoBancoDeDados(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "update chamado set  ID_CLIENTE=?, TIPOCHAMADO=? , DESCPROBLEMA=?, STATUS=? DT_ABERTURA=? DT_FECHAMENTO=? where DESCPROBLEMA=?";
+				
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement;
+			
+			preStatement = conn.prepareStatement(sql);
+			
+			preStatement.setInt(1, chamado.getIdCliente());
+			preStatement.setString(2, chamado.getTipoChamado());
+			preStatement.setString(3, chamado.getDescProblema());
+			preStatement.setString(4, chamado.getStatusChamado());
+			preStatement.setDate(5, (Date) chamado.getDataAbertura());
+			preStatement.setDate(6, (Date) chamado.getDataFechamento());
+			
+			preStatement.setString(7, chamado.getDescProblema());
+			
+			// Executando atualização
+			preStatement.executeUpdate();
+			
+			System.out.println("\n Chamado "+chamado.getTipoChamado()+" Atualizado no Banco de Dados! \n");
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+		}
 		
 	}
 

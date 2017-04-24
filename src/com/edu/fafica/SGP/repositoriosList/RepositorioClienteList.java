@@ -18,7 +18,7 @@ public class RepositorioClienteList implements IRepositorioCliente {
 	}
 
 	@Override
-	public void cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException {
+	public Cliente cadastrarCliente(Cliente cliente) throws SQLException, ClienteJaCadastradoException {
 
 		try {
 
@@ -36,6 +36,8 @@ public class RepositorioClienteList implements IRepositorioCliente {
 		} catch (Exception e) {
 			System.out.println(cliente.getNomeCliente()+e.getMessage());
 		}
+		
+		return cliente;
 
 	}
 

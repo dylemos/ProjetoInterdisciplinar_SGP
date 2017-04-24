@@ -14,12 +14,13 @@ import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 
 public class ClienteDAO {
 
+	
 	public ClienteDAO() throws ClassNotFoundException {
 		SGP_MySQL.getInstance();
 	}
 	
 	
-	public void cadastrarClienteNoBancoDeDados(Cliente cliente) throws ClassNotFoundException, ClienteJaCadastradoException, ClienteCpfInvalidoException, Exception{
+	public Cliente cadastrarClienteNoBancoDeDados(Cliente cliente) throws ClassNotFoundException, ClienteJaCadastradoException, ClienteCpfInvalidoException, Exception{
 		
 		Connection conn = SGP_MySQL.conectarBD();
 		
@@ -34,9 +35,12 @@ public class ClienteDAO {
 			statement.execute(query);
 			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Cadastrado no Banco de Dados! \n");
 			
+			return cliente;
+			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
 		}
+		return cliente;
 	}
 
 

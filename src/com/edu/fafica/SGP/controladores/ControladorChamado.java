@@ -28,7 +28,7 @@ public class ControladorChamado {
 	}
 	
 
-	public void cadastrarChamado(Chamado chamado, Cliente cliente) throws SQLException, ChamadoJaCadastradoException {
+	public void cadastrarChamado(Chamado chamado) throws SQLException, ChamadoJaCadastradoException {
 
 		try {
 			
@@ -37,7 +37,7 @@ public class ControladorChamado {
 //				chamado.setId(index);
 //				chamado.setIdCliente(cliente.getId());
 				this.listaChamado.add(chamado);
-				this.repositorioChamado.cadastrarChamado(chamado, cliente);
+				this.repositorioChamado.cadastrarChamado(chamado);
 //				this.index++;											válido pra List
 				
 			}else{
@@ -51,7 +51,7 @@ public class ControladorChamado {
 		
 	}
 
-	public void atualizarChamado(Chamado chamado, Cliente cliente) throws Exception {
+	public void atualizarChamado(Chamado chamado) throws Exception {
 
 /*List
 		if(this.listaChamado.contains(chamado)){
@@ -84,7 +84,7 @@ public class ControladorChamado {
 	*/
 		
 		//JDBC
-		this.repositorioChamado.atualizarChamado(chamado, cliente);
+		this.repositorioChamado.atualizarChamado(chamado);
 		
 	}
 

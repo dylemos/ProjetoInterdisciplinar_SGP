@@ -13,7 +13,8 @@ public class Chamado {
 	private Date dataAbertura;
 	private Date dataFechamento;
 	
-	public Chamado(String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento) {
+	public Chamado(Cliente cliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento) {
+		setIdCliente(cliente.getId());
 		setTipoChamado(tipoChamado);
 		setDescProblema(descProblema);
 		setStatusChamado(statusChamado);

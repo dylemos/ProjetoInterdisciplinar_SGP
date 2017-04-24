@@ -18,8 +18,9 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 	}
 	
 	@Override
-	public void cadastrarCliente(Cliente cliente) throws ClassNotFoundException, ClienteJaCadastradoException, ClienteCpfInvalidoException, Exception {
+	public Cliente cadastrarCliente(Cliente cliente) throws ClassNotFoundException, ClienteJaCadastradoException, ClienteCpfInvalidoException, Exception {
 		this.clienteDAO.cadastrarClienteNoBancoDeDados(cliente);
+		return cliente;
 	}
 
 	@Override
