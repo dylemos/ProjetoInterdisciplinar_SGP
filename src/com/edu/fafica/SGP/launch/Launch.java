@@ -1,6 +1,6 @@
 package com.edu.fafica.SGP.launch;
 
-import com.edu.fafica.SGP.entidades.Fornecedor;
+import com.edu.fafica.SGP.entidades.UserAdmin;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
 public class Launch {
@@ -82,8 +82,8 @@ public class Launch {
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
+/*	
 	
-	/*
 		UserAdmin u1 = new UserAdmin("DyegoLemos","847.523.884-05","admin","admin");
 		sgp.cadastrarUserAdmin(u1);
 		
@@ -100,19 +100,19 @@ public class Launch {
 		
 		sgp.procurarUserAdmin(u2.getCpf());
 		
-		//Atualizando
-//		u.setNomeUserAdmin("Rafael_Admin");
-//		sgp.atualizarUserAdmin(u);
+			//Atualizando
+		u1.setSenha("adminSenha");
+		sgp.atualizarUserAdmin(u1);
  
-
-	*/		
+*/
+		
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
-	/*
+		/*	
 		Plano p1 = new Plano("Plus++", 2, 25, 59.9);
-		sgp.cadastrarPlano(p1);
-	
+//		sgp.cadastrarPlano(p1);
+		
 		Plano p2 = new Plano("Extra+", "50mb", "15mb", 99.9);
 		sgp.cadastrarPlano(p2);
 		
@@ -123,14 +123,14 @@ public class Launch {
 		sgp.removerPlano(p1.getId());
 		
 		sgp.listarPlanos();
-		
+	
 		//Atualizando
-		p2.setNomePlano("Ouro");
-		sgp.atualizarPlano(p2);
-
-		sgp.procurarPlano(p2.getId());
+		p1.setUpload(10);
+		sgp.atualizarPlano(p1);
+*/	
+//		sgp.procurarPlano(p2.getId());
 		
-	*/	
+		
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

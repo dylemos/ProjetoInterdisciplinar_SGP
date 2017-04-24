@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
@@ -38,7 +39,34 @@ public class UserAdminDAO {
 	}
 
 	public void atualizarUserAdminNoBancoDeDados(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
-		// TODO Auto-generated method stub
+
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "update userAdmin set  NOME=?, LOGIN=? , SENHA=? where NOME= ?";
+				
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement;
+			
+			preStatement = conn.prepareStatement(sql);
+			
+			preStatement.setString(1, userAdmin.getNomeUserAdmin());
+			preStatement.setString(2, userAdmin.getLogin());
+			preStatement.setString(3, userAdmin.getSenha());
+			
+			preStatement.setString(4, userAdmin.getNomeUserAdmin());
+			
+			// Executando atualização
+			preStatement.executeUpdate();
+			
+			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" Atualizado no Banco de Dados! \n");
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+		}
+		
 
 	}
 

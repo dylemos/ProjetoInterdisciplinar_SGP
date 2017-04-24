@@ -1,10 +1,10 @@
 package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Plano;
 import com.edu.fafica.SGP.exceptions.PlanoIdInvalidoException;
@@ -38,8 +38,35 @@ public class PlanoDAO {
 	}
 
 	public void atualizarPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException {
-		// TODO Auto-generated method stub
-
+		
+		Connection conn = SGP_MySQL.conectarBD();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "update plano set  NOME=?, UPLOAD=? , DOWNLOAD=?, VALOR=? where NOME=?";
+				
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement;
+			
+			preStatement = conn.prepareStatement(sql);
+			
+			preStatement.setString(1, plano.getNomePlano());
+			preStatement.setInt(2, plano.getUpload());
+			preStatement.setInt(3, plano.getDownload());
+			preStatement.setDouble(4, plano.getValor());
+			
+			preStatement.setString(5, plano.getNomePlano());
+			
+			// Executando atualização
+			preStatement.executeUpdate();
+			
+			System.out.println("\n Plano "+plano.getNomePlano()+" Atualizado no Banco de Dados! \n");
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+		}
+		
 	}
 
 	public void removerPlanoNoBancoDeDados(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
