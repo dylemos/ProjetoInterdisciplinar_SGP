@@ -3,18 +3,19 @@ package com.edu.fafica.SGP.entidadesDAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
 
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Chamado;
-import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 
 public class ChamadoDAO {
+	
 
 	public ChamadoDAO() throws Exception {
 		SGP_MySQL.getInstance();
@@ -32,7 +33,21 @@ public class ChamadoDAO {
 			query += "insert into chamado(ID_CLIENTE, TIPOCHAMADO, DESCPROBLEMA, STATUS, DT_ABERTURA, DT_FECHAMENTO)";
 			query += "values(?,?,?,?,?,?)";
 
+//			query += "";
+//			query += "select * from cliente ";
+//			query += "join chamado on chamado.id_cliente = cliente.id_cliente ;";
+
 			PreparedStatement preStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+			
+			
+//		    ResultSet resultSet = preStatement.executeQuery("SELECT LAST_INSERT_ID()");
+//	        if (resultSet.next()) {
+//	            int novoId = resultSet.getInt("LAST_INSERT_ID()");
+//	        }
+//			
+//			final int novoId = resultSet.getInt(1);
+			
+//			preStatement.executeUpdate();
 			
 			preStatement.setInt(1, chamado.getIdCliente());
 			preStatement.setString(2, chamado.getTipoChamado());
