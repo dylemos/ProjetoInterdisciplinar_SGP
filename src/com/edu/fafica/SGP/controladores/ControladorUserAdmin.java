@@ -113,7 +113,7 @@ public class ControladorUserAdmin {
 		this.repositorioUserAdmin.removerUserAdmin(cpf);
 	}
 
-	public UserAdmin procurarUserAdmin(String cpf) throws Exception {
+	public UserAdmin procurarUserAdmin(String cpf) throws UserAdminCpfInvalidoException, UserAdminNaoEncontradoException, Exception {
 		
 /*List	
 		try {
@@ -137,13 +137,13 @@ public class ControladorUserAdmin {
 		
 		//JDBC
 		this.repositorioUserAdmin.procurarUserAdmin(cpf);
-		
 		return null;
 	}
 
 
 	public HashSet<UserAdmin> listarUserAdmins() {
-		return this.repositorioUserAdmin.listarUserAdmins();
+		this.repositorioUserAdmin.listarUserAdmins();
+		return null;
 	}
 
 }

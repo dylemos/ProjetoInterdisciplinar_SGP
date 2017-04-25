@@ -2,9 +2,7 @@ package com.edu.fafica.SGP.interfacesList;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.entidades.Chamado;
-import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;

@@ -111,17 +111,17 @@ public class FachadaSGP {
 	}
 
 	
-	public void atualizarUserAdmin(UserAdmin userAdmin) throws Exception {
+	public void atualizarUserAdmin(UserAdmin userAdmin) throws UserAdminNaoEncontradoException, Exception {
 		this.controladorUserAdimin.atualizarUserAdmin(userAdmin);
 	}
 
 	
-	public void removerUserAdmin(String cpf) throws Exception {
+	public void removerUserAdmin(String cpf) throws UserAdminNaoEncontradoException, Exception {
 		 this.controladorUserAdimin.removerUserAdmin(cpf);
 	}
 
 	
-	public UserAdmin procurarUserAdmin(String cpf) throws Exception {
+	public UserAdmin procurarUserAdmin(String cpf) throws UserAdminCpfInvalidoException, UserAdminNaoEncontradoException, Exception {
 		return this.controladorUserAdimin.procurarUserAdmin(cpf);
 	}
 	
@@ -148,7 +148,7 @@ public class FachadaSGP {
 	}
 	
 	
-	public Fornecedor procurarFornecedor(String cnpj) throws Exception {
+	public Fornecedor procurarFornecedor(String cnpj) throws FornecedorNaoEncontradoException, Exception {
 		return this.controladorFornecedor.procurarFornecedor(cnpj);
 	}
 	

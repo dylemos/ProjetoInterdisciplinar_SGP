@@ -88,26 +88,24 @@ public class Launch {
 
 		UserAdmin u1 = new UserAdmin("DyegoLemos","847.523.884-05","admin","admin");
 //		sgp.cadastrarUserAdmin(u1);
-		/*						
-		UserAdmin u2 = new UserAdmin("RafaelJosevaldo","852.295.302-35","admin","admin");
-		sgp.cadastrarUserAdmin(u2);
+
+		UserAdmin u2 = new UserAdmin("RafaelJosevaldo","852.295.302-35","adminRafa","admin");
+//		sgp.cadastrarUserAdmin(u2);
 		
-		sgp.cadastrarUserAdmin(u1);      //DUPLICADO
-		
-		sgp.listarUserAdmins();
-		
-		
-		sgp.listarUserAdmins();
-		
-		sgp.procurarUserAdmin(u2.getCpf());
+//		sgp.cadastrarUserAdmin(u1);      //DUPLICADO
 		
 			//Atualizando
-		u1.setSenha("adminSenha");
-		sgp.atualizarUserAdmin(u1);
- 
+//		u1.setSenha("adminSenha");
+//		sgp.atualizarUserAdmin(u1);
 
-		sgp.removerUserAdmin(u1.getCpf());
-*/		
+
+//		sgp.listarUserAdmins();
+//		sgp.procurarUserAdmin(u2.getCpf());
+		
+//		sgp.removerUserAdmin(u1.getCpf());
+//		sgp.removerUserAdmin(u2.getCpf());
+		
+//		sgp.procurarUserAdmin(u2.getCpf());
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		

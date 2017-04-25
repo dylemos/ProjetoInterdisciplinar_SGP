@@ -6,9 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.banco.SGP_MySQL;
-import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidades.Plano;
 import com.edu.fafica.SGP.exceptions.PlanoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.PlanoJaCadastradoException;
@@ -132,7 +130,7 @@ public class PlanoDAO {
 				System.out.println("Erro: "+e.getMessage());
 			}
 
-		return null;
+		return plano;
 	}
 
 	public HashSet<Plano> listarPlanosNoBancoDeDados() {

@@ -18,7 +18,7 @@ public class RepositorioUserAdminJDBC implements IRepositorioUserAdmin{
 	}
 	
 	@Override
-	public void cadastrarUserAdmin(UserAdmin userAdmin) throws Exception {
+	public void cadastrarUserAdmin(UserAdmin userAdmin) throws UserAdminJaCadastradoException, Exception {
 		this.uDAO.cadastrarUserAdminNoBancoDeDados(userAdmin);
 	}
 
