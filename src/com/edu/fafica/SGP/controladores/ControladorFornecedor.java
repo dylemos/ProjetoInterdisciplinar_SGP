@@ -118,7 +118,7 @@ public class ControladorFornecedor {
 		this.repositorioFornecedor.removerFornecedor(cnpj);
 	}
 
-	public Fornecedor procurarFornecedor(String cnpj) throws Exception {
+	public Fornecedor procurarFornecedor(String cnpj) throws FornecedorNaoEncontradoException, Exception {
 		
 /*List
 		try {

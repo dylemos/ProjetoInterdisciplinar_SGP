@@ -64,7 +64,8 @@ public class UserAdminDAO {
 			// Executando atualização
 			preStatement.executeUpdate();
 			
-			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" Atualizado no Banco de Dados! \n");
+			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" Atualizado no Banco de Dados:");
+			System.out.println(userAdmin.toString());
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
@@ -95,7 +96,7 @@ public class UserAdminDAO {
 				System.out.println("UserAdmin Removido do Banco de Dados com Sucesso!");
 			
 			}else{
-				System.out.println("Não existe UserAdmin para ser Removido do Banco de Dados!");
+				System.out.println("UserAdmin Não existe para ser Removido do Banco de Dados!");
 			}
 	
 		} catch (Exception e) {
@@ -131,7 +132,7 @@ public class UserAdminDAO {
 					userAdmin = new UserAdmin(nome, cpfUA, login, senha);
 					userAdmin.setId(codigo);
 					
-					System.out.println("Plano localizado no Banco de Dados!");
+					System.out.println("\nUserAdmin localizado no Banco de Dados:");
 					System.out.println(userAdmin.toString());
 				
 				}
@@ -176,16 +177,16 @@ public class UserAdminDAO {
 				userAdmin.setId(codigo);
 				
 				listUserAdmin.add(userAdmin);
-				System.out.print("\nUserAdmin no Banco de Dados:");
+				System.out.println("\nUserAdmin no Banco de Dados:");
 				System.out.println(userAdmin.toString());
-				return listUserAdmin;
 			}
+			return listUserAdmin;
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
 		
-		System.out.println("Não Existe UserAdmin no Banco de Dados!");
+		System.out.println("\nNão Existe UserAdmin no Banco de Dados!");
 		return null;
 	}
 

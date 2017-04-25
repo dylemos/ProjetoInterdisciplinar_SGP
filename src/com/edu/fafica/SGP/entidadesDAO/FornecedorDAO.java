@@ -86,18 +86,24 @@ public class FornecedorDAO  {
 		
 		try {
 			
-			// Criando a String SQL
-			String sql = "delete from fornecedor where CNPJ = ?";
+			if(listarFornecedoresNoBancoDeDados().contains(cnpj)){
+				
+				// Criando a String SQL
+				String sql = "delete from fornecedor where CNPJ = ?";
 
-			// Criar o PreparedStatement, objeto para executar a query
-			PreparedStatement preStatement = conn.prepareStatement(sql);
+				// Criar o PreparedStatement, objeto para executar a query
+				PreparedStatement preStatement = conn.prepareStatement(sql);
 
-			preStatement.setString(1, cnpj);
+				preStatement.setString(1, cnpj);
 
-			// Executando o select
-			preStatement.executeUpdate();
-			
-			System.out.println("Fornecedor Removido do Banco de Dados com Sucesso!");
+				// Executando o select
+				preStatement.executeUpdate();
+				
+				System.out.println("Fornecedor Removido do Banco de Dados com Sucesso!");
+				
+			}else{
+				System.out.println("Fornecedor Não existe para ser Removido do Banco de Dados!");
+			}
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
@@ -112,37 +118,42 @@ public class FornecedorDAO  {
 		
 		try {
 			
+			if(listarFornecedoresNoBancoDeDados().contains(cnpj)){
+				
+				String sql = "select * from fornecedor where cnpj=?";
 
-			String sql = "select * from fornecedor where cnpj=?";
-
-			PreparedStatement preStatement = conn.prepareStatement(sql);
-			preStatement.setString(1, cnpj);
-			
-			ResultSet resultSet = preStatement.executeQuery();
-			
-			while (resultSet.next()) {
+				PreparedStatement preStatement = conn.prepareStatement(sql);
+				preStatement.setString(1, cnpj);
 				
-				int codigo = resultSet.getInt(1);
-				String nomeFantasia = resultSet.getString(2);
-				String razaoSocial  = resultSet.getString(3);
-				String cnpjFornecedor = resultSet.getString(4);
-				String rua = resultSet.getString(5);
-				String numero = resultSet.getString(6);
-				String bairro = resultSet.getString(7);
-				String cidade = resultSet.getString(8);
-				String uf = resultSet.getString(9);
-				String cep = resultSet.getString(10);
-				String email = resultSet.getString(11);	
-				String telefone = resultSet.getString(12);
-				String celular = resultSet.getString(13);
-				String operadora = resultSet.getString(14);
+				ResultSet resultSet = preStatement.executeQuery();
 				
-				fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
-				fornecedor.setId(codigo);
+				while (resultSet.next()) {
+					
+					int codigo = resultSet.getInt(1);
+					String nomeFantasia = resultSet.getString(2);
+					String razaoSocial  = resultSet.getString(3);
+					String cnpjFornecedor = resultSet.getString(4);
+					String rua = resultSet.getString(5);
+					String numero = resultSet.getString(6);
+					String bairro = resultSet.getString(7);
+					String cidade = resultSet.getString(8);
+					String uf = resultSet.getString(9);
+					String cep = resultSet.getString(10);
+					String email = resultSet.getString(11);	
+					String telefone = resultSet.getString(12);
+					String celular = resultSet.getString(13);
+					String operadora = resultSet.getString(14);
+					
+					fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
+					fornecedor.setId(codigo);
+					
+					System.out.println("\nFornecedor localizado no Banco de Dados:");
+					System.out.println(fornecedor.toString());
 				
-				System.out.println("Fornecedor localizado no Banco de Dados!");
-				System.out.println(fornecedor.toString());
-			
+				}
+				
+			}else{
+				System.out.println("Fornecedor Não Cadastrado no Banco de Dados!");
 			}
 			
 			} catch (Exception e) {
@@ -156,7 +167,7 @@ public class FornecedorDAO  {
 
 		Connection conn = SGP_MySQL.conectarBD();
 		Fornecedor fornecedor = new Fornecedor();
-		HashSet<Fornecedor> arrayListFornecedor = new HashSet<Fornecedor>();
+		HashSet<Fornecedor> listFornecedor = new HashSet<Fornecedor>();
 		
 		try {
 			
@@ -189,16 +200,18 @@ public class FornecedorDAO  {
 				fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 				fornecedor.setId(codigo);
 				
-				arrayListFornecedor.add(fornecedor);
-				System.out.print("Fornecedor no Banco de Dados:");
+				listFornecedor.add(fornecedor);
+				System.out.println("\nFornecedor no Banco de Dados:");
 				System.out.println(fornecedor.toString());
 			}
+			return listFornecedor;
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
 
-		return arrayListFornecedor;
+		System.out.println("\nNão Existe Fornecedor no Banco de Dados!");
+		return null;
 	}
 
 }

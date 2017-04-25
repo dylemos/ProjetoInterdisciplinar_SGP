@@ -101,18 +101,25 @@ public class ClienteDAO {
 		
 		try {
 			
-			// Criando a String SQL
-			String sql = "delete from cliente where CPF = ?";
+			if(listarClientesNoBancoDeDados().contains(cpf)){
+				
+				// Criando a String SQL
+				String sql = "delete from cliente where CPF = ?";
 
-			// Criar o PreparedStatement, objeto para executar a query
-			PreparedStatement preStatement = conn.prepareStatement(sql);
+				// Criar o PreparedStatement, objeto para executar a query
+				PreparedStatement preStatement = conn.prepareStatement(sql);
 
-			preStatement.setString(1, cpf);
+				preStatement.setString(1, cpf);
 
-			// Executando o select
-			preStatement.executeUpdate();
-			
-			System.out.println("Cliente Removido do Banco de Dados com Sucesso!");
+				// Executando o select
+				preStatement.executeUpdate();
+				
+				System.out.println("Cliente Removido do Banco de Dados com Sucesso!");
+				
+				
+			}else{
+				System.out.println("Cliente Não existe para ser Removido do Banco de Dados!");
+			}
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
@@ -128,46 +135,52 @@ public class ClienteDAO {
 		
 		try {
 			
+			if(listarClientesNoBancoDeDados().contains(cpf)){
+				
+				String sql = "select * from cliente where cpf=?";
 
-			String sql = "select * from cliente where cpf=?";
-
-			PreparedStatement preStatement = conn.prepareStatement(sql);
-			preStatement.setString(1, cpf);
-			
-			ResultSet resultSet = preStatement.executeQuery();
-			
-			while (resultSet.next()) {
+				PreparedStatement preStatement = conn.prepareStatement(sql);
+				preStatement.setString(1, cpf);
 				
-				int codigo = resultSet.getInt(1);
-				String nome = resultSet.getString(2);
-				String rg  = resultSet.getString(3);
-				String cpfCliente = resultSet.getString(4);
-				java.sql.Date dataNasc = resultSet.getDate(5);
-				java.sql.Date dataCadastro = resultSet.getDate(6);
-				String email = resultSet.getString(7);	
-				String telefone = resultSet.getString(8);
-				String celular = resultSet.getString(9);
-				int vencimento = resultSet.getInt(10);
-				String rua = resultSet.getString(11);
-				String numero = resultSet.getString(12);
-				String bairro = resultSet.getString(13);
-				String cidade = resultSet.getString(14);
-				String uf = resultSet.getString(15);
-				String cep = resultSet.getString(16);
-				String login = resultSet.getString(17);
-				String senha = resultSet.getString(18);
-				String plano = resultSet.getString(19);
-				String operadora = resultSet.getString(20);
+				ResultSet resultSet = preStatement.executeQuery();
 				
-				cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
-				cliente.setId(codigo);
+				while (resultSet.next()) {
+					
+					int codigo = resultSet.getInt(1);
+					String nome = resultSet.getString(2);
+					String rg  = resultSet.getString(3);
+					String cpfCliente = resultSet.getString(4);
+					java.sql.Date dataNasc = resultSet.getDate(5);
+					java.sql.Date dataCadastro = resultSet.getDate(6);
+					String email = resultSet.getString(7);	
+					String telefone = resultSet.getString(8);
+					String celular = resultSet.getString(9);
+					int vencimento = resultSet.getInt(10);
+					String rua = resultSet.getString(11);
+					String numero = resultSet.getString(12);
+					String bairro = resultSet.getString(13);
+					String cidade = resultSet.getString(14);
+					String uf = resultSet.getString(15);
+					String cep = resultSet.getString(16);
+					String login = resultSet.getString(17);
+					String senha = resultSet.getString(18);
+					String plano = resultSet.getString(19);
+					String operadora = resultSet.getString(20);
+					
+					cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+					cliente.setId(codigo);
+					
+					System.out.println("\nCliente localizado no Banco de Dados:");
+					System.out.println(cliente.toStringCompleta());
 				
-				System.out.println("Cliente localizado no Banco de Dados!");
-				System.out.println(cliente.toStringCompleta());
-			
+				}
+				
+				
+			}else{
+				System.out.println("Cliente Não Cadastrado no Banco de Dados!");
 			}
 			
-			} catch (Exception e) {
+		} catch (Exception e) {
 				System.out.println("Erro: "+e.getMessage());
 			}
 		
@@ -219,15 +232,17 @@ public class ClienteDAO {
 				cliente.setId(codigo);
 				
 				listCliente.add(cliente);
-				System.out.print("Cliente no Banco de Dados:");
+				System.out.println("\nCliente no Banco de Dados:");
 				System.out.println(cliente.toStringCompleta());
 			}
+			return listCliente;
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
 		
-		return listCliente;
+		System.out.println("\nNão Existe Cliente no Banco de Dados!");
+		return null;
 	}
 	
 	

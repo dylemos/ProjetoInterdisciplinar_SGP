@@ -62,7 +62,8 @@ public class PlanoDAO {
 			// Executando atualização
 			preStatement.executeUpdate();
 			
-			System.out.println("\n Plano "+plano.getNomePlano()+" Atualizado no Banco de Dados! \n");
+			System.out.println("\n Plano "+plano.getNomePlano()+" Atualizado no Banco de Dados:");
+			System.out.println(plano.toString());
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
@@ -76,18 +77,24 @@ public class PlanoDAO {
 		
 		try {
 			
-			// Criando a String SQL
-			String sql = "delete from plano where NOME = ?";
+			if(listarPlanosNoBancoDeDados().contains(plano)){
+				
+				// Criando a String SQL
+				String sql = "delete from plano where NOME = ?";
 
-			// Criar o PreparedStatement, objeto para executar a query
-			PreparedStatement preStatement = conn.prepareStatement(sql);
+				// Criar o PreparedStatement, objeto para executar a query
+				PreparedStatement preStatement = conn.prepareStatement(sql);
 
-			preStatement.setString(1, plano.getNomePlano());
+				preStatement.setString(1, plano.getNomePlano());
 
-			// Executando o select
-			preStatement.executeUpdate();
-			
-			System.out.println("Plano Removido do Banco de Dados com Sucesso!");
+				// Executando o select
+				preStatement.executeUpdate();
+				
+				System.out.println("Plano Removido do Banco de Dados com Sucesso!");
+				
+			}else{
+				System.out.println("Plano Não existe para ser Removido do Banco de Dados!");
+			}
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
@@ -103,27 +110,33 @@ public class PlanoDAO {
 		try {
 			
 
-			String sql = "select * from plano where NOME=?";
+			if(listarPlanosNoBancoDeDados().contains(nomePlano)){
+				
+				String sql = "select * from plano where NOME=?";
 
-			PreparedStatement preStatement = conn.prepareStatement(sql);
-			preStatement.setString(1, nomePlano);
-			
-			ResultSet resultSet = preStatement.executeQuery();
-			
-			while (resultSet.next()) {
+				PreparedStatement preStatement = conn.prepareStatement(sql);
+				preStatement.setString(1, nomePlano);
 				
-				int codigo = resultSet.getInt(1);
-				String nome = resultSet.getString(2);
-				int upload  = resultSet.getInt(3);
-				int download = resultSet.getInt(4);
-				Double valor = resultSet.getDouble(5);
+				ResultSet resultSet = preStatement.executeQuery();
 				
-				plano = new Plano(nome, upload, download, valor);
-				plano.setId(codigo);
+				while (resultSet.next()) {
+					
+					int codigo = resultSet.getInt(1);
+					String nome = resultSet.getString(2);
+					int upload  = resultSet.getInt(3);
+					int download = resultSet.getInt(4);
+					Double valor = resultSet.getDouble(5);
+					
+					plano = new Plano(nome, upload, download, valor);
+					plano.setId(codigo);
+					
+					System.out.println("\nPlano localizado no Banco de Dados:");
+					System.out.println(plano.toString());
 				
-				System.out.println("Plano localizado no Banco de Dados!");
-				System.out.println(plano.toString());
-			
+				}
+				
+			}else{
+				System.out.println("Plano Não Cadastrado no Banco de Dados!");
 			}
 			
 			} catch (Exception e) {
@@ -162,15 +175,17 @@ public class PlanoDAO {
 				plano.setId(codigo);
 				
 				listPlano.add(plano);
-				System.out.print("Plano no Banco de Dados:");
+				System.out.println("\nPlano no Banco de Dados:");
 				System.out.println(plano.toString());
 			}
+			return listPlano;
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
 		
-		return listPlano;
+		System.out.println("\nNão Existe Plano no Banco de Dados!");
+		return null;
 	}
 
 }
