@@ -2,6 +2,7 @@ package com.edu.fafica.SGP.entidadesDAO;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
@@ -104,15 +105,100 @@ public class FornecedorDAO  {
 
 	}
 
-	public Fornecedor procurarFornecedorNoBancoDeDados(String cnpj)
-			throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
-		// TODO Auto-generated method stub
-		return null;
+	public Fornecedor procurarFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+
+		Connection conn = SGP_MySQL.conectarBD();
+		Fornecedor fornecedor = new Fornecedor();
+		
+		try {
+			
+
+			String sql = "select * from fornecedor where cnpj=?";
+
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+			preStatement.setString(1, cnpj);
+			
+			ResultSet resultSet = preStatement.executeQuery();
+			
+			while (resultSet.next()) {
+				
+				int codigo = resultSet.getInt(1);
+				String nomeFantasia = resultSet.getString(2);
+				String razaoSocial  = resultSet.getString(3);
+				String cnpjFornecedor = resultSet.getString(4);
+				String rua = resultSet.getString(5);
+				String numero = resultSet.getString(6);
+				String bairro = resultSet.getString(7);
+				String cidade = resultSet.getString(8);
+				String uf = resultSet.getString(9);
+				String cep = resultSet.getString(10);
+				String email = resultSet.getString(11);	
+				String telefone = resultSet.getString(12);
+				String celular = resultSet.getString(13);
+				String operadora = resultSet.getString(14);
+				
+				fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
+				fornecedor.setId(codigo);
+				
+				System.out.println("Fornecedor localizado no Banco de Dados!");
+				System.out.println(fornecedor.toString());
+			
+			}
+			
+			} catch (Exception e) {
+				System.out.println("Erro: "+e.getMessage());
+			}
+		
+		return fornecedor;
 	}
 
 	public HashSet<Fornecedor> listarFornecedoresNoBancoDeDados() {
-		// TODO Auto-generated method stub
-		return null;
+
+		Connection conn = SGP_MySQL.conectarBD();
+		Fornecedor fornecedor = new Fornecedor();
+		HashSet<Fornecedor> arrayListFornecedor = new HashSet<Fornecedor>();
+		
+		try {
+			
+			// Criando a String SQL
+			String sql = "select * from fornecedor";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			ResultSet resultSet = preStatement.executeQuery();
+
+			// Verifica se retornou dados na consulta
+			while (resultSet.next()) {
+				
+				int codigo = resultSet.getInt(1);
+				String nomeFantasia = resultSet.getString(2);
+				String razaoSocial  = resultSet.getString(3);
+				String cnpjFornecedor = resultSet.getString(4);
+				String rua = resultSet.getString(5);
+				String numero = resultSet.getString(6);
+				String bairro = resultSet.getString(7);
+				String cidade = resultSet.getString(8);
+				String uf = resultSet.getString(9);
+				String cep = resultSet.getString(10);
+				String email = resultSet.getString(11);	
+				String telefone = resultSet.getString(12);
+				String celular = resultSet.getString(13);
+				String operadora = resultSet.getString(14);
+				
+				fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
+				fornecedor.setId(codigo);
+				
+				arrayListFornecedor.add(fornecedor);
+				System.out.print("Fornecedor no Banco de Dados:");
+				System.out.println(fornecedor.toString());
+			}
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+
+		return arrayListFornecedor;
 	}
 
 }

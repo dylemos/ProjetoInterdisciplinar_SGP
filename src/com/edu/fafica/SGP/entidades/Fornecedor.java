@@ -15,14 +15,13 @@ public class Fornecedor {
 	private String telefone;
 	private String celular;
 	private String operadora;
-	private String enderecoFornecedor;
 	private String nomeFantasia;
 	
 	public Fornecedor() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Fornecedor(String razaoSocial, String cnpj, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String email, String telefone, String celular, String operadora, String enderecoFornecedor, String nomeFantasia) {
+	public Fornecedor(String razaoSocial, String cnpj, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String email, String telefone, String celular, String operadora, String nomeFantasia) {
 		setRazaoSocial(razaoSocial);
 		setCnpj(cnpj);
 		setRua(rua);
@@ -35,7 +34,6 @@ public class Fornecedor {
 		setTelefone(telefone);
 		setCelular(celular);
 		setOperadora(operadora);
-		setEnderecoFornecedor(enderecoFornecedor);
 		setNomeFantasia(nomeFantasia);
 	}
 	
@@ -155,14 +153,6 @@ public class Fornecedor {
 		this.operadora = operadora;
 	}
 
-	public String getEnderecoFornecedor() {
-		return enderecoFornecedor;
-	}
-
-	public void setEnderecoFornecedor(String enderecoFornecedor) {
-		this.enderecoFornecedor = enderecoFornecedor;
-	}
-
 	public String getNomeFantasia() {
 		return nomeFantasia;
 	}
@@ -171,7 +161,4 @@ public class Fornecedor {
 		this.nomeFantasia = nomeFantasia;
 	}
 
-	
-	
-	
 }

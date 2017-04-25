@@ -163,7 +163,7 @@ public class ClienteDAO {
 				cliente.setId(codigo);
 				
 				System.out.println("Cliente localizado no Banco de Dados!");
-				
+				System.out.println(cliente.toStringCompleta());
 			
 			}
 			
@@ -219,13 +219,14 @@ public class ClienteDAO {
 				cliente.setId(codigo);
 				
 				arrayListCliente.add(cliente);
+				System.out.print("Cliente no Banco de Dados:");
+				System.out.println(cliente.toStringCompleta());
 			}
 			
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
 		
-		System.out.println("Clientes listados no Banco de Dados!");
 		return arrayListCliente;
 	}
 	

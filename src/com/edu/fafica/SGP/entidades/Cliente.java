@@ -95,11 +95,11 @@ public class Cliente {
 
 	public String toStringCompleta() {
 		
-		String clienteDetalhe = "{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
+		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				" | Senha: "+getSenha()+" | RG: "+getRg()+" |\n CPF: "+getCpf()+" | Telefone: "+getTelefone()+
 				" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+" | Email: "+getEmail()+
 				"|\n Endereco do Cliente: [ Rua "+getRua()+" - N° "+getNumero()+" - Bairro "+getBairro()+
-				" - Cidade "+getCidade()+" - UF "+getUf()+" - CEP "+getCep()+" ] }";
+				" - Cidade "+getCidade()+" - UF "+getUf()+" - CEP "+getCep()+" ] }\n";
 		
 		return clienteDetalhe;
 	}
@@ -107,9 +107,9 @@ public class Cliente {
 	
 	public String toStringBasica() {
 		
-		String clienteDetalhe = "{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
+		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				"\n | Senha: "+getSenha()+" | CPF: "+getCpf()+" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+
-				"\n | Email: "+getEmail()+"| Rua do Cliente: "+getRua()+" | }";
+				"\n | Email: "+getEmail()+"| Rua do Cliente: "+getRua()+" | }\n";
 		
 		return clienteDetalhe;
 	}

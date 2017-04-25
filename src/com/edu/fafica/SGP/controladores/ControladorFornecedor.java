@@ -142,13 +142,13 @@ public class ControladorFornecedor {
 */		
 		//JDBC
 		this.repositorioFornecedor.procurarFornecedor(cnpj);
-		
 		return null;
 
 	}
 
 	public HashSet<Fornecedor> listarFornecedores() {
-		return this.repositorioFornecedor.listarFornecedores();
+		this.repositorioFornecedor.listarFornecedores();
+		return null;
 	}
 
 }
