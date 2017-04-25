@@ -179,7 +179,7 @@ public class ClienteDAO {
 		
 		Connection conn = SGP_MySQL.conectarBD();
 		Cliente cliente = new Cliente();
-		HashSet<Cliente> arrayListCliente = new HashSet<Cliente>();
+		HashSet<Cliente> listCliente = new HashSet<Cliente>();
 		
 		try {
 			
@@ -218,7 +218,7 @@ public class ClienteDAO {
 				cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
 				cliente.setId(codigo);
 				
-				arrayListCliente.add(cliente);
+				listCliente.add(cliente);
 				System.out.print("Cliente no Banco de Dados:");
 				System.out.println(cliente.toStringCompleta());
 			}
@@ -227,7 +227,7 @@ public class ClienteDAO {
 			System.out.println("Erro: "+e.getMessage());
 		}
 		
-		return arrayListCliente;
+		return listCliente;
 	}
 	
 	

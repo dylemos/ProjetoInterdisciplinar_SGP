@@ -80,8 +80,8 @@ public class Launch {
 //		sgp.removerFornecedor(f1.getCnpj());
 	
 		
-		sgp.procurarFornecedor(f1.getCnpj());
-		sgp.listarFornecedores();
+//			sgp.procurarFornecedor(f1.getCnpj());
+//		sgp.listarFornecedores();
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 
@@ -114,24 +114,22 @@ public class Launch {
 
 		Plano p1 = new Plano("Plus++", 2, 25, 59.9);
 //		sgp.cadastrarPlano(p1);
-		/*						
+		
+/*	
 		Plano p2 = new Plano("Economico", 1, 10, 29.9);
-//		sgp.cadastrarPlano(p2);
-			
+		sgp.cadastrarPlano(p2);
+		
 		sgp.cadastrarPlano(p1);      //DUPLICADO
-		
-		sgp.listarPlanos();
-		
-		sgp.listarPlanos();
 	
 		//Atualizando
-		p1.setUpload(10);
+		p1.setUpload(5);
 		sgp.atualizarPlano(p1);
-	
-//		sgp.procurarPlano(p2.getId());
+*/	
 		
-		sgp.removerPlano(p1);		
-*/
+//		sgp.listarPlanos();
+//		sgp.procurarPlano(p1.getNomePlano());
+//		sgp.removerPlano(p1);
+//		sgp.listarPlanos();
 		
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 

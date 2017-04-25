@@ -34,8 +34,8 @@ public class RepositorioPlanoJDBC implements IRepositorioPlano{
 	}
 
 	@Override
-	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		this.pDAO.procurarPlanoNoBancoDeDados(id);
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+		this.pDAO.procurarPlanoNoBancoDeDados(nomePlano);
 		return null;
 	}
 

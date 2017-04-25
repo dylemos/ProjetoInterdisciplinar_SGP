@@ -67,12 +67,12 @@ public class RepositorioPlanoList implements IRepositorioPlano{
 	}
 
 	@Override
-	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
 
 		try {
 			
 			for (Plano plano : listaPlanoRepositorio) {
-				if(plano.getId() == id){
+				if(plano.getNomePlano().equals(nomePlano)){
 					System.out.println("Plano Encontrado:");
 					System.out.println(plano.toString());
 					System.out.println();

@@ -16,7 +16,7 @@ public interface IRepositorioPlano {
 
 	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
 
-	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException;
 
 	public HashSet<Plano> listarPlanos();
 }

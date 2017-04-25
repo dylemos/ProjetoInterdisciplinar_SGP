@@ -100,7 +100,7 @@ public class ControladorPlano {
 		this.repositorioPlano.removerPlano(plano);
 	}
 
-	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
 		
 /*List		
 		try {
@@ -119,13 +119,13 @@ public class ControladorPlano {
 */
 		
 		//JDBC
-		this.repositorioPlano.procurarPlano(id);
-		
+		this.repositorioPlano.procurarPlano(nomePlano);
 		return null;
 	}
 
 	public HashSet<Plano> listarPlanos() {
-		return this.repositorioPlano.listarPlanos();
+		this.repositorioPlano.listarPlanos();
+		return null;
 	}
 	
 	

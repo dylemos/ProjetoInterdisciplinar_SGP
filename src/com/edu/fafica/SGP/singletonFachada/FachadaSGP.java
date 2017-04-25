@@ -170,8 +170,8 @@ public class FachadaSGP {
 		this.controladorPlano.removerPlano(plano);
 	}
 	
-	public Plano procurarPlano(int id) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
-		return this.controladorPlano.procurarPlano(id);
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+		return this.controladorPlano.procurarPlano(nomePlano);
 	}
 	
 	public HashSet<Plano> listarPlanos(){
