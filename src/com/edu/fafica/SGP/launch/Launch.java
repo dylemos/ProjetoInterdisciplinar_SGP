@@ -22,7 +22,7 @@ public class Launch {
 				
 			
 		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
-//			sgp.cadastrarCliente(cl1);
+			sgp.cadastrarCliente(cl1);
 		/*
 //					sgp.cadastrarCliente(cl1);		//DUPLICADO
 
@@ -159,8 +159,8 @@ public class Launch {
 		
 							
 		
-		Chamado ch1 = new Chamado(cl1,"Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
-//				sgp.cadastrarChamado(ch1);
+		Chamado ch1 = new Chamado(1,"Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
+				sgp.cadastrarChamado(ch1);
 				/*	
 					
 		Chamado ch2 = new Chamado(cl1,"Compra de HardWare", "Mouse com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
