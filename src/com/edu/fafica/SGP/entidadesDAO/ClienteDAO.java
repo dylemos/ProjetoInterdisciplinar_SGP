@@ -41,6 +41,7 @@ public class ClienteDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Cliente "+cliente.getNomeCliente()+" já está Cadastrado no Banco de Dados! \n");
 		}
 		return cliente;
 	}
@@ -182,7 +183,7 @@ public class ClienteDAO {
 			
 		} catch (Exception e) {
 				System.out.println("Erro: "+e.getMessage());
-			}
+		}
 		
 		return cliente;
 	}

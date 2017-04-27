@@ -35,6 +35,7 @@ public class ContaDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Conta "+conta.getTipoConta()+" já está Cadastrada no Banco de Dados! \n");
 		}
 		
 	}

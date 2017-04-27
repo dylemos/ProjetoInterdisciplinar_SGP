@@ -36,6 +36,7 @@ public class FornecedorDAO  {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Fornecedor "+fornecedor.getNomeFantasia()+" já está Cadastrado no Banco de Dados! \n");
 		}
 	
 	}

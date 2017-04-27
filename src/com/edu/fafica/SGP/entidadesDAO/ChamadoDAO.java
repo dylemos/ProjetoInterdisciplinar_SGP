@@ -3,11 +3,9 @@ package com.edu.fafica.SGP.entidadesDAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
@@ -62,6 +60,7 @@ public class ChamadoDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Chamado "+chamado.getTipoChamado()+" já está Cadastrado no Banco de Dados! \n");
 		}
 	}
 

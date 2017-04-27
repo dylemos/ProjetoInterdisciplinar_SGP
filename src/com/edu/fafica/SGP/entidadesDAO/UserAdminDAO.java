@@ -37,6 +37,7 @@ public class UserAdminDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" já está Cadastrado no Banco de Dados! \n");
 		}
 		
 	}

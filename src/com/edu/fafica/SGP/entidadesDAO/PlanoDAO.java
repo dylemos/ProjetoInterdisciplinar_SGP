@@ -34,6 +34,7 @@ public class PlanoDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Plano "+plano.getNomePlano()+" já está Cadastrado no Banco de Dados! \n");
 		}
 		
 	}

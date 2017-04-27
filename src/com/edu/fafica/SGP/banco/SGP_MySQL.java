@@ -45,7 +45,7 @@ public class SGP_MySQL {
 		try {
 			Class.forName(DRIVER).newInstance();
 			connection = DriverManager.getConnection(URL, USUARIO, SENHA);
-			status = "Connection Opened";
+			status = "Connection Opened!";
 			System.out.println("\n"+status+" Conectado ao MySQL com sucesso!\n");
 		} catch (Exception e) {
 			status = e.getMessage();
@@ -60,7 +60,7 @@ public class SGP_MySQL {
 	public void desconectarBD()
 	{
 		try {
-		//	connection.close();
+			connection.close();
 			System.out.println("\nConexão ao MySQL finalizada com sucesso!\n");
 		} catch (Exception e) {
 			System.out.println("\nErro ao fechar conexão com MySQL: "+e.getMessage()+"\n");
