@@ -1716,6 +1716,17 @@
 				width: 99px;
 				height: 66px;
 			}
+			
+		.image.bg_inicio {
+			width: 90%;
+			height: 90%;
+			
+		}
+
+			.image.inicio img {
+				width: 90%;
+				height: 90%;
+			}
 
 		.image.fit {
 			display: block;
