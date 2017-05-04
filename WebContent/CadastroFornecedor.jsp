@@ -22,7 +22,7 @@
 								<h2>Cadastro de Fornecedor</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#cadastroFornecedor"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>

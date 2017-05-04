@@ -22,7 +22,7 @@
 								<h2>Configurações do Sistema</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#config"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>

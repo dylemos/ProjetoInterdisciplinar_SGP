@@ -22,7 +22,7 @@
 								<h2>Financeiro</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#CadastroFinanceiro"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>

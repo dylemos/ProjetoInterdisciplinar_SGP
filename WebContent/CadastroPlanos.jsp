@@ -22,7 +22,7 @@
 								<h2>Planos de Acesso</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#planoAcesso"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>

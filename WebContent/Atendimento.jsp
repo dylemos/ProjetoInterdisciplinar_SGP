@@ -22,7 +22,7 @@
 								<h2>Central de Atendimento</h2>
 							</header>
 
-							<form method="get" action="#">
+							<form method="post" action="#">
 								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#suporte"/>
 								<input type="button" value="Alterar"/>
 								<input type="button" value="Pesquisar"/>
