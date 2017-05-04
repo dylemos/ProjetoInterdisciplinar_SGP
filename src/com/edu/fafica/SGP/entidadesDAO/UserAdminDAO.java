@@ -20,9 +20,9 @@ public class UserAdminDAO {
 		SGP_MySQL.getInstance();
 	}
 
-	public void cadastrarUserAdminNoBancoDeDados(UserAdmin userAdmin) throws SQLException, UserAdminJaCadastradoException {
+	public void cadastrarUserAdminNoBancoDeDados(UserAdmin userAdmin) throws SQLException, UserAdminJaCadastradoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -42,9 +42,9 @@ public class UserAdminDAO {
 		
 	}
 
-	public void atualizarUserAdminNoBancoDeDados(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
+	public void atualizarUserAdminNoBancoDeDados(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException, ClassNotFoundException {
 
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -75,9 +75,9 @@ public class UserAdminDAO {
 
 	}
 
-	public void removerUserAdminNoBancoDeDados(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public void removerUserAdminNoBancoDeDados(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException, ClassNotFoundException {
 	
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 
@@ -106,9 +106,9 @@ public class UserAdminDAO {
 
 	}
 
-	public UserAdmin procurarUserAdminNoBancoDeDados(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public UserAdmin procurarUserAdminNoBancoDeDados(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		UserAdmin userAdmin = new UserAdmin();
 		
 		try {
@@ -149,9 +149,9 @@ public class UserAdminDAO {
 		return userAdmin;
 	}
 
-	public HashSet<UserAdmin> listarUserAdminsNoBancoDeDados() {
+	public HashSet<UserAdmin> listarUserAdminsNoBancoDeDados() throws ClassNotFoundException {
 
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		UserAdmin userAdmin = new UserAdmin();
 		this.listUserAdmin = new HashSet<UserAdmin>();
 

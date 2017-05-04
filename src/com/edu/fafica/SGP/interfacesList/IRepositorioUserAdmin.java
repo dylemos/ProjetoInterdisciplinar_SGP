@@ -19,5 +19,5 @@ public interface IRepositorioUserAdmin {
 
 	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException, Exception;
 
-	public HashSet<UserAdmin> listarUserAdmins();
+	public HashSet<UserAdmin> listarUserAdmins() throws ClassNotFoundException;
 }

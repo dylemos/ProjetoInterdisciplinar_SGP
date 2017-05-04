@@ -18,6 +18,6 @@ public interface IRepositorioFornecedor {
 
 	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException, Exception;
 
-	public HashSet<Fornecedor> listarFornecedores();
+	public HashSet<Fornecedor> listarFornecedores() throws ClassNotFoundException;
 	
 }

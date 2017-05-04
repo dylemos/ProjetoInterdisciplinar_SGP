@@ -11,7 +11,7 @@ import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
 public interface IRepositorioConta {
 
 
-	public void cadastrarConta(Conta conta) throws SQLException, ContaJaCadastradaException;
+	public void cadastrarConta(Conta conta) throws SQLException, ContaJaCadastradaException, Exception;
 
 	public void atualizarConta(Conta conta) throws SQLException, ContaNaoEncontradaException;
 

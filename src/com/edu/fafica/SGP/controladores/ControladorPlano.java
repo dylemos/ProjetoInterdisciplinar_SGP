@@ -48,7 +48,7 @@ public class ControladorPlano {
 		
 	}
 
-	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException {
+	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, ClassNotFoundException {
 		
 /*List
 		if(this.listaPlanos.contains(plano)){
@@ -78,7 +78,7 @@ public class ControladorPlano {
 
 	}
 
-	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		
 /*List
 		try {
@@ -100,7 +100,7 @@ public class ControladorPlano {
 		this.repositorioPlano.removerPlano(plano);
 	}
 
-	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		
 /*List		
 		try {
@@ -123,7 +123,7 @@ public class ControladorPlano {
 		return null;
 	}
 
-	public HashSet<Plano> listarPlanos() {
+	public HashSet<Plano> listarPlanos() throws ClassNotFoundException {
 		this.repositorioPlano.listarPlanos();
 		return null;
 	}

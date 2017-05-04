@@ -1,12 +1,10 @@
 package com.edu.fafica.SGP.repositoriosJDBC;
 
-import java.sql.SQLException;
 import java.util.HashSet;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidadesDAO.ClienteDAO;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioCliente;
 
 public class RepositorioClienteJDBC implements IRepositorioCliente{
@@ -29,18 +27,18 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 	}
 
 	@Override
-	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public void removerCliente(String cpf) throws Exception {
 		this.clienteDAO.removerClienteNoBancoDeDados(cpf);
 	}
 
 	@Override
-	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public Cliente procurarCliente(String cpf) throws Exception {
 		this.clienteDAO.procurarClienteNoBancoDeDados(cpf);
 		return null;
 	}
 
 	@Override
-	public HashSet<Cliente> listarClientes() {
+	public HashSet<Cliente> listarClientes() throws Exception {
 		this.clienteDAO.listarClientesNoBancoDeDados();
 		return null;
 	}

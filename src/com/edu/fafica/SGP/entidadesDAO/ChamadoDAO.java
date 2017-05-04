@@ -22,7 +22,7 @@ public class ChamadoDAO {
 	
 	public void cadastrarChamadoNoBancoDeDados(Chamado chamado) throws ClassNotFoundException, ChamadoJaCadastradoException, ChamadoIdInvalidoException, Exception{
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -67,7 +67,7 @@ public class ChamadoDAO {
 
 	public void atualizarChamadoNoBancoDeDados(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			

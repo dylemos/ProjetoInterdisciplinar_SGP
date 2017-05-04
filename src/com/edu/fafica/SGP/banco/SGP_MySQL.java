@@ -35,7 +35,7 @@ public class SGP_MySQL {
 	}
 	
 	
-	public static Connection conectarBD(){
+	public Connection conectarBD(){
 		
 		String URL = "jdbc:mysql://localhost:3306/projetointerdisciplinar_sgp";
 		String USUARIO = "root";

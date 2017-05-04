@@ -24,7 +24,7 @@ public class ClienteDAO {
 	
 	public Cliente cadastrarClienteNoBancoDeDados(Cliente cliente) throws ClassNotFoundException, ClienteJaCadastradoException, ClienteCpfInvalidoException, Exception{
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -49,7 +49,7 @@ public class ClienteDAO {
 
 	public void atualizarClienteNoBancoDeDados(Cliente cliente) throws Exception, ClienteJaCadastradoException, ClienteCpfInvalidoException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -96,32 +96,25 @@ public class ClienteDAO {
 	}
 
 
-	public void removerClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public void removerClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
+	
+			// Criando a String SQL
+			String sql = "delete from cliente where CPF = ?";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			preStatement.setString(1, cpf);
+
+			// Executando o select
+			preStatement.executeUpdate();
 			
-			if(listarClientesNoBancoDeDados().contains(cpf)){
-				
-				// Criando a String SQL
-				String sql = "delete from cliente where CPF = ?";
-
-				// Criar o PreparedStatement, objeto para executar a query
-				PreparedStatement preStatement = conn.prepareStatement(sql);
-
-				preStatement.setString(1, cpf);
-
-				// Executando o select
-				preStatement.executeUpdate();
-				
-				System.out.println("Cliente Removido do Banco de Dados com Sucesso!");
-				
-				
-			}else{
-				System.out.println("Cliente Não existe para ser Removido do Banco de Dados!");
-			}
-			
+			System.out.println("Cliente Removido do Banco de Dados com Sucesso!");
+	
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
@@ -129,9 +122,9 @@ public class ClienteDAO {
 	}
 
 
-	public Cliente procurarClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public Cliente procurarClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Cliente cliente = new Cliente();
 		
 		try {
@@ -189,9 +182,9 @@ public class ClienteDAO {
 	}
 
 
-	public HashSet<Cliente> listarClientesNoBancoDeDados() {
+	public HashSet<Cliente> listarClientesNoBancoDeDados() throws Exception {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Cliente cliente = new Cliente();
 		HashSet<Cliente> listCliente = new HashSet<Cliente>();
 		

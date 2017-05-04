@@ -23,23 +23,23 @@ public class RepositorioFornecedorJDBC implements IRepositorioFornecedor{
 	}
 
 	@Override
-	public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException {
+	public void atualizarFornecedor(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException, ClassNotFoundException {
 		this.fDAO.atualizarFornecedorNoBancoDeDados(fornecedor);
 	}
 
 	@Override
-	public void removerFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public void removerFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException, ClassNotFoundException {
 		this.fDAO.removerFornecedorNoBancoDeDados(cnpj);
 	}
 
 	@Override
-	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public Fornecedor procurarFornecedor(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException, ClassNotFoundException {
 		this.fDAO.procurarFornecedorNoBancoDeDados(cnpj);
 		return null;
 	}
 
 	@Override
-	public HashSet<Fornecedor> listarFornecedores() {
+	public HashSet<Fornecedor> listarFornecedores() throws ClassNotFoundException {
 		this.fDAO.listarFornecedoresNoBancoDeDados();
 		return null;
 	}

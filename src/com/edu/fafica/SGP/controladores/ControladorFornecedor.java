@@ -146,7 +146,7 @@ public class ControladorFornecedor {
 
 	}
 
-	public HashSet<Fornecedor> listarFornecedores() {
+	public HashSet<Fornecedor> listarFornecedores() throws ClassNotFoundException {
 		this.repositorioFornecedor.listarFornecedores();
 		return null;
 	}

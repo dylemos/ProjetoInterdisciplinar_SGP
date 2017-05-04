@@ -2,7 +2,6 @@ package com.edu.fafica.SGP.singletonFachada;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.controladores.ControladorChamado;
 import com.edu.fafica.SGP.controladores.ControladorCliente;
 import com.edu.fafica.SGP.controladores.ControladorConta;
@@ -20,7 +19,6 @@ import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
@@ -91,15 +89,15 @@ public class FachadaSGP {
 		
 	}
 
-	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public void removerCliente(String cpf) throws Exception {
 		this.controladorCliente.removerCliente(cpf);
 	}
 
-	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public Cliente procurarCliente(String cpf) throws Exception {
 		return this.controladorCliente.procurarCliente(cpf);
 	}
 	
-	public HashSet<Cliente> listarClientes(){
+	public HashSet<Cliente> listarClientes() throws Exception{
 		return this.controladorCliente.listarClientes();
 	}
 	
@@ -125,7 +123,7 @@ public class FachadaSGP {
 		return this.controladorUserAdimin.procurarUserAdmin(cpf);
 	}
 	
-	public HashSet<UserAdmin> listarUserAdmins(){
+	public HashSet<UserAdmin> listarUserAdmins() throws ClassNotFoundException{
 		return this.controladorUserAdimin.listarUserAdmins();
 	}
 
@@ -152,7 +150,7 @@ public class FachadaSGP {
 		return this.controladorFornecedor.procurarFornecedor(cnpj);
 	}
 	
-	public HashSet<Fornecedor> listarFornecedores(){
+	public HashSet<Fornecedor> listarFornecedores() throws ClassNotFoundException{
 		return this.controladorFornecedor.listarFornecedores();
 	}
 
@@ -162,19 +160,19 @@ public class FachadaSGP {
 		this.controladorPlano.cadastrarPlano(plano);
 	}
 	
-	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException {
+	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, ClassNotFoundException {
 		this.controladorPlano.atualizarPlano(plano);
 	}
 	
-	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		this.controladorPlano.removerPlano(plano);
 	}
 	
-	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		return this.controladorPlano.procurarPlano(nomePlano);
 	}
 	
-	public HashSet<Plano> listarPlanos(){
+	public HashSet<Plano> listarPlanos() throws ClassNotFoundException{
 		return this.controladorPlano.listarPlanos();
 	}
 	

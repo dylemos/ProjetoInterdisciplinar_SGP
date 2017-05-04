@@ -20,7 +20,7 @@ public class FornecedorDAO  {
 	}
 
 	public void cadastrarFornecedorNoBancoDeDados(Fornecedor fornecedor) throws SQLException, FornecedorJaCadastradoException, Exception {
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -41,9 +41,9 @@ public class FornecedorDAO  {
 	
 	}
 
-	public void atualizarFornecedorNoBancoDeDados(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException {
+	public void atualizarFornecedorNoBancoDeDados(Fornecedor fornecedor) throws SQLException, FornecedorNaoEncontradoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -81,9 +81,9 @@ public class FornecedorDAO  {
 
 	}
 
-	public void removerFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public void removerFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -112,9 +112,9 @@ public class FornecedorDAO  {
 
 	}
 
-	public Fornecedor procurarFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException {
+	public Fornecedor procurarFornecedorNoBancoDeDados(String cnpj) throws SQLException, FornecedorNaoEncontradoException, FornecedorCNPJInvalidoException, ClassNotFoundException {
 
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Fornecedor fornecedor = new Fornecedor();
 		
 		try {
@@ -164,9 +164,9 @@ public class FornecedorDAO  {
 		return fornecedor;
 	}
 
-	public HashSet<Fornecedor> listarFornecedoresNoBancoDeDados() {
+	public HashSet<Fornecedor> listarFornecedoresNoBancoDeDados() throws ClassNotFoundException {
 
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Fornecedor fornecedor = new Fornecedor();
 		HashSet<Fornecedor> listFornecedor = new HashSet<Fornecedor>();
 		

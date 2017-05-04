@@ -5,7 +5,6 @@ import java.util.HashSet;
 import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.entidadesDAO.ContaDAO;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
-import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioConta;
 
@@ -18,7 +17,7 @@ public class RepositorioContaJDBC implements IRepositorioConta{
 	}
 	
 	@Override
-	public void cadastrarConta(Conta conta) throws SQLException, ContaJaCadastradaException {
+	public void cadastrarConta(Conta conta) throws Exception {
 		this.cDAO.cadastrarContaNoBancoDeDados(conta);
 	}
 

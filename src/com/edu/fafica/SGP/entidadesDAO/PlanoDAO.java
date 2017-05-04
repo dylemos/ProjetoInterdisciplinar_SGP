@@ -18,8 +18,8 @@ public class PlanoDAO {
 		SGP_MySQL.getInstance();
 	}
 	
-	public void cadastrarPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoJaCadastradoException {
-		Connection conn = SGP_MySQL.conectarBD();
+	public void cadastrarPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoJaCadastradoException, ClassNotFoundException {
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -39,9 +39,9 @@ public class PlanoDAO {
 		
 	}
 
-	public void atualizarPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException {
+	public void atualizarPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -72,9 +72,9 @@ public class PlanoDAO {
 		
 	}
 
-	public void removerPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlanoNoBancoDeDados(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
@@ -103,9 +103,9 @@ public class PlanoDAO {
 		
 	}
 
-	public Plano procurarPlanoNoBancoDeDados(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlanoNoBancoDeDados(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Plano plano = new Plano();
 		
 		try {
@@ -147,9 +147,9 @@ public class PlanoDAO {
 		return plano;
 	}
 
-	public HashSet<Plano> listarPlanosNoBancoDeDados() {
+	public HashSet<Plano> listarPlanosNoBancoDeDados() throws ClassNotFoundException {
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Plano plano = new Plano();
 		HashSet<Plano> listPlano = new HashSet<Plano>();
 		

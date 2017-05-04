@@ -19,28 +19,28 @@ public class RepositorioPlanoJDBC implements IRepositorioPlano{
 	}
 
 	@Override
-	public void cadastrarPlano(Plano plano) throws SQLException, PlanoJaCadastradoException {
+	public void cadastrarPlano(Plano plano) throws SQLException, PlanoJaCadastradoException, ClassNotFoundException {
 		this.pDAO.cadastrarPlanoNoBancoDeDados(plano);
 	}
 
 	@Override
-	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException {
+	public void atualizarPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, ClassNotFoundException {
 		this.pDAO.atualizarPlanoNoBancoDeDados(plano);
 	}
 
 	@Override
-	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public void removerPlano(Plano plano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		this.pDAO.removerPlanoNoBancoDeDados(plano);
 	}
 
 	@Override
-	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException {
+	public Plano procurarPlano(String nomePlano) throws SQLException, PlanoNaoEncontradoException, PlanoIdInvalidoException, ClassNotFoundException {
 		this.pDAO.procurarPlanoNoBancoDeDados(nomePlano);
 		return null;
 	}
 
 	@Override
-	public HashSet<Plano> listarPlanos() {
+	public HashSet<Plano> listarPlanos() throws ClassNotFoundException {
 		this.pDAO.listarPlanosNoBancoDeDados();
 		return null;
 	}

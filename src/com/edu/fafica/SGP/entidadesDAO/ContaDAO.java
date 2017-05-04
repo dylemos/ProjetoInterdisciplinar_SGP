@@ -17,10 +17,10 @@ public class ContaDAO {
 		SGP_MySQL.getInstance();
 	}
 
-	public void cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException {
+	public void cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException, Exception {
 		
 		
-		Connection conn = SGP_MySQL.conectarBD();
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			

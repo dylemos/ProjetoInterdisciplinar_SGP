@@ -23,23 +23,23 @@ public class RepositorioUserAdminJDBC implements IRepositorioUserAdmin{
 	}
 
 	@Override
-	public void atualizarUserAdmin(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException {
+	public void atualizarUserAdmin(UserAdmin userAdmin) throws SQLException, UserAdminNaoEncontradoException, ClassNotFoundException {
 		this.uDAO.atualizarUserAdminNoBancoDeDados(userAdmin);
 	}
 
 	@Override
-	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public void removerUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException, ClassNotFoundException {
 		this.uDAO.removerUserAdminNoBancoDeDados(cpf);
 	}
 
 	@Override
-	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException {
+	public UserAdmin procurarUserAdmin(String cpf) throws SQLException, UserAdminNaoEncontradoException, UserAdminCpfInvalidoException, ClassNotFoundException {
 		this.uDAO.procurarUserAdminNoBancoDeDados(cpf);
 		return null;
 	}
 
 	@Override
-	public HashSet<UserAdmin> listarUserAdmins() {
+	public HashSet<UserAdmin> listarUserAdmins() throws ClassNotFoundException {
 		this.uDAO.listarUserAdminsNoBancoDeDados();
 		return null;
 	}

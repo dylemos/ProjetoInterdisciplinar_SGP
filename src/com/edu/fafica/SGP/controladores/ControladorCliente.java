@@ -2,11 +2,9 @@ package com.edu.fafica.SGP.controladores;
 
 import java.sql.SQLException;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
-import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioCliente;
 import com.edu.fafica.SGP.repositoriosJDBC.RepositorioClienteJDBC;
 import com.edu.fafica.SGP.util.ValidarCPF;
@@ -86,7 +84,7 @@ public class ControladorCliente {
 	
 	
 
-	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public void removerCliente(String cpf) throws Exception {
 
 /*List			
 		try {
@@ -119,7 +117,7 @@ public class ControladorCliente {
 	
 	
 	
-	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException {
+	public Cliente procurarCliente(String cpf) throws Exception {
 
 /*List			
 		try {
@@ -150,7 +148,7 @@ public class ControladorCliente {
 	}
 	
 	
-	public HashSet<Cliente> listarClientes(){
+	public HashSet<Cliente> listarClientes() throws Exception{
 		this.repositorioCliente.listarClientes();
 		return null;
 	}

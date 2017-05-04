@@ -15,10 +15,10 @@ public interface IRepositorioCliente {
 
 	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException, Exception, ClienteCpfInvalidoException;
 
-	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException;
+	public void removerCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception;
 
-	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException;
+	public Cliente procurarCliente(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception;
 
-	public HashSet<Cliente> listarClientes();
+	public HashSet<Cliente> listarClientes() throws Exception;
 
 }
