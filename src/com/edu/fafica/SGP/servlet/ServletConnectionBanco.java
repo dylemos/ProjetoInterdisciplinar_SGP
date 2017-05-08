@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -34,6 +35,10 @@ public class ServletConnectionBanco extends HttpServlet {
 		try {
 			SGP_MySQL.getInstance().conectarBD();
 
+			PrintWriter out = response.getWriter();
+			response.setContentType("text/html");
+			response.setCharacterEncoding("utf-8");
+			
 			String nome = request.getParameter("nome");
 			String cpf = request.getParameter("cpf");
 			String rg = request.getParameter("rg");

@@ -58,7 +58,7 @@
 					<input type="button" value="Cadastrar" data-toggle="modal" data-target="#cadastroCliente" /> 
 					<input type="button" value="Alterar" /> 
 					<input type="button" value="Pesquisar" /> 
-					<input type="submit" value="Deletar" /> <br> <br>
+					<input type="button" value="Deletar" /> <br> <br>
 
 					<table>
 
