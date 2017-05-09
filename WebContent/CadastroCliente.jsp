@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBanco" %>
+	
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -53,7 +56,7 @@
 
  -->
 
-				<form method="post" action="ServletConnectionBanco" >
+				<form action="ServletConnectionBanco" method="get" >
 					
 					<input type="button" value="Cadastrar" data-toggle="modal" data-target="#cadastroCliente" /> 
 					<input type="button" value="Alterar" /> 
