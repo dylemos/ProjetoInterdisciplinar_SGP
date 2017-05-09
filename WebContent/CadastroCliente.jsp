@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-
+<%@ page import="java.sql.DriverManager" %>
+<%@ page import="java.sql.Connection" %>
+<%@ page import="java.sql.ResultSet" %>
+<%@ page import="java.sql.Statement" %>
 <%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBanco" %>
 	
 <!DOCTYPE HTML>
@@ -29,99 +32,15 @@
 					<h2>Cadastro de Cliente</h2>
 				</header>
 
-<!-- 
 
-<html
- <head>
-  <script language="JavaScript">
-   function Visualizar()
-   {
-     document.nome_formulario.action="pagina1.html";
-     document.forms.nome_formulario.submit();
-   }
-  </script>
-  <script language="JavaScript">
-   function Cadastrar()
-   {
-     document.nome_formulario.action="pagina2.html";
-     document.forms.nome_formulario.submit();
-   }
-  </script>
- </head>
- <form method=post name=nome_formulario>
-    <input type=button onclick=Cadastrar() value=Cadastrar></input>
-    <input type=button onclick=Visualizar() value=Visualizar></input>
- </form>
-</html>
-
- -->
-
-				<form action="ServletConnectionBanco" method="get" >
+				<form action="ServletConnectionBanco" method="post" >
 					
 					<input type="button" value="Cadastrar" data-toggle="modal" data-target="#cadastroCliente" /> 
 					<input type="button" value="Alterar" /> 
 					<input type="button" value="Pesquisar" /> 
 					<input type="button" value="Deletar" /> <br> <br>
 
-					<table>
 
-						<tr>
-							<th>Código</th>
-							<th>Nome</th>
-							<th>CPF</th>
-						</tr>
-						<tr>
-							<td>001</td>
-							<td>Maria Anders</td>
-							<td>595.551.373-66</td>
-						</tr>
-						<tr>
-							<td>002</td>
-							<td>Francisco Chang</td>
-							<td>840.294.254-70</td>
-						</tr>
-						<tr>
-							<td>003</td>
-							<td>Roland Mendel</td>
-							<td>311.241.638-40</td>
-						</tr>
-						<tr>
-							<td>004</td>
-							<td>Helen Bennett</td>
-							<td>568.771.652-17</td>
-						</tr>
-						<tr>
-							<td>005</td>
-							<td>Yoshi Tannamuri</td>
-							<td>753.606.171-44</td>
-						</tr>
-						<tr>
-							<td>006</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-						</tr>
-						<tr>
-							<td>007</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-						</tr>
-						<tr>
-							<td>008</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-						</tr>
-						<tr>
-							<td>009</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-						</tr>
-						<tr>
-							<td>010</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-						</tr>
-
-					</table>
 
 					<div class="container">
 
@@ -255,7 +174,65 @@
 	
 	
 					</form>            <!-- FIM DO FORMULÁRIO -->
-	
+						<table>
+
+						<tr>
+							<th>Código</th>
+							<th>Nome</th>
+							<th>CPF</th>
+						</tr>
+						<tr>
+							<td>001</td>
+							<td>Maria Anders</td>
+							<td>595.551.373-66</td>
+						</tr>
+						<tr>
+							<td>002</td>
+							<td>Francisco Chang</td>
+							<td>840.294.254-70</td>
+						</tr>
+						<tr>
+							<td>003</td>
+							<td>Roland Mendel</td>
+							<td>311.241.638-40</td>
+						</tr>
+						<tr>
+							<td>004</td>
+							<td>Helen Bennett</td>
+							<td>568.771.652-17</td>
+						</tr>
+						<tr>
+							<td>005</td>
+							<td>Yoshi Tannamuri</td>
+							<td>753.606.171-44</td>
+						</tr>
+						<tr>
+							<td>006</td>
+							<td>Giovanni Rovelli</td>
+							<td>741.885.834-52</td>
+						</tr>
+						<tr>
+							<td>007</td>
+							<td>Giovanni Rovelli</td>
+							<td>741.885.834-52</td>
+						</tr>
+						<tr>
+							<td>008</td>
+							<td>Giovanni Rovelli</td>
+							<td>741.885.834-52</td>
+						</tr>
+						<tr>
+							<td>009</td>
+							<td>Giovanni Rovelli</td>
+							<td>741.885.834-52</td>
+						</tr>
+						<tr>
+							<td>010</td>
+							<td>Giovanni Rovelli</td>
+							<td>741.885.834-52</td>
+						</tr>
+
+					</table>
 				</div>
 			</section>
 		</div>
