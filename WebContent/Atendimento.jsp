@@ -23,89 +23,40 @@
 							<header>
 								<h2>Central de Atendimento</h2>
 							</header>
-
-							<form method="post" action="#">
-								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#suporte"/>
-								<input type="button" value="Alterar"/>
-								<input type="button" value="Pesquisar"/>
-								<input type="submit" value="Deletar"/>
-								<br><br>
+					<input type="search" value="Pesquisar Atendimento" /><br><br>
 <table>
   <tr>
     <th>Cliente</th>
     <th>Tipo Suporte</th>
     <th>Status</th>
+	<th>Editar</th>
+	<th>Deletar</th>
   </tr>
   <tr>
     <td>Maria da Silva</td>
     <td>Transferência</td>
     <td>Em Atendimento</td>
+	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
   <tr>
     <td>José João</td>
     <td>Instalação</td>
     <td>Aberto</td>
+	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
   <tr>
     <td>Italo Júnior</td>
     <td>Cancelamento</td>
     <td>Fechado</td>
+	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
 </table>
-
-
-<div class="container">
-							
-  <!-- Modal -->
-  <div class="modal fade" id="suporte" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Abertura de Chamados</h4>
-        </div>
-        <div class="modal-body">
-								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="number" name="codigo" placeholder="Código" /></div>
-									<div class="6u$ 12u$(mobile)">
-											<select>
-											<option>Suporte</option>
-											<option>Instalação</option>
-											<option>Cancelamento</option>
-											<option>transferência</option>
-										</select>
-									</div>
-									<div class="6u 12u$(mobile)">
-											<select>
-											<option>Aberto</option>
-											<option>Em Atendimento</option>
-											<option>Cancelado</option>
-											<option>Fechado</option>
-										</select>
-									</div>
-									<div class="6u$ 12u$(mobile)"><input type="number" name="codcliente" placeholder="Código do Cliente" /></div>
-									<div class="6u 12u$(mobile)"><input type="text" name="cliente" placeholder="Cliente" /></div>
-									<div class="12u$">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									
-								</div>								
-          
-        </div>
-        <div class="modal-footer">
-          <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
+					<a href="CadastroAtendimento.jsp"><input type="button" value="Novo Cadastro"/></a>
 </div>
-							</form>
-
-						</div>
-						
-						
-					</section>
+</section>
 </div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

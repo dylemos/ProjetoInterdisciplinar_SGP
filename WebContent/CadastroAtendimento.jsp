@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-		<title>SGP - Cadastro de Planos</title>
+		<title>SGP - Atendimento</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -16,30 +16,45 @@
 <%@ include file="menu.html" %>
 <!-- Main -->
 <div id="main">
-				<!-- planos de acesso -->
-					<section id="planos" class="two">
+				<!-- Central de Atendimento -->
+					<section id="atendimento" class="four">
 						<div class="container">
 
 							<header>
-								<h2>Planos de Acesso</h2>
+								<h2>Central de Atendimento</h2>
 							</header>
 
 							<form method="post" action="#">
 								<div class="row">
 									<div class="6u 12u$(mobile)"><input type="number" name="codigo" placeholder="Código" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="nome" placeholder="Nome" /></div>
-									<div class="6u 12u$(mobile)"><input type="number" name="upload" placeholder="Upload" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="number" name="download" placeholder="Download" /></div>
-									<div class="6u 12u$(mobile)"><input type="number" name="valor" placeholder="Valor" /></div>
+									<div class="6u$ 12u$(mobile)">
+											<select>
+											<option>Suporte</option>
+											<option>Instalação</option>
+											<option>Cancelamento</option>
+											<option>transferência</option>
+										</select>
+									</div>
+									<div class="6u 12u$(mobile)">
+											<select>
+											<option>Aberto</option>
+											<option>Em Atendimento</option>
+											<option>Cancelado</option>
+											<option>Fechado</option>
+										</select>
+									</div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="cpfcliente" placeholder="CPF do Cliente" /></div>
+									<div class="6u 12u$(mobile)"><input type="text" name="cliente" placeholder="Nome do Cliente" /></div>
+									<div class="12u$">
+										<textarea name="message" placeholder="Mensagem"></textarea>
+									</div>
 								</div>
-								
-								<div class="modal-footer">
-									<a href="Planos.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
-									<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-								</div>	
+										<div class="modal-footer">
+											<a href="Atendimento.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
+											<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+										</div>																
 							</form>
-								
-        </div>
+						</div>
 					</section>
 </div>
 		<!-- Scripts -->

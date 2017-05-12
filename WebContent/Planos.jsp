@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-		<title>SGP - Financeiro</title>
+		<title>SGP - Cadastro de Planos</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -16,47 +16,47 @@
 <%@ include file="menu.html" %>
 <!-- Main -->
 <div id="main">
-				<!-- Financeiro -->
-					<section id="financeiro" class="three">
+				<!-- planos de acesso -->
+					<section id="planos" class="two">
 						<div class="container">
 
 							<header>
-								<h2>Financeiro</h2>
+								<h2>Planos de Acesso</h2>
 							</header>
-					<input type="search" value="Pesquisar Financeiro" /><br><br>
+					<input type="search" value="Pesquisar Planos" /><br><br>
 <table>
   <tr>
-    <th>Cliente</th>
-    <th>Valor</th>
-    <th>Vencimento</th>
-	<th>Editar</th>
-	<th>Deletar</th>
+    <th>Plano</th>
+    <th>Upload</th>
+    <th>Download</th>
+    <th>Editar</th>
+    <th>Deletar</th>
   </tr>
   <tr>
-    <td>Maria da Silva</td>
-    <td>50,00</td>
-    <td>20/04/2017</td>
-	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>José João</td>
-    <td>70,00</td>
-    <td>24/05/2017</td>
+    <td>Livre 5MB</td>
+    <td>512</td>
+    <td>5120</td>
     <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
 	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
   <tr>
-    <td>Italo Júnior</td>
-    <td>80,00</td>
-    <td>03/06/2017</td>
+    <td>Livre 7MB</td>
+    <td>700</td>
+    <td>7168</td>
+    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
+  </tr>
+  <tr>
+    <td>Livre 10MB</td>
+    <td>1024</td>
+    <td>10240</td>
     <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
 	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
 </table>
-					<a href="CadastroFinanceiro.jsp"><input type="button" value="Novo Cadastro"/></a>
-</div>
-</section>
+
+					<a href="CadastroPlanos.jsp"><input type="button" value="Novo Cadastro"/></a>
+					</section>
 </div>
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>

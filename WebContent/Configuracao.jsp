@@ -23,38 +23,24 @@
 							<header>
 								<h2>Configurações do Sistema</h2>
 							</header>
-
-							<form method="post" action="#">
-								<input type="button" value="Cadastrar" data-toggle="modal" data-target="#config"/>
-								<input type="button" value="Alterar"/>
-								<input type="button" value="Pesquisar"/>
-								<input type="submit" value="Deletar"/>
-								<br><br>
 <table>
   <tr>
     <th>IP do Servidor</th>
     <th>Login</th>
     <th>Senha</th>
+	<th>Editar</th>
+	<th>Deletar</th>
   </tr>
   <tr>
     <td>172.16.70.1</td>
     <td>admin</td>
     <td>************</td>
+	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
   </tr>
 
 </table>
-
-<div class="container">
-							
-  <!-- Modal -->
-  <div class="modal fade" id="config" role="dialog">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-			<h4 class="modal-title">Configurações do Sistema</h4>
-        </div>
-        <div class="modal-body">
+							<form method="post" action="#">
 								<div class="row">
 									<div class="6u 12u$(mobile)"><input type="number" name="ip" placeholder="ip" /></div>
 
@@ -62,17 +48,11 @@
 									<div class="6u 12u$(mobile)"><input type="text" name="senha" placeholder="Senha" /></div>					
 								</div>								
           
-        </div>
-        <div class="modal-footer">
-          <button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-          <button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+        						<div class="modal-footer">
+          							<button type="reset" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+          							<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+        						</div>
 							</form>
-
 						</div>
 					</section>
 </div>

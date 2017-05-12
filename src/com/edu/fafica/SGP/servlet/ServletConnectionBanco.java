@@ -25,7 +25,7 @@ public class ServletConnectionBanco extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		try {
-			SGP_MySQL.getInstance().conectarBD();
+			doPost(request, response);
 
 		} catch (Exception e) {
 			e.printStackTrace();
