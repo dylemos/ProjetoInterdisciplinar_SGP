@@ -21,7 +21,7 @@ public class Conta {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String dataPago, int qtdParcelas) {
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, java.sql.Date dataAbertura, java.sql.Date dataVencimento, java.sql.Date dataPago, int qtdParcelas) {
 		setCpfCliente(cpfCliente);
 		setTipoConta(tipoConta);
 		setStatusConta(statusConta);
@@ -33,7 +33,6 @@ public class Conta {
 		setDataPago(dataPago);
 		setQtdParcelas(qtdParcelas);
 	}
-	
 	
 	public String toString() {
 		
@@ -103,26 +102,6 @@ public class Conta {
 		return dataAbertura;
 	}
 
-	public void setDataAbertura(Date dataAbertura) {
-		this.dataAbertura = dataAbertura;
-	}
-	
-	public Date getDataVencimento() {
-		return dataVencimento;
-	}
-
-	public void setDataVencimento(Date dataVencimento) {
-		this.dataVencimento = dataVencimento;
-	}
-	
-	public Date getDataPago() {
-		return dataPago;
-	}
-
-	public void setDataPago(Date dataPago) {
-		this.dataPago = dataPago;
-	}
-	
 	public void setdataAbertura(String dataAbertura) {
 		
 		try {
@@ -137,7 +116,15 @@ public class Conta {
 		}
 	}
 	
-	public void setdataVencimento(String dataVencimento) {
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+	
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+
+public void setdataVencimento(String dataVencimento) {
 		
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -150,8 +137,16 @@ public class Conta {
 			System.out.println("Erro: "+e.getMessage());
 		}
 	}
+
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
 	
-	public void setdataPago(String dataPago) {
+	public Date getDataPago() {
+		return dataPago;
+	}
+	
+public void setdataPago(String dataPago) {
 		
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -165,6 +160,10 @@ public class Conta {
 		}
 	}
 
+	public void setDataPago(Date dataPago) {
+		this.dataPago = dataPago;
+	}
+	
 	public int getQtdParcelas() {
 		return qtdParcelas;
 	}
