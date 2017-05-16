@@ -1,27 +1,36 @@
 package com.edu.fafica.SGP.entidades;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class Conta {
 	
 	private int id;
-	private int idCliente;				//referência a Cliente
+	private String cpfCliente;				//referência a Cliente
 	private String tipoConta;			//referência a TipoConta
 	private String statusConta;			//referência a StatusConta
 	private Double valor;				 
 	private Double desconto;
-	private Double acrescimo;
+	private Double total;
+	private Date dataAbertura;
+	private Date dataVencimento;
+	private Date dataPago;
 	private int qtdParcelas;
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Conta(String tipoConta, String statusConta, Double valor, Double desconto, Double acrescimo, int qtdParcelas) {
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String dataPago, int qtdParcelas) {
+		setCpfCliente(cpfCliente);
 		setTipoConta(tipoConta);
 		setStatusConta(statusConta);
 		setValor(valor);
 		setDesconto(desconto);
-		setAcrescimo(acrescimo);
+		setTotal(total);
+		setDataAbertura(dataAbertura);
+		setDataVencimento(dataVencimento);
+		setDataPago(dataPago);
 		setQtdParcelas(qtdParcelas);
 	}
 	
@@ -42,12 +51,12 @@ public class Conta {
 		this.id = id;
 	}
 
-	public int getIdCliente() {
-		return idCliente;
+	public String getCpfCliente() {
+		return cpfCliente;
 	}
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
 	}
 
 	public String getTipoConta() {
@@ -82,12 +91,78 @@ public class Conta {
 		this.desconto = desconto;
 	}
 
-	public Double getAcrescimo() {
-		return acrescimo;
+	public Double getTotal() {
+		return total;
 	}
 
-	public void setAcrescimo(Double acrescimo) {
-		this.acrescimo = acrescimo;
+	public void setTotal(Double total) {
+		this.total = total;
+	}
+	
+	public Date getDataAbertura() {
+		return dataAbertura;
+	}
+
+	public void setDataAbertura(Date dataAbertura) {
+		this.dataAbertura = dataAbertura;
+	}
+	
+	public Date getDataVencimento() {
+		return dataVencimento;
+	}
+
+	public void setDataVencimento(Date dataVencimento) {
+		this.dataVencimento = dataVencimento;
+	}
+	
+	public Date getDataPago() {
+		return dataPago;
+	}
+
+	public void setDataPago(Date dataPago) {
+		this.dataPago = dataPago;
+	}
+	
+	public void setdataAbertura(String dataAbertura) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataAbertura);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataAbertura = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+	}
+	
+	public void setdataVencimento(String dataVencimento) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataVencimento);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataVencimento = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+	}
+	
+	public void setdataPago(String dataPago) {
+		
+		try {
+			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
+			
+			java.util.Date dateStr = formatter.parse(dataPago);
+			java.sql.Date dateDB = new java.sql.Date(dateStr.getTime());
+			this.dataPago = dateDB;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
 	}
 
 	public int getQtdParcelas() {

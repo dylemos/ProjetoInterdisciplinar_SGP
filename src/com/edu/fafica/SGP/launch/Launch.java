@@ -21,15 +21,15 @@ public class Launch {
 		
 				
 			
-		Cliente cl1 = new Cliente("Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
+		Cliente cl1 = new Cliente("Ativo","Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
 //			sgp.cadastrarCliente(cl1);
 		/*
 //					sgp.cadastrarCliente(cl1);		//DUPLICADO
 
-		Cliente cl2 = new Cliente("Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
+		Cliente cl2 = new Cliente("Ativo""Rafael", "RafaelLogin", "RafaelSH", "7.239.777","740.882.578-98", "81 30454601", "81 997345678", "Tim", "rafael_fafica@gmail.com", "Rua Preta", "786", "São Francisco","Caruaru","PE","55035-566","1987-05-14","2017-01-20","Acelera+",15);
 //		sgp.cadastrarCliente(cl2);
 						
-		Cliente cl3 = new Cliente("Mylena", "MylenaLogin", "MylenaSH", "4.986.745","108.550.874-98", "81 30452340", "81 994538973", "Claro", "mylena_fafica@gmail.com", "Guaratinguetá", "02A", "Centro","Caruaru","PE","55044-230","1977-05-14","2017-01-05","Plus++",30);
+		Cliente cl3 = new Cliente("Ativo""Mylena", "MylenaLogin", "MylenaSH", "4.986.745","108.550.874-98", "81 30452340", "81 994538973", "Claro", "mylena_fafica@gmail.com", "Guaratinguetá", "02A", "Centro","Caruaru","PE","55044-230","1977-05-14","2017-01-05","Plus++",30);
 	//	sgp.cadastrarCliente(cl3);
 		System.out.println("\n");
 */	
@@ -60,7 +60,7 @@ public class Launch {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 			
-		Fornecedor f1 = new Fornecedor("INFOTUDO", "26.975.874/0001-58", "Guaratinguetá", "101", "Centro","Caruaru","PE","55044-230", "fornecedor.vip@fornecedor.com", "81 37280099", "81 997785644", "TIM", "VIP_INFORMÁTICA");
+		Fornecedor f1 = new Fornecedor("INFORTUDO","INFOTUDO", "26.975.874/0001-58", "Guaratinguetá", "101", "Centro","Caruaru","PE","55044-230", "fornecedor.vip@fornecedor.com", "81 37280099", "81 997785644", "TIM", "VIP_INFORMÁTICA");
 //		sgp.cadastrarFornecedor(f1);
 	
 					
@@ -86,10 +86,10 @@ public class Launch {
 
 
 
-		UserAdmin u1 = new UserAdmin("DyegoLemos","847.523.884-05","admin","admin");
+		UserAdmin u1 = new UserAdmin("Ativo","DyegoLemos","847.523.884-05","admin","admin");
 //		sgp.cadastrarUserAdmin(u1);
 
-//		UserAdmin u2 = new UserAdmin("RafaelJosevaldo","852.295.302-35","adminRafa","admin");
+//		UserAdmin u2 = new UserAdmin("Ativo","RafaelJosevaldo","852.295.302-35","adminRafa","admin");
 //		sgp.cadastrarUserAdmin(u2);
 		
 //		sgp.cadastrarUserAdmin(u1);      //DUPLICADO
@@ -135,7 +135,7 @@ public class Launch {
 
 
 	
-		Conta ct1 = new Conta("a Pagar","Em Aberto",39.9,0.0,0.0,10);
+		Conta ct1 = new Conta("071.414.714-13","a Pagar","Em Aberto",39.9,0.0,0.0,"","","",10);
 //		sgp.cadastrarConta(ct1);
 		/*	
 		sgp.cadastrarConta(ct1);      //DUPLICADO
@@ -159,7 +159,7 @@ public class Launch {
 		
 							
 		
-		Chamado ch1 = new Chamado(1,"Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
+		Chamado ch1 = new Chamado("071.414.714-13","Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 //				sgp.cadastrarChamado(ch1);
 				/*	
 					

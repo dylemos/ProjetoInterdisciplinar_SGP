@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-		<title>SGP - Cadastro de Planos</title>
+		<title>SGP - Cadastro de Administradores</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -16,30 +16,46 @@
 <%@ include file="menu.html" %>
 <!-- Main -->
 <div id="main">
-				<!-- planos de acesso -->
-					<section id="planos" class="two">
+				<!-- Administrador -->
+					<section id="administrador" class="two">
 						<div class="container">
 
 							<header>
-								<h2>Planos de Acesso</h2>
+								<h2>Cadastro de Administradores</h2>
 							</header>
+					<input type="search" value="Pesquisar Administradores" /><br><br>
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Status</th>
+    <th>Login</th>
+    <th>Editar</th>
+    <th>Deletar</th>
+  </tr>
+  <tr>
+    <td>Rafael Silva</td>
+    <td>Ativo</td>
+    <td>rafael</td>
+    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
+  </tr>
+  <tr>
+    <td>Dyego Lemos</td>
+    <td>Ativo</td>
+    <td>dyego</td>
+    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
+  </tr>
+  <tr>
+    <td>João Silva</td>
+    <td>Inativo</td>
+    <td>joao</td>
+    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+	<td><a href="#" class="icon fa fa-times"></a></td>
+  </tr>
+</table>
 
-							<form action="ServletConnectionBancoPlano" method="post">
-								<div class="row">
-									<div class="6u 12u$(mobile)"><input type="number" name="codigo" placeholder="Código" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="nomePlano" placeholder="Nome do Plano" /></div>
-									<div class="6u 12u$(mobile)"><input type="number" name="upload" placeholder="Upload" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="number" name="download" placeholder="Download" /></div>
-									<div class="6u 12u$(mobile)"><input type="number" name="valor" placeholder="Valor" /></div>
-								</div>
-								
-								<div class="modal-footer">
-									<a href="Planos.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
-									<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-								</div>	
-							</form>
-								
-        </div>
+					<a href="CadastroAdministrador.jsp"><input type="button" value="Novo Cadastro"/></a>
 					</section>
 </div>
 		<!-- Scripts -->

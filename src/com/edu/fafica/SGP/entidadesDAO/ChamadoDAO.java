@@ -28,7 +28,7 @@ public class ChamadoDAO {
 			
 			String query = "";
 			
-			query += "insert into chamado(ID_CLIENTE, TIPOCHAMADO, DESCPROBLEMA, STATUS, DT_ABERTURA, DT_FECHAMENTO)";
+			query += "insert into chamado(CPF_CLIENTE, TIPOCHAMADO, DESCPROBLEMA, STATUS, DT_ABERTURA, DT_FECHAMENTO)";
 			query += "values(?,?,?,?,?,?)";
 
 //			query += "";
@@ -47,7 +47,7 @@ public class ChamadoDAO {
 			
 //			preStatement.executeUpdate();
 			
-			preStatement.setInt(1, chamado.getIdCliente());
+			preStatement.setString(1, chamado.getCpfCliente());
 			preStatement.setString(2, chamado.getTipoChamado());
 			preStatement.setString(3, chamado.getDescProblema());
 			preStatement.setString(4, chamado.getStatusChamado());
@@ -72,14 +72,14 @@ public class ChamadoDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "update chamado set  ID_CLIENTE=?, TIPOCHAMADO=? , DESCPROBLEMA=?, STATUS=? DT_ABERTURA=? DT_FECHAMENTO=? where DESCPROBLEMA=?";
+			String sql = "update chamado set  CPF_CLIENTE=?, TIPOCHAMADO=? , DESCPROBLEMA=?, STATUS=? DT_ABERTURA=? DT_FECHAMENTO=? where DESCPROBLEMA=?";
 				
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
 			
 			preStatement = conn.prepareStatement(sql);
 			
-			preStatement.setInt(1, chamado.getIdCliente());
+			preStatement.setString(1, chamado.getCpfCliente());
 			preStatement.setString(2, chamado.getTipoChamado());
 			preStatement.setString(3, chamado.getDescProblema());
 			preStatement.setString(4, chamado.getStatusChamado());

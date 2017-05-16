@@ -6,6 +6,7 @@ import java.util.Date;
 public class Cliente {
 	
 	private int id;
+	private String status;
 	private String nomeCliente;
 	private String login;
 	private String senha;
@@ -31,7 +32,8 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String dataNascimento, String dataCadasatro,String tipoPlano,int vencimentoPlano) {
+	public Cliente(String status, String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String dataNascimento, String dataCadasatro,String tipoPlano,int vencimentoPlano) {
+		setStatus(status);
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -54,7 +56,8 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String dataNascimento, String dataCadasatro,int vencimentoPlano) {
+	public Cliente(String status, String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String dataNascimento, String dataCadasatro,int vencimentoPlano) {
+		setStatus(status);
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -62,6 +65,7 @@ public class Cliente {
 		setCpf(cpf);
 		setTelefone(telefone);
 		setCelular(celular);
+		setOperadora(operadora);
 		setEmail(email);
 		setRua(rua);
 		setNumero(numero);
@@ -76,7 +80,8 @@ public class Cliente {
 	
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, java.sql.Date dataNasc, java.sql.Date dataCadastro,String tipoPlano,int vencimentoPlano) {
+	public Cliente(String status, String nomeCliente,String login,String senha,String rg,String cpf,String telefone,String celular,String operadora,String email, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, java.sql.Date dataNasc, java.sql.Date dataCadastro,String tipoPlano,int vencimentoPlano) {
+		setStatus(status);
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -99,7 +104,8 @@ public class Cliente {
 	}
 	
 	
-	public Cliente(String nomeCliente,String login,String senha,String cpf,String celular,String operadora,String email,String cep,String tipoPlano) {
+	public Cliente(String status, String nomeCliente,String login,String senha,String cpf,String celular,String operadora,String email,String cep,String tipoPlano) {
+		setStatus(status);
 		setNomeCliente(nomeCliente);
 		setLogin(login);
 		setSenha(senha);
@@ -117,7 +123,7 @@ public class Cliente {
 
 	public String toStringCompleta() {
 		
-		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
+		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Status: "+getStatus()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				" | Senha: "+getSenha()+" | RG: "+getRg()+" |\n CPF: "+getCpf()+" | Telefone: "+getTelefone()+
 				" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+" | Email: "+getEmail()+
 				"|\n Endereco do Cliente: [ Rua "+getRua()+" - N° "+getNumero()+" - Bairro "+getBairro()+
@@ -129,7 +135,7 @@ public class Cliente {
 	
 	public String toStringBasica() {
 		
-		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
+		String clienteDetalhe = "\n{ Cliente | ID: "+getId()+" | Status: "+getStatus()+" | Nome do Cliente: "+getNomeCliente()+" | Plano: "+getTipoPlano()+" | Login: "+getLogin()+
 				"\n | Senha: "+getSenha()+" | CPF: "+getCpf()+" | Celular: "+getCelular()+" | Operadora: "+getOperadora()+
 				"\n | Email: "+getEmail()+"| Rua do Cliente: "+getRua()+" | }\n";
 		
@@ -145,6 +151,14 @@ public class Cliente {
 		this.id = id;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	public String getNomeCliente() {
 		return nomeCliente;
 	}

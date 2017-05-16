@@ -32,8 +32,8 @@ public class ClienteDAO {
 			
 			String query = "";
 			
-			query += "insert into cliente(ID_CLIENTE, nome, rg, cpf, dt_nascimento, dt_cadastro, email, telefone, celular, dt_vencimento, rua, numero, bairro, cidade, uf, cep, login, senha, tipoplano, operadora)";
-			query += "values('"+cliente.getId()+"','"+cliente.getNomeCliente()+"', '"+cliente.getRg()+"', '"+cliente.getCpf()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getDataCadasatro()+"', '"+cliente.getEmail()+"', '"+cliente.getTelefone()+"', '"+cliente.getCelular()+"', '"+cliente.getVencimentoPlano()+"', '"+cliente.getRua()+"', '"+cliente.getNumero()+"', '"+cliente.getBairro()+"', '"+cliente.getCidade()+"', '"+cliente.getUf()+"', '"+cliente.getCep()+"', '"+cliente.getLogin()+"', '"+cliente.getSenha()+"', '"+cliente.getTipoPlano()+"', '"+cliente.getOperadora()+"')";
+			query += "insert into cliente(ID_CLIENTE, status, nome, rg, cpf, dt_nascimento, dt_cadastro, email, telefone, celular, dt_vencimento, rua, numero, bairro, cidade, uf, cep, login, senha, tipoplano, operadora)";
+			query += "values('"+cliente.getId()+"','"+cliente.getStatus()+"','"+cliente.getNomeCliente()+"', '"+cliente.getRg()+"', '"+cliente.getCpf()+"', '"+cliente.getDataNascimento()+"', '"+cliente.getDataCadasatro()+"', '"+cliente.getEmail()+"', '"+cliente.getTelefone()+"', '"+cliente.getCelular()+"', '"+cliente.getVencimentoPlano()+"', '"+cliente.getRua()+"', '"+cliente.getNumero()+"', '"+cliente.getBairro()+"', '"+cliente.getCidade()+"', '"+cliente.getUf()+"', '"+cliente.getCep()+"', '"+cliente.getLogin()+"', '"+cliente.getSenha()+"', '"+cliente.getTipoPlano()+"', '"+cliente.getOperadora()+"')";
 			statement.execute(query);
 			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Cadastrado no Banco de Dados! \n");
 			
@@ -54,7 +54,7 @@ public class ClienteDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "update cliente set  nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where cpf = ?";
+			String sql = "update cliente set  status =?,nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where cpf = ?";
 		
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
@@ -62,27 +62,28 @@ public class ClienteDAO {
 			
 			preStatement = conn.prepareStatement(sql);
 
-			preStatement.setString(1, cliente.getNomeCliente());
-			preStatement.setString(2, cliente.getRg());
-			preStatement.setString(3, cliente.getCpf());
-			preStatement.setDate(4, (Date) cliente.getDataNascimento());
-			preStatement.setDate(5, (Date) cliente.getDataCadasatro());
-			preStatement.setString(6, cliente.getEmail());
-			preStatement.setString(7, cliente.getTelefone());
-			preStatement.setString(8,cliente.getCelular());
-			preStatement.setInt(9, cliente.getVencimentoPlano());
-			preStatement.setString(10,cliente.getRua());
-			preStatement.setString(11,cliente.getNumero());
-			preStatement.setString(12,cliente.getBairro());
-			preStatement.setString(13, cliente.getCidade());
-			preStatement.setString(14,cliente.getUf());
-			preStatement.setString(15,cliente.getCep());
-			preStatement.setString(16,cliente.getLogin());
-			preStatement.setString(17,cliente.getSenha());
-			preStatement.setString(18,cliente.getTipoPlano());
-			preStatement.setString(19,cliente.getOperadora());
+			preStatement.setString(1, cliente.getStatus());
+			preStatement.setString(2, cliente.getNomeCliente());
+			preStatement.setString(3, cliente.getRg());
+			preStatement.setString(4, cliente.getCpf());
+			preStatement.setDate(5, (Date) cliente.getDataNascimento());
+			preStatement.setDate(6, (Date) cliente.getDataCadasatro());
+			preStatement.setString(7, cliente.getEmail());
+			preStatement.setString(8, cliente.getTelefone());
+			preStatement.setString(9,cliente.getCelular());
+			preStatement.setInt(10, cliente.getVencimentoPlano());
+			preStatement.setString(11,cliente.getRua());
+			preStatement.setString(12,cliente.getNumero());
+			preStatement.setString(13,cliente.getBairro());
+			preStatement.setString(14, cliente.getCidade());
+			preStatement.setString(15,cliente.getUf());
+			preStatement.setString(16,cliente.getCep());
+			preStatement.setString(17,cliente.getLogin());
+			preStatement.setString(18,cliente.getSenha());
+			preStatement.setString(19,cliente.getTipoPlano());
+			preStatement.setString(20,cliente.getOperadora());
 			
-			preStatement.setString(20, cliente.getCpf());
+			preStatement.setString(21, cliente.getCpf());
 
 			// Executando atualização
 			preStatement.executeUpdate();
@@ -141,27 +142,28 @@ public class ClienteDAO {
 				while (resultSet.next()) {
 					
 					int codigo = resultSet.getInt(1);
-					String nome = resultSet.getString(2);
-					String rg  = resultSet.getString(3);
-					String cpfCliente = resultSet.getString(4);
-					java.sql.Date dataNasc = resultSet.getDate(5);
-					java.sql.Date dataCadastro = resultSet.getDate(6);
-					String email = resultSet.getString(7);	
-					String telefone = resultSet.getString(8);
-					String celular = resultSet.getString(9);
-					int vencimento = resultSet.getInt(10);
-					String rua = resultSet.getString(11);
-					String numero = resultSet.getString(12);
-					String bairro = resultSet.getString(13);
-					String cidade = resultSet.getString(14);
-					String uf = resultSet.getString(15);
-					String cep = resultSet.getString(16);
-					String login = resultSet.getString(17);
-					String senha = resultSet.getString(18);
-					String plano = resultSet.getString(19);
-					String operadora = resultSet.getString(20);
+					String status = resultSet.getString(2);
+					String nome = resultSet.getString(3);
+					String rg  = resultSet.getString(4);
+					String cpfCliente = resultSet.getString(5);
+					java.sql.Date dataNasc = resultSet.getDate(6);
+					java.sql.Date dataCadastro = resultSet.getDate(7);
+					String email = resultSet.getString(8);	
+					String telefone = resultSet.getString(9);
+					String celular = resultSet.getString(10);
+					int vencimento = resultSet.getInt(11);
+					String rua = resultSet.getString(12);
+					String numero = resultSet.getString(13);
+					String bairro = resultSet.getString(14);
+					String cidade = resultSet.getString(15);
+					String uf = resultSet.getString(16);
+					String cep = resultSet.getString(17);
+					String login = resultSet.getString(18);
+					String senha = resultSet.getString(19);
+					String plano = resultSet.getString(20);
+					String operadora = resultSet.getString(21);
 					
-					cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+					cliente = new Cliente(status, nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
 					cliente.setId(codigo);
 					
 					System.out.println("\nCliente localizado no Banco de Dados:");
@@ -202,27 +204,28 @@ public class ClienteDAO {
 			while (resultSet.next()) {
 				
 				int codigo = resultSet.getInt(1);
-				String nome = resultSet.getString(2);
-				String rg  = resultSet.getString(3);
-				String cpfCliente = resultSet.getString(4);
-				java.sql.Date dataNasc = resultSet.getDate(5);
-				java.sql.Date dataCadastro = resultSet.getDate(6);
-				String email = resultSet.getString(7);	
-				String telefone = resultSet.getString(8);
-				String celular = resultSet.getString(9);
-				int vencimento = resultSet.getInt(10);
-				String rua = resultSet.getString(11);
-				String numero = resultSet.getString(12);
-				String bairro = resultSet.getString(13);
-				String cidade = resultSet.getString(14);
-				String uf = resultSet.getString(15);
-				String cep = resultSet.getString(16);
-				String login = resultSet.getString(17);
-				String senha = resultSet.getString(18);
-				String plano = resultSet.getString(19);
-				String operadora = resultSet.getString(20);
+				String status = resultSet.getString(2);
+				String nome = resultSet.getString(3);
+				String rg  = resultSet.getString(4);
+				String cpfCliente = resultSet.getString(5);
+				java.sql.Date dataNasc = resultSet.getDate(6);
+				java.sql.Date dataCadastro = resultSet.getDate(7);
+				String email = resultSet.getString(8);	
+				String telefone = resultSet.getString(9);
+				String celular = resultSet.getString(10);
+				int vencimento = resultSet.getInt(11);
+				String rua = resultSet.getString(12);
+				String numero = resultSet.getString(13);
+				String bairro = resultSet.getString(14);
+				String cidade = resultSet.getString(15);
+				String uf = resultSet.getString(16);
+				String cep = resultSet.getString(17);
+				String login = resultSet.getString(18);
+				String senha = resultSet.getString(19);
+				String plano = resultSet.getString(20);
+				String operadora = resultSet.getString(21);
 				
-				cliente = new Cliente(nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+				cliente = new Cliente(status, nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
 				cliente.setId(codigo);
 				
 				listCliente.add(cliente);

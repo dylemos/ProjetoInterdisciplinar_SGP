@@ -9,16 +9,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
-import com.edu.fafica.SGP.entidades.Cliente;
-import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
-import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
+import com.edu.fafica.SGP.entidades.Fornecedor;
+import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
+import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
-@WebServlet("/ServletConnectionBanco")
-public class ServletConnectionBanco extends HttpServlet {
+@WebServlet("/ServletConnectionBancoFornecedor")
+public class ServletConnectionBancoFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ServletConnectionBanco() {
+    public ServletConnectionBancoFornecedor() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,30 +44,26 @@ public class ServletConnectionBanco extends HttpServlet {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		
-		String nome = request.getParameter("nome");
-		String cpf = request.getParameter("cpf");
-		String rg = request.getParameter("rg");
+		String razaoSocial = request.getParameter("razaoSocial");
+		String nomeFantasia = request.getParameter("nomeFantasia");
+		String cnpj = request.getParameter("cnpj");
+		String ie = request.getParameter("ie");
 		String email = request.getParameter("email");
-		String celular = request.getParameter("celular");
 		String telefone = request.getParameter("telefone");
+		String celular = request.getParameter("celular");
 		String cep = request.getParameter("cep");
 		String rua = request.getParameter("endereco");
 		String numero = request.getParameter("numero");
 		String bairro = request.getParameter("bairro");
 		String cidade = request.getParameter("cidade");
 		String uf = request.getParameter("uf");
-		String vencimento = request.getParameter("vencimento");
-		String login = request.getParameter("login");
-		String senha = request.getParameter("senha");
-		String date_nascimento = request.getParameter("date_nascimento");
-		String date_cadastro = request.getParameter("date_cadastro");
+		String operadora = request.getParameter("operadora");
 		
-		int vencimentoPlano = Integer.parseInt(vencimento);
 		
-		Cliente cliente = new Cliente(nome, login, senha, rg, cpf, telefone, celular, email, rua, numero, bairro, cidade, uf, cep, date_nascimento, date_cadastro, vencimentoPlano);
+		Fornecedor fornecedor = new Fornecedor(razaoSocial, cnpj, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 		try {
-			FachadaSGP.getUniqueInstance().cadastrarCliente(cliente);
-		} catch (ClassNotFoundException | SQLException | ClienteJaCadastradoException | ClienteCpfInvalidoException e) {
+			FachadaSGP.getUniqueInstance().cadastrarFornecedor(fornecedor);
+		} catch (ClassNotFoundException | SQLException | FornecedorJaCadastradoException | FornecedorCNPJInvalidoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

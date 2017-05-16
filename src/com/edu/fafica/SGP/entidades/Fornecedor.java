@@ -5,6 +5,7 @@ public class Fornecedor {
 	private int id;
 	private String razaoSocial;
 	private String cnpj;
+	private String ie;
 	private String rua;
 	private String numero;
 	private String bairro;
@@ -21,9 +22,10 @@ public class Fornecedor {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Fornecedor(String razaoSocial, String cnpj, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String email, String telefone, String celular, String operadora, String nomeFantasia) {
+	public Fornecedor(String razaoSocial, String cnpj, String ie, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String email, String telefone, String celular, String operadora, String nomeFantasia) {
 		setRazaoSocial(razaoSocial);
 		setCnpj(cnpj);
+		setIe(ie);
 		setRua(rua);
 		setNumero(numero);
 		setBairro(bairro);
@@ -66,6 +68,10 @@ public class Fornecedor {
 
 	public String getCnpj() {
 		return cnpj;
+	}
+	
+	public String getIe() {
+		return ie;
 	}
 	
 
@@ -119,6 +125,10 @@ public class Fornecedor {
 
 	public void setCnpj(String cnpj) {
 		this.cnpj = cnpj;
+	}
+	
+	public void setIe(String ie) {
+		this.ie = ie;
 	}
 
 	public String getEmail() {

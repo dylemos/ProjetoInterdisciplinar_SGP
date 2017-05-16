@@ -3,6 +3,7 @@ package com.edu.fafica.SGP.entidades;
 public class UserAdmin {
 	
 	private int id;
+	private String status;
 	private String nomeUserAdmin;
 	private String cpf;
 	private String login;
@@ -12,7 +13,8 @@ public class UserAdmin {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public UserAdmin(String nomeUserAdmin, String cpf, String login, String senha) {
+	public UserAdmin(String status, String nomeUserAdmin, String cpf, String login, String senha) {
+		setStatus(status);
 		setNomeUserAdmin(nomeUserAdmin);
 		setCpf(cpf);
 		setLogin(login);
@@ -37,6 +39,14 @@ public class UserAdmin {
 		this.id = id;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
 	public String getNomeUserAdmin() {
 		return nomeUserAdmin;
 	}

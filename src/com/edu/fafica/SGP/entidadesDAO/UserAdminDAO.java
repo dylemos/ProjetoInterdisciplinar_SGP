@@ -30,8 +30,8 @@ public class UserAdminDAO {
 			
 			String query = "";
 			
-			query += "insert into userAdmin(ID_ADM, NOME, CPF, LOGIN, SENHA)";
-			query += "values('"+userAdmin.getId()+"', '"+userAdmin.getNomeUserAdmin()+"',  '"+userAdmin.getCpf()+"', '"+userAdmin.getLogin()+"', '"+userAdmin.getSenha()+"')";
+			query += "insert into userAdmin(ID_ADM, STATUS, NOME, CPF, LOGIN, SENHA)";
+			query += "values('"+userAdmin.getId()+"','"+userAdmin.getStatus()+"', '"+userAdmin.getNomeUserAdmin()+"',  '"+userAdmin.getCpf()+"', '"+userAdmin.getLogin()+"', '"+userAdmin.getSenha()+"')";
 			statement.execute(query);
 			System.out.println("\n UserAdmin "+userAdmin.getNomeUserAdmin()+" Cadastrado no Banco de Dados! \n");
 			
@@ -49,18 +49,19 @@ public class UserAdminDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "update userAdmin set  NOME=?, LOGIN=? , SENHA=? where NOME= ?";
+			String sql = "update userAdmin set  STATUS=?, NOME=?, LOGIN=? , SENHA=? where NOME= ?";
 				
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
 			
 			preStatement = conn.prepareStatement(sql);
 			
-			preStatement.setString(1, userAdmin.getNomeUserAdmin());
-			preStatement.setString(2, userAdmin.getLogin());
-			preStatement.setString(3, userAdmin.getSenha());
+			preStatement.setString(1, userAdmin.getStatus());
+			preStatement.setString(2, userAdmin.getNomeUserAdmin());
+			preStatement.setString(3, userAdmin.getLogin());
+			preStatement.setString(4, userAdmin.getSenha());
 			
-			preStatement.setString(4, userAdmin.getNomeUserAdmin());
+			preStatement.setString(5, userAdmin.getNomeUserAdmin());
 			
 			// Executando atualização
 			preStatement.executeUpdate();
@@ -125,12 +126,13 @@ public class UserAdminDAO {
 				while (resultSet.next()) {
 					
 					int codigo = resultSet.getInt(1);
-					String nome = resultSet.getString(2);
-					String cpfUA  = resultSet.getString(3);
-					String login = resultSet.getString(4);
-					String senha = resultSet.getString(5);
+					String status = resultSet.getString(2);
+					String nome = resultSet.getString(3);
+					String cpfUA  = resultSet.getString(4);
+					String login = resultSet.getString(5);
+					String senha = resultSet.getString(6);
 					
-					userAdmin = new UserAdmin(nome, cpfUA, login, senha);
+					userAdmin = new UserAdmin(status, nome, cpfUA, login, senha);
 					userAdmin.setId(codigo);
 					
 					System.out.println("\nUserAdmin localizado no Banco de Dados:");
@@ -169,12 +171,13 @@ public class UserAdminDAO {
 			while (resultSet.next()) {
 				
 				int codigo = resultSet.getInt(1);
-				String nome = resultSet.getString(2);
-				String cpfUA  = resultSet.getString(3);
-				String login = resultSet.getString(4);
-				String senha = resultSet.getString(5);
+				String status = resultSet.getString(2);
+				String nome = resultSet.getString(3);
+				String cpfUA  = resultSet.getString(4);
+				String login = resultSet.getString(5);
+				String senha = resultSet.getString(6);
 				
-				userAdmin = new UserAdmin(nome, cpfUA, login, senha);
+				userAdmin = new UserAdmin(status, nome, cpfUA, login, senha);
 				userAdmin.setId(codigo);
 				
 				listUserAdmin.add(userAdmin);

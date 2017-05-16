@@ -4,7 +4,7 @@
 <%@ page import="java.sql.Connection" %>
 <%@ page import="java.sql.ResultSet" %>
 <%@ page import="java.sql.Statement" %>
-<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBanco" %>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoCliente" %>
 	
 <!DOCTYPE HTML>
 <html>
@@ -37,13 +37,13 @@
 					<input type="button" value="Pesquisar" /> 
 					<input type="button" value="Deletar" /> <br> <br> -->
 
-				<form action="ServletConnectionBanco" method="post" >
+				<form action="ServletConnectionBancoCliente" method="post" >
 					<div class="row">
 											<div class="6u 12u$(mobile)">
 												<input type="text" name="name" placeholder="Código" />
 											</div>
 											<div class="6u 12u$(mobile)">
-												<select>
+												<select name="status">
 													<option>Ativo</option>
 													<option>Inativo</option>
 												</select>
@@ -70,7 +70,7 @@
 											</div>
 
 											<div class="6u$ 12u$(mobile)">
-												<select>
+												<select name="operadora">
 													<option>Claro</option>
 													<option>Tim</option>
 													<option>Oi</option>

@@ -6,15 +6,15 @@ import java.util.Date;
 public class Chamado {
 	
 	private int id;
-	private int idCliente;				//referência a Cliente
+	private String cpfCliente;				//referência a Cliente
 	private String tipoChamado;
 	private String descProblema;
 	private String statusChamado;
 	private Date dataAbertura;
 	private Date dataFechamento;
 	
-	public Chamado(int idCliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento) {
-		setIdCliente(idCliente);
+	public Chamado(String cpfCliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento) {
+		setCpfCliente(cpfCliente);
 		setTipoChamado(tipoChamado);
 		setDescProblema(descProblema);
 		setStatusChamado(statusChamado);
@@ -42,12 +42,12 @@ public class Chamado {
 		this.id = id;
 	}
 
-	public int getIdCliente() {
-		return idCliente;
+	public String getCpfCliente() {
+		return cpfCliente;
 	}
 
-	public void setIdCliente(int idCliente) {
-		this.idCliente = idCliente;
+	public void setCpfCliente(String cpfCliente) {
+		this.cpfCliente = cpfCliente;
 	}
 
 	public String getTipoChamado() {

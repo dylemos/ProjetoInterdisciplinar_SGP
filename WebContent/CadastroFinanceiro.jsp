@@ -24,28 +24,27 @@
 								<h2>Financeiro</h2>
 							</header>
 
-							<form method="post" action="#">
+							<form action="ServletConnectionBancoPlanoFinanceiro" method="post">
 							<div class="row">
 									<div class="6u 12u$(mobile)"><input type="number" name="codigo" placeholder="Código" /></div>
 									<div class="6u$ 12u$(mobile)">
-											<select>
+											<select name="tipoConta">
 											<option>Pagar</option>
 											<option>Receber</option>
 										</select>
 									</div>
 									<div class="6u 12u$(mobile)">
-											<select>
+											<select name="statusConta">
 											<option>Aberto</option>
 											<option>Quitado</option>
 											<option>Cancelado</option>
 										</select>
 									</div>
-									<div class="6u$ 12u$(mobile)"><input type="number" name="codcliente" placeholder="Código do Cliente / Fornecedor" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="cpfCliente" placeholder="Cpf do Cliente / Fornecedor" /></div>
 									<div class="6u 12u$(mobile)"><input type="text" name="cliente" placeholder="Cliente / Fornecedor" /></div>
 									<div class="6u$ 12u$(mobile)"><input type="number" name="valor" placeholder="valor" /></div>
 									<div class="6u 12u$(mobile)"><input type="number" name="desconto" placeholder="Desconto" /></div>
-									<div class="6u$ 12u$(mobile)"><input type="number" name="acrescimo" placeholder="Acrescimo" /></div>
-									<div class="6u 12u$(mobile)"><input type="number" name="total" placeholder="Total" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="number" name="total" placeholder="Total" /></div>
 									<div class="6u 12u$(mobile)"><input type="number" name="parcelas" placeholder="Quantidade de Parcelas" /></div>
 								</div>								
 										<div class="modal-footer">
