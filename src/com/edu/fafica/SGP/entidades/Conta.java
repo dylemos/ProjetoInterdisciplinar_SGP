@@ -33,6 +33,19 @@ public class Conta {
 		setDataPago(dataPago);
 		setQtdParcelas(qtdParcelas);
 	}
+
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String dataPago, int qtdParcelas) {
+		setCpfCliente(cpfCliente);
+		setTipoConta(tipoConta);
+		setStatusConta(statusConta);
+		setValor(valor);
+		setDesconto(desconto);
+		setTotal(total);
+		setdataAbertura(dataAbertura);
+		setdataVencimento(dataVencimento);
+		setdataPago(dataPago);
+		setQtdParcelas(qtdParcelas);
+	}
 	
 	public String toString() {
 		

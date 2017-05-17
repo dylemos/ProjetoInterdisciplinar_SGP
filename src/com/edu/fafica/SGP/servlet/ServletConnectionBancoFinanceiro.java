@@ -59,6 +59,8 @@ public class ServletConnectionBancoFinanceiro extends HttpServlet {
 		double totalConta = Double.parseDouble(total);
 		int qtdParcelasConta = Integer.parseInt(qtdParcelas);
 
+//		cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, dataPago, qtdParcelasConta
+		
 		Conta conta = new Conta(cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, dataPago, qtdParcelasConta);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarConta(conta);

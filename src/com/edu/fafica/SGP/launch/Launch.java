@@ -135,7 +135,7 @@ public class Launch {
 
 
 	
-		Conta ct1 = new Conta("071.414.714-13","a Pagar","Em Aberto",39.9,0.0,0.0,"","","",10);
+//		Conta ct1 = new Conta("071.414.714-13","a Pagar","Em Aberto",39.9,0.0,0.0,"","","",10);
 //		sgp.cadastrarConta(ct1);
 		/*	
 		sgp.cadastrarConta(ct1);      //DUPLICADO
