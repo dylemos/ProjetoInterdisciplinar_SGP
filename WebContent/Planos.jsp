@@ -14,6 +14,14 @@
 </head>
 <body>
 <%@ include file="menu.html" %>
+<%
+//Verifica se está logado
+if(session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") != null){
+//out.println("Você está logado com sucesso no sistema, por isso consegue ver está pagina. Seu login é: " + session.getValue("loginUsuario") + " e sua senha: " + session.getValue("senhaUsuario") + ". Clique <a href='Logoff.jsp'>aqui</a> para sair do sistema");
+} else {
+out.println("<script>document.location.href='index.jsp';</script>");
+}
+%>
 <!-- Main -->
 <div id="main">
 				<!-- planos de acesso -->

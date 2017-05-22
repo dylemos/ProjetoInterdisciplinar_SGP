@@ -3,7 +3,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-		<title>SGP - Financeiro</title>
+		<title>SGP - Sistema de Gestão para Provedores</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -14,6 +14,7 @@
 </head>
 <body>
 <%@ include file="menu.html" %>
+
 <%
 //Verifica se está logado
 if(session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") != null){
@@ -22,50 +23,19 @@ if(session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") 
 out.println("<script>document.location.href='index.jsp';</script>");
 }
 %>
-<!-- Main -->
-<div id="main">
-				<!-- Financeiro -->
-					<section id="financeiro" class="three">
-						<div class="container">
 
-							<header>
-								<h2>Financeiro</h2>
-							</header>
-					<input type="search" value="Pesquisar Financeiro" /><br><br>
-<table>
-  <tr>
-    <th>Cliente</th>
-    <th>Valor</th>
-    <th>Vencimento</th>
-	<th>Editar</th>
-	<th>Deletar</th>
-  </tr>
-  <tr>
-    <td>Maria da Silva</td>
-    <td>50,00</td>
-    <td>20/04/2017</td>
-	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>José João</td>
-    <td>70,00</td>
-    <td>24/05/2017</td>
-    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>Italo Júnior</td>
-    <td>80,00</td>
-    <td>03/06/2017</td>
-    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-</table>
-					<a href="CadastroFinanceiro.jsp"><input type="button" value="Novo Cadastro"/></a>
-</div>
-</section>
-</div>
+		<!-- Main -->
+			<div id="main">
+
+					<section id="top" class="two">
+ 					<div class="container">
+ 					<span class="image bg_inicio"><img src="images/bg_inicio.jpg" alt="" /></span>
+ 					<br><br>
+					</div>
+					</section>
+
+			</div>
+			
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>
@@ -74,6 +44,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+
   			
 <%@ include file="footer.html" %>
 </body>
