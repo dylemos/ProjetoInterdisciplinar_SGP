@@ -19,8 +19,29 @@ public class ContaDAO {
 		SGP_MySQL.getInstance();
 	}
 
-	public void cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException, Exception {
+	public Conta cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException, Exception {
 		
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
+		
+		try {
+			
+			Statement statement = conn.createStatement();
+			
+			String query = "";
+			
+			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, QTD_PARCELAS)";
+			query += "values('"+conta.getId()+"','"+conta.getTipoConta()+"','"+conta.getStatusConta()+"', '"+conta.getCpfCliente()+"', '"+conta.getValor()+"', '"+conta.getDesconto()+"', '"+conta.getTotal()+"', '"+conta.getDataAbertura()+"', '"+conta.getDataVencimento()+"', '"+conta.getQtdParcelas()+"')";
+			statement.execute(query);
+			System.out.println("\n Conta "+conta.getId()+" Cadastrado no Banco de Dados! \n");
+			
+			return conta;
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+			System.out.println("\n Conta "+conta.getId()+" já está Cadastrado no Banco de Dados! \n");
+		}
+		return conta;
+/*		
 		
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
@@ -30,8 +51,8 @@ public class ContaDAO {
 			
 			String query = "";
 			
-			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, DT_PAGO, QTD_PARCELAS)";
-			query += "values(?,?,?,?,?,?,?,?)";
+			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, QTD_PARCELAS)";
+			query += "values(?,?,?,?,?,?,?)";
 			
 			PreparedStatement preStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
 			
@@ -43,8 +64,6 @@ public class ContaDAO {
 			preStatement.setDouble(6, conta.getTotal());
 			preStatement.setDate(7, (Date) conta.getDataAbertura());
 			preStatement.setDate(8, (Date) conta.getDataVencimento());
-			preStatement.setDate(9, (Date) conta.getDataPago());
-			
 			preStatement.execute();
 			
 			System.out.println("\n Conta "+conta.getTipoConta()+" Cadastrado no Banco de Dados! \n");
@@ -53,7 +72,7 @@ public class ContaDAO {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
 			System.out.println("\n Conta "+conta.getTipoConta()+" já está Cadastrada no Banco de Dados! \n");
 		}
-		
+		*/
 	}
 
 	public void atualizarContaNoBancoDeDados(Conta conta) throws SQLException, ContaNaoEncontradaException {

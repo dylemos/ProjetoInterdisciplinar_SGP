@@ -51,7 +51,6 @@ public class ServletConnectionBancoFinanceiro extends HttpServlet {
 		String total = request.getParameter("total");
 		String dataAbertura = request.getParameter("dataAbertura");
 		String dataVencimento = request.getParameter("dataVencimento");
-		String dataPago = request.getParameter("dataPago");
 		String qtdParcelas = request.getParameter("parcelas");
 		
 		double valorConta = Double.parseDouble(valor);
@@ -61,7 +60,7 @@ public class ServletConnectionBancoFinanceiro extends HttpServlet {
 
 //		cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, dataPago, qtdParcelasConta
 		
-		Conta conta = new Conta(cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, dataPago, qtdParcelasConta);
+		Conta conta = new Conta(cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, qtdParcelasConta);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarConta(conta);
 		} catch (ClassNotFoundException | SQLException | ContaJaCadastradaException e) {

@@ -47,6 +47,18 @@ public class Conta {
 		setQtdParcelas(qtdParcelas);
 	}
 	
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, int qtdParcelas) {
+		setCpfCliente(cpfCliente);
+		setTipoConta(tipoConta);
+		setStatusConta(statusConta);
+		setValor(valor);
+		setDesconto(desconto);
+		setTotal(total);
+		setdataAbertura(dataAbertura);
+		setdataVencimento(dataVencimento);
+		setQtdParcelas(qtdParcelas);
+	}
+	
 	public String toString() {
 		
 		String contaDetalhe = "{ Conta | ID: "+getId()+" | Conta: "+getTipoConta()+" | Valor: R$"+getValor()+" | Status: "+getStatusConta()+" | }";

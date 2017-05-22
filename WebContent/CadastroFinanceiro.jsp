@@ -40,19 +40,23 @@
 											<option>Cancelado</option>
 										</select>
 									</div>
-									<div class="6u$ 12u$(mobile)"><input type="text" name="cpfCliente" placeholder="Cpf do Cliente / Fornecedor" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="text" name="cpfCliente" placeholder="Cpf ou Cnpj" /></div>
 									<div class="6u 12u$(mobile)"><input type="text" name="cliente" placeholder="Cliente / Fornecedor" /></div>
 									<div class="6u$ 12u$(mobile)"><input type="number" name="valor" placeholder="valor" /></div>
 									<div class="6u 12u$(mobile)"><input type="number" name="desconto" placeholder="Desconto" /></div>
 									<div class="6u$ 12u$(mobile)"><input type="number" name="total" placeholder="Total" /></div>
+									<div class="6u 12u$(mobile)"><label>Data de Abertura</label></div>
+									<div class="6u$ 12u$(mobile)"><label>Data de Vencimento</label></div>
+									<div class="6u 12u$(mobile)"><input type="date" name="dataAbertura" /></div>
+									<div class="6u$ 12u$(mobile)"><input type="date" name="dataVencimento" /></div>
 									<div class="6u 12u$(mobile)"><input type="number" name="parcelas" placeholder="Quantidade de Parcelas" /></div>
-								</div>								
-										<div class="modal-footer">
-											<a href="Financeiro.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
-											<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
-										</div>	
+							</div>								
+									<div class="modal-footer">
+										<a href="Financeiro.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
+										<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
+									</div>	
 							</form>          
-        </div>
+        				</div>
 					</section>
 </div>
 		<!-- Scripts -->
