@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -50,6 +51,9 @@ public class ServletConnectionBancoAdministrador extends HttpServlet {
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
 		
+		PrintWriter out = response.getWriter();		
+		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroAdministrador.jsp';</script>";
+		out.println(html);
 		UserAdmin userAdmin = new UserAdmin(status, nome, cpf, login, senha);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarUserAdmin(userAdmin);

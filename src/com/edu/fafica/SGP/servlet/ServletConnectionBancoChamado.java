@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -50,7 +51,10 @@ public class ServletConnectionBancoChamado extends HttpServlet {
 		String descProblema = request.getParameter("message");
 		String dataAbertura = request.getParameter("dataAbertura");
 		String dataFechamento = request.getParameter("dataFechamento");
-		
+
+		PrintWriter out = response.getWriter();		
+		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroAtendimento.jsp';</script>";
+		out.println(html);		
 		Chamado chamado = new Chamado(cpfCliente, tipoChamado, descProblema, statusChamado, dataAbertura, dataFechamento);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarChamado(chamado);

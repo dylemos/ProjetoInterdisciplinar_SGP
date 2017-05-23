@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -66,6 +67,9 @@ public class ServletConnectionBancoCliente extends HttpServlet {
 		
 		int vencimentoPlano = Integer.parseInt(vencimento);
 		
+		PrintWriter out = response.getWriter();		
+		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroCliente.jsp';</script>";
+		out.println(html);		
 		Cliente cliente = new Cliente(status, nome, login, senha, rg, cpf, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, date_nascimento, date_cadastro, vencimentoPlano);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarCliente(cliente);

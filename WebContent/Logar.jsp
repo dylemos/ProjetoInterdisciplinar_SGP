@@ -39,6 +39,5 @@ out.println("<script>document.location.href='inicio.jsp';</script>"); //Exibe um
 out.println("Login ou senha inválidos. <script>document.location.href='index.jsp';</script>"); //Exibe na tela e pede para voltar
 }
 %>
-<br /> <br /> <br />Desenvolvimento: <a href="http://darkthales.hcerto.com" target="_blank">DarK ThaleS</a>
 </body>
 </html>

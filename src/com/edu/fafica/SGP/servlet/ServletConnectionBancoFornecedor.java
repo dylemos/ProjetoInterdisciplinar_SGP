@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -59,7 +60,9 @@ public class ServletConnectionBancoFornecedor extends HttpServlet {
 		String uf = request.getParameter("uf");
 		String operadora = request.getParameter("operadora");
 		
-		
+		PrintWriter out = response.getWriter();		
+		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroFornecedor.jsp';</script>";
+		out.println(html);		
 		Fornecedor fornecedor = new Fornecedor(razaoSocial, cnpj, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarFornecedor(fornecedor);

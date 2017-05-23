@@ -1,6 +1,7 @@
 package com.edu.fafica.SGP.servlet;
 
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.sql.SQLException;
 
 import javax.servlet.ServletException;
@@ -39,7 +40,6 @@ public class ServletConnectionBancoPlano extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		
@@ -51,7 +51,10 @@ public class ServletConnectionBancoPlano extends HttpServlet {
 		int uploadTaxa = Integer.parseInt(upload);
 		int downloadTaxa = Integer.parseInt(download);
 		double valorPlano = Double.parseDouble(valor);
-
+		
+		PrintWriter out = response.getWriter();		
+		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroPlanos.jsp';</script>";
+		out.println(html);
 		Plano plano = new Plano(nomePlano, uploadTaxa, downloadTaxa, valorPlano);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarPlano(plano);
