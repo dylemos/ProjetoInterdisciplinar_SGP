@@ -149,8 +149,8 @@ public class ControladorCliente {
 	
 	
 	public HashSet<Cliente> listarClientes() throws Exception{
-		this.repositorioCliente.listarClientes();
-		return null;
+		HashSet<Cliente> lista = repositorioCliente.listarClientes();
+		return lista;
 	}
 
 }

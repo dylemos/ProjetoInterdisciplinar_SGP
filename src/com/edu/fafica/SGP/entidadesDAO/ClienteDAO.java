@@ -193,7 +193,7 @@ public class ClienteDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "select * from cliente";
+			String sql = "select * from cliente order by ID_CLIENTE asc";
 
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement = conn.prepareStatement(sql);

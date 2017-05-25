@@ -39,8 +39,8 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 
 	@Override
 	public HashSet<Cliente> listarClientes() throws Exception {
-		this.clienteDAO.listarClientesNoBancoDeDados();
-		return null;
+		HashSet<Cliente> lista = clienteDAO.listarClientesNoBancoDeDados();
+		return lista;
 	}
 
 

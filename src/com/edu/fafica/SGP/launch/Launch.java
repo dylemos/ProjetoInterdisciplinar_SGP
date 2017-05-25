@@ -21,7 +21,7 @@ public class Launch {
 		
 				
 			
-		Cliente cl1 = new Cliente("Ativo","Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
+//		Cliente cl1 = new Cliente("Ativo","Dyego", "DyegoLogin", "Dyego123", "8.119.697","077.795.324-29", "81 30454633", "81 987345678", "Tim", "rafael_fafica@gmail.com", "Veneza", "100", "Universitário","Caruaru","PE","55028-400","1993-06-21","2017-04-05","AceleraNet",10);
 //			sgp.cadastrarCliente(cl1);
 		/*
 //					sgp.cadastrarCliente(cl1);		//DUPLICADO
@@ -47,9 +47,10 @@ public class Launch {
 		cl1.setSenha("Dye_Senha");
 		sgp.atualizarCliente(cl1);
 		
-		sgp.listarClientes();
+
 
  	*/
+//		sgp.listarClientes();
  		//Removendo
 //		sgp.removerCliente(cl1.getCpf());
 
@@ -60,7 +61,7 @@ public class Launch {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 			
-		Fornecedor f1 = new Fornecedor("INFORTUDO","INFOTUDO", "26.975.874/0001-58", "Guaratinguetá", "101", "Centro","Caruaru","PE","55044-230", "fornecedor.vip@fornecedor.com", "81 37280099", "81 997785644", "TIM", "VIP_INFORMÁTICA");
+//		Fornecedor f1 = new Fornecedor("INFORTUDO","INFOTUDO", "26.975.874/0001-58", "Guaratinguetá", "101", "Centro","Caruaru","PE","55044-230", "fornecedor.vip@fornecedor.com", "81 37280099", "81 997785644", "TIM", "VIP_INFORMÁTICA");
 //		sgp.cadastrarFornecedor(f1);
 	
 					
@@ -86,7 +87,7 @@ public class Launch {
 
 
 
-		UserAdmin u1 = new UserAdmin("Ativo","DyegoLemos","847.523.884-05","admin","admin");
+//		UserAdmin u1 = new UserAdmin("Ativo","DyegoLemos","847.523.884-05","admin","admin");
 //		sgp.cadastrarUserAdmin(u1);
 
 //		UserAdmin u2 = new UserAdmin("Ativo","RafaelJosevaldo","852.295.302-35","adminRafa","admin");
@@ -112,7 +113,7 @@ public class Launch {
 //-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 		
 
-		Plano p1 = new Plano("Plus++", 2, 25, 59.9);
+//		Plano p1 = new Plano("Plus++", 2, 25, 59.9);
 //		sgp.cadastrarPlano(p1);
 		
 /*	
@@ -159,7 +160,7 @@ public class Launch {
 		
 							
 		
-		Chamado ch1 = new Chamado("071.414.714-13","Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
+//		Chamado ch1 = new Chamado("071.414.714-13","Reparo em HardWare", "CPU com Defeito","Em Aberto", "2017-04-30", "2017-05-05");
 //				sgp.cadastrarChamado(ch1);
 				/*	
 					

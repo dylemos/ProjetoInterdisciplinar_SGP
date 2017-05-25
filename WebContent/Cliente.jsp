@@ -1,5 +1,10 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ page import="com.edu.fafica.SGP.entidades.Cliente"%>
+<%@ page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>	
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -34,7 +39,9 @@ out.println("<script>document.location.href='index.jsp';</script>");
 					<h2>Cadastro de Cliente</h2>
 				</header>
 					<input type="search" value="Pesquisar Cliente" /><br><br>
-				
+					
+<jsp:useBean id="controlador" class="com.edu.fafica.SGP.controladores.ControladorCliente" />	
+						
 						<table>
 
 						<tr>
@@ -44,79 +51,16 @@ out.println("<script>document.location.href='index.jsp';</script>");
 							<th>Editar</th>
 							<th>Deletar</th>
 						</tr>
+						<c:forEach var="i" items="${controlador.listarClientes()}">
 						<tr>
-							<td>001</td>
-							<td>Maria Anders</td>
-							<td>595.551.373-66</td>
+      						<td>${i.id}</td>
+       					<td>${i.nomeCliente}</td>
+      						<td>${i.cpf}</td>
 							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
 							<td><a href="#" class="icon fa fa-times"></a></td>
 						</tr>
-						<tr>
-							<td>002</td>
-							<td>Francisco Chang</td>
-							<td>840.294.254-70</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>003</td>
-							<td>Roland Mendel</td>
-							<td>311.241.638-40</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>004</td>
-							<td>Helen Bennett</td>
-							<td>568.771.652-17</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>005</td>
-							<td>Yoshi Tannamuri</td>
-							<td>753.606.171-44</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>006</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>007</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>008</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>009</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-						<tr>
-							<td>010</td>
-							<td>Giovanni Rovelli</td>
-							<td>741.885.834-52</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-
+						</c:forEach>
 					</table>
-					
 					<a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a>
 			</section>
 		</div>
