@@ -2,14 +2,19 @@ package com.edu.fafica.SGP.controladores;
 
 import java.sql.SQLException;
 import java.util.HashSet;
+
+import javax.jws.WebService;
+
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ClienteCpfInvalidoException;
 import com.edu.fafica.SGP.exceptions.ClienteJaCadastradoException;
 import com.edu.fafica.SGP.interfacesList.IRepositorioCliente;
+import com.edu.fafica.SGP.interfacesList.WebServiceInterface;
 import com.edu.fafica.SGP.repositoriosJDBC.RepositorioClienteJDBC;
 import com.edu.fafica.SGP.util.ValidarCPF;
 
-public class ControladorCliente {
+@WebService(endpointInterface = "com.edu.fafica.SGP.interfacesList.WebServiceInterface")
+public class ControladorCliente implements WebServiceInterface{
 	
 	private IRepositorioCliente repositorioCliente;
 	private HashSet<Cliente> listaControladorCliente;
@@ -148,9 +153,16 @@ public class ControladorCliente {
 	}
 	
 	
-	public HashSet<Cliente> listarClientes() throws Exception{
-		HashSet<Cliente> lista = repositorioCliente.listarClientes();
-		return lista;
+	public HashSet<Cliente> listarClientes(){
+		HashSet<Cliente> lista;
+		try {
+			lista = repositorioCliente.listarClientes();
+			return lista;
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 }
