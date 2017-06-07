@@ -3,6 +3,7 @@ package com.edu.fafica.SGP.entidadesDAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
@@ -113,8 +114,42 @@ public class ChamadoDAO {
 	}
 
 
-	public HashSet<Chamado> listarChamadosNoBancoDeDados() {
-		// TODO Auto-generated method stub
+	public HashSet<Chamado> listarChamadosNoBancoDeDados() throws ClassNotFoundException {
+		
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
+		Chamado chamado = new Chamado();
+		HashSet<Chamado> listChamado = new HashSet<Chamado>();
+		
+		try {
+			String sql = "select * from chamado";
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+			
+			ResultSet resultSet = preStatement.executeQuery();
+			
+			while (resultSet.next()){
+				
+				int id = resultSet.getInt(1);
+				String cpfCliente = resultSet.getString(2);
+				String tipoChamado = resultSet.getString(3);
+				String descProblema = resultSet.getString(4);
+				String statusChamado = resultSet.getString(5);
+				java.sql.Date dataAbertura = resultSet.getDate(6);
+				java.sql.Date dataFechamento = resultSet.getDate(6);
+				
+				chamado = new Chamado(cpfCliente, tipoChamado, descProblema, statusChamado, dataAbertura, dataFechamento);
+				chamado.setId(id);
+				
+				listChamado.add(chamado);
+				System.out.println("\nPlano no Banco de Dados:");
+				System.out.println(chamado.toString());
+			}
+			return listChamado;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
+		System.out.println("\nNão Existe Plano no Banco de Dados!");
 		return null;
 	}
 	

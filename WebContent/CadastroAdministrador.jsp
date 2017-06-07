@@ -48,7 +48,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 								</div>
 								
 								<div class="modal-footer">
-									<a href="Planos.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
+									<a href="Administrador.jsp"><button type="button" class="btn btn-danger"	data-dismiss="modal">Cancelar</button></a>
 									<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
 								</div>	
 							</form>

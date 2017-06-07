@@ -40,8 +40,8 @@ public class RepositorioFornecedorJDBC implements IRepositorioFornecedor{
 
 	@Override
 	public HashSet<Fornecedor> listarFornecedores() throws ClassNotFoundException {
-		this.fDAO.listarFornecedoresNoBancoDeDados();
-		return null;
+		HashSet<Fornecedor> lista = fDAO.listarFornecedoresNoBancoDeDados();
+		return lista;
 	}
 
 }

@@ -196,8 +196,7 @@ public class FachadaSGP {
 		return this.controladorConta.procurarConta(id);
 	}
 
-	
-	public HashSet<Conta> listarContas() {
+	public HashSet<Conta> listarContas() throws ClassNotFoundException{
 		return this.controladorConta.listarContas();
 	}
 	
@@ -220,7 +219,7 @@ public class FachadaSGP {
 		return this.controladorChamado.procurarChamado(id);
 	}
 	
-	public HashSet<Chamado> listarChamados() {
+	public HashSet<Chamado> listarChamados() throws ClassNotFoundException {
 		return this.controladorChamado.listarChamados();
 	}
 	

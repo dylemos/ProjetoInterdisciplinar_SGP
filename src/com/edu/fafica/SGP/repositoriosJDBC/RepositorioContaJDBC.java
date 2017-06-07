@@ -38,9 +38,9 @@ public class RepositorioContaJDBC implements IRepositorioConta{
 	}
 
 	@Override
-	public HashSet<Conta> listarContas() {
-		this.cDAO.listarContasNoBancoDeDados();
-		return null;
+	public HashSet<Conta> listarContas() throws ClassNotFoundException{
+		HashSet<Conta> lista = cDAO.listarContasNoBancoDeDados();
+		return lista;
 	}
 	
 }

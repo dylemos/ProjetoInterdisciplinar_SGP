@@ -124,8 +124,9 @@ public class ControladorPlano {
 	}
 
 	public HashSet<Plano> listarPlanos() throws ClassNotFoundException {
-		this.repositorioPlano.listarPlanos();
-		return null;
+		HashSet<Plano> lista;
+		lista = repositorioPlano.listarPlanos();
+		return lista;
 	}
 	
 	

@@ -142,8 +142,8 @@ public class ControladorUserAdmin {
 
 
 	public HashSet<UserAdmin> listarUserAdmins() throws ClassNotFoundException {
-		this.repositorioUserAdmin.listarUserAdmins();
-		return null;
+		HashSet<UserAdmin> lista = repositorioUserAdmin.listarUserAdmins();
+		return lista;
 	}
 
 }

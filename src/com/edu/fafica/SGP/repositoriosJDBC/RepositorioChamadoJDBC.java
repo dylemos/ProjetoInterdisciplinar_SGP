@@ -39,9 +39,10 @@ public class RepositorioChamadoJDBC implements IRepositorioChamado {
 	}
 
 	@Override
-	public HashSet<Chamado> listarChamados() {
-		this.chamadoDAO.listarChamadosNoBancoDeDados();
-		return null;
+	public HashSet<Chamado> listarChamados() throws ClassNotFoundException {
+		HashSet<Chamado> listar;
+		listar = chamadoDAO.listarChamadosNoBancoDeDados();
+		return listar;
 	}
 	
 }

@@ -19,5 +19,5 @@ public interface IRepositorioConta {
 
 	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException;
 
-	public HashSet<Conta> listarContas();
+	public HashSet<Conta> listarContas() throws ClassNotFoundException;
 }

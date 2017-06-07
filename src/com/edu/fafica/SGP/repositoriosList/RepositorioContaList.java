@@ -100,7 +100,7 @@ public class RepositorioContaList implements IRepositorioConta{
 	public HashSet<Conta> listarContas() {
 		
 		for (Conta conta : listaContaRepositorio) {
-			System.out.println("[ ID "+conta.getId()+" - "+conta.getTipoConta()+" R$"+conta.getValor()+" ]");
+			System.out.println("[ ID "+conta.getId()+" - "+conta.getCpfCliente()+" R$"+conta.getValor()+" ]");
 		}
 		System.out.println();
 		return listaContaRepositorio;

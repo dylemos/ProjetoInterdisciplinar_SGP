@@ -128,8 +128,10 @@ public class ControladorConta {
 	}
 	
 	
-	public HashSet<Conta> listarContas() {
-		return this.repositorioConta.listarContas();
+	public HashSet<Conta> listarContas() throws ClassNotFoundException{
+		HashSet<Conta> lista;
+		lista = repositorioConta.listarContas();
+		return lista;
 	}
 	
 

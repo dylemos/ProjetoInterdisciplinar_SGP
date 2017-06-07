@@ -40,8 +40,8 @@ public class RepositorioUserAdminJDBC implements IRepositorioUserAdmin{
 
 	@Override
 	public HashSet<UserAdmin> listarUserAdmins() throws ClassNotFoundException {
-		this.uDAO.listarUserAdminsNoBancoDeDados();
-		return null;
+		HashSet<UserAdmin> lista = uDAO.listarUserAdminsNoBancoDeDados();
+		return lista;
 	}
 
 }

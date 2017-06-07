@@ -17,5 +17,5 @@ public interface IRepositorioChamado {
 
 	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
 
-	public HashSet<Chamado> listarChamados();
+	public HashSet<Chamado> listarChamados() throws ClassNotFoundException;
 }

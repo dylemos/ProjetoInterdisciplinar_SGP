@@ -41,8 +41,8 @@ public class RepositorioPlanoJDBC implements IRepositorioPlano{
 
 	@Override
 	public HashSet<Plano> listarPlanos() throws ClassNotFoundException {
-		this.pDAO.listarPlanosNoBancoDeDados();
-		return null;
+		HashSet<Plano> lista = pDAO.listarPlanosNoBancoDeDados();
+		return lista;
 	}
 
 }

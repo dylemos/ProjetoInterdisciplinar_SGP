@@ -26,6 +26,16 @@ public class Chamado {
 		// TODO Auto-generated constructor stub
 	}
 
+	public Chamado(String cpfCliente, String tipoChamado, String descProblema, String statusChamado,
+			java.sql.Date dataAbertura, java.sql.Date dataFechamento) {
+		setCpfCliente(cpfCliente);
+		setTipoChamado(tipoChamado);
+		setDescProblema(descProblema);
+		setStatusChamado(statusChamado);
+		setDataAbertura(dataAbertura);
+		setDataFechamento(dataFechamento);
+	}
+
 	public String toString() {				
 		
 		String chamadoDetalhe = "{ Chamado | ID: "+getId()+" | Tipo de Chamado: "+getTipoChamado()+" | Status do Chamado: "+getStatusChamado()+" | }";

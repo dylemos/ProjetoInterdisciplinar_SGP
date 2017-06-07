@@ -3,10 +3,10 @@ package com.edu.fafica.SGP.entidadesDAO;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.HashSet;
-
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
@@ -41,38 +41,6 @@ public class ContaDAO {
 			System.out.println("\n Conta "+conta.getId()+" já está Cadastrado no Banco de Dados! \n");
 		}
 		return conta;
-/*		
-		
-		Connection conn = SGP_MySQL.getInstance().conectarBD();
-		
-		try {
-			
-			//Statement statement = conn.createStatement();
-			
-			String query = "";
-			
-			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, QTD_PARCELAS)";
-			query += "values(?,?,?,?,?,?,?)";
-			
-			PreparedStatement preStatement = conn.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
-			
-			preStatement.setString(1, conta.getTipoConta());
-			preStatement.setString(2, conta.getStatusConta());
-			preStatement.setString(3, conta.getCpfCliente());
-			preStatement.setDouble(4, conta.getValor());
-			preStatement.setDouble(5, conta.getDesconto());
-			preStatement.setDouble(6, conta.getTotal());
-			preStatement.setDate(7, (Date) conta.getDataAbertura());
-			preStatement.setDate(8, (Date) conta.getDataVencimento());
-			preStatement.execute();
-			
-			System.out.println("\n Conta "+conta.getTipoConta()+" Cadastrado no Banco de Dados! \n");
-			
-		} catch (Exception e) {
-			System.out.println("\nErro : "+e.getMessage()+"\n");
-			System.out.println("\n Conta "+conta.getTipoConta()+" já está Cadastrada no Banco de Dados! \n");
-		}
-		*/
 	}
 
 	public void atualizarContaNoBancoDeDados(Conta conta) throws SQLException, ContaNaoEncontradaException {
@@ -90,8 +58,51 @@ public class ContaDAO {
 		return null;
 	}
 
-	public HashSet<Conta> listarContasNoBancoDeDados() {
-		// TODO Auto-generated method stub
+	public HashSet<Conta> listarContasNoBancoDeDados()  throws ClassNotFoundException{
+		
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
+		Conta conta = new Conta();
+		HashSet<Conta> listConta = new HashSet<Conta>();
+try {
+			
+			// Criando a String SQL
+			String sql = "select * from conta";
+
+			// Criar o PreparedStatement, objeto para executar a query
+			PreparedStatement preStatement = conn.prepareStatement(sql);
+
+			ResultSet resultSet = preStatement.executeQuery();
+
+			// Verifica se retornou dados na consulta
+			while (resultSet.next()) {
+				
+				int id = resultSet.getInt(1);
+				String cpfCliente = resultSet.getString(2);
+				String tipoConta  = resultSet.getString(3);
+				String statusConta = resultSet.getString(4);
+				Double valor = resultSet.getDouble(5);
+				Double desconto = resultSet.getDouble(6);
+				Double total = resultSet.getDouble(7);
+				java.sql.Date dataAbertura = resultSet.getDate(8);
+				java.sql.Date dataVencimento = resultSet.getDate(9);
+				java.sql.Date dataPago = resultSet.getDate(10);
+				int qtdParcelas = resultSet.getInt(11);
+				
+				
+				conta = new Conta(cpfCliente, tipoConta, statusConta, valor, desconto, total, dataAbertura, dataVencimento, dataPago, qtdParcelas);
+				conta.setId(id);
+				
+				listConta.add(conta);
+				System.out.println("\nPlano no Banco de Dados:");
+				System.out.println(conta.toString());
+			}
+			return listConta;
+			
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		
+		System.out.println("\nNão Existe Plano no Banco de Dados!");
 		return null;
 	}
 

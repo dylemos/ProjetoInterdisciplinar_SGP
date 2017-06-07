@@ -1,5 +1,10 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.edu.fafica.SGP.entidades.UserAdmin"%>
+<%@ page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -32,6 +37,8 @@ out.println("<script>document.location.href='index.jsp';</script>");
 								<h2>Cadastro de Administradores</h2>
 							</header>
 					<input type="search" value="Pesquisar Administradores" /><br><br>
+<jsp:useBean id="controlador"
+					class="com.edu.fafica.SGP.controladores.ControladorUserAdmin" />
 <table>
   <tr>
     <th>Nome</th>
@@ -40,28 +47,16 @@ out.println("<script>document.location.href='index.jsp';</script>");
     <th>Editar</th>
     <th>Deletar</th>
   </tr>
-  <tr>
-    <td>Rafael Silva</td>
-    <td>Ativo</td>
-    <td>rafael</td>
-    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>Dyego Lemos</td>
-    <td>Ativo</td>
-    <td>dyego</td>
-    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>João Silva</td>
-    <td>Inativo</td>
-    <td>joao</td>
-    <td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-</table>
+					<c:forEach var="i" items="${controlador.listarUserAdmins()}">
+						<tr>
+							<td>${i.nomeUserAdmin}</td>
+							<td>${i.status}</td>
+							<td>${i.login}</td>
+							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td>
+						</tr>
+					</c:forEach>
+				</table>
 
 					<a href="CadastroAdministrador.jsp"><input type="button" value="Novo Cadastro"/></a>
 					</section>

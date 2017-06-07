@@ -45,17 +45,17 @@ out.println("<script>document.location.href='index.jsp';</script>");
 						<table>
 
 						<tr>
-							<th>Código</th>
 							<th>Nome</th>
 							<th>CPF</th>
+							<th>Celular</th>
 							<th>Editar</th>
 							<th>Deletar</th>
 						</tr>
 						<c:forEach var="i" items="${controlador.listarClientes()}">
 						<tr>
-      						<td>${i.id}</td>
-       					<td>${i.nomeCliente}</td>
+       						<td>${i.nomeCliente}</td>
       						<td>${i.cpf}</td>
+      						<td>${i.celular}</td>
 							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
 							<td><a href="#" class="icon fa fa-times"></a></td>
 						</tr>

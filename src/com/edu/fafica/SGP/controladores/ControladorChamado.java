@@ -4,7 +4,6 @@ import java.sql.SQLException;
 import java.util.HashSet;
 
 import com.edu.fafica.SGP.entidades.Chamado;
-import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.exceptions.ChamadoIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
 import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
@@ -141,8 +140,10 @@ public class ControladorChamado {
 	}
 	
 	
-	public HashSet<Chamado> listarChamados() {
-		return this.repositorioChamado.listarChamados();
+	public HashSet<Chamado> listarChamados() throws ClassNotFoundException {
+		HashSet<Chamado> listar;
+		listar = repositorioChamado.listarChamados();
+		return listar;
 	}
 
 

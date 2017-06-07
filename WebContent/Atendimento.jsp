@@ -1,5 +1,10 @@
+<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ page import="com.edu.fafica.SGP.entidades.Chamado"%>
+<%@ page import="java.util.List"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -32,6 +37,8 @@ out.println("<script>document.location.href='index.jsp';</script>");
 								<h2>Central de Atendimento</h2>
 							</header>
 					<input type="search" value="Pesquisar Atendimento" /><br><br>
+<jsp:useBean id="controlador"
+					class="com.edu.fafica.SGP.controladores.ControladorChamado" />
 <table>
   <tr>
     <th>Cliente</th>
@@ -40,28 +47,16 @@ out.println("<script>document.location.href='index.jsp';</script>");
 	<th>Editar</th>
 	<th>Deletar</th>
   </tr>
-  <tr>
-    <td>Maria da Silva</td>
-    <td>Transferência</td>
-    <td>Em Atendimento</td>
-	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>José João</td>
-    <td>Instalação</td>
-    <td>Aberto</td>
-	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-  <tr>
-    <td>Italo Júnior</td>
-    <td>Cancelamento</td>
-    <td>Fechado</td>
-	<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
-	<td><a href="#" class="icon fa fa-times"></a></td>
-  </tr>
-</table>
+					<c:forEach var="i" items="${controlador.listarChamados()}">
+						<tr>
+							<td>${i.cpfCliente}</td>
+							<td>${i.tipoChamado}</td>
+							<td>${i.statusChamado}</td>
+							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td>
+						</tr>
+					</c:forEach>
+				</table>
 					<a href="CadastroAtendimento.jsp"><input type="button" value="Novo Cadastro"/></a>
 </div>
 </section>
