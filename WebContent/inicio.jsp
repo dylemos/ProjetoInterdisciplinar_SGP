@@ -20,7 +20,7 @@
 	<%
 //Verifica se está logado
 if(session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") != null){
-//out.println("Você está logado com sucesso no sistema, por isso consegue ver está pagina. Seu login é: " + session.getValue("loginUsuario") + " e sua senha: " + session.getValue("senhaUsuario") + ". Clique <a href='Logoff.jsp'>aqui</a> para sair do sistema");
+//out.println("Olá " + session.getValue("loginUsuario") + " Bem Vindo ao SGP");
 } else {
 out.println("<script>document.location.href='index.jsp';</script>");
 }
@@ -31,7 +31,8 @@ out.println("<script>document.location.href='index.jsp';</script>");
 
 		<section id="top" class="two">
 			<div class="container">
-				<span class="image bg_inicio"><img src="images/bg_inicio.jpg"
+			<% out.println("Olá " + session.getValue("loginUsuario") + " Bem Vindo ao SGP - Sistema de Gestão para Provedores de Internet");%>
+				<br><br><span class="image bg_inicio"><img src="images/bg_inicio.jpg"
 					alt="" /></span> <br>
 				<br>
 			</div>

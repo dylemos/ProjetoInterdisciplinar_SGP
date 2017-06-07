@@ -55,7 +55,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 							<input type="text" name="login" placeholder="Login" />
 						</div>
 						<div class="6u$ 12u$(mobile)">
-							<input type="text" name="senha" placeholder="Senha" />
+							<input type="password" name="senha" placeholder="Senha" />
 						</div>
 					</div>
 
