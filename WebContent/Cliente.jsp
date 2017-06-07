@@ -38,8 +38,13 @@ out.println("<script>document.location.href='index.jsp';</script>");
 				<header>
 					<h2>Cadastro de Cliente</h2>
 				</header>
-					<input type="search" value="Pesquisar Cliente" /><br><br>
-					
+					<form action="">
+					<!-- <h4>Filtrar por:</h4> -->
+					<input type="search" value="O que você procura?">
+					<input type="submit" value="Pesquisar">
+					<a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a>
+					</form>
+					<br><br>
 <jsp:useBean id="controlador" class="com.edu.fafica.SGP.controladores.ControladorCliente" />	
 						
 						<table>
@@ -61,7 +66,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 						</tr>
 						</c:forEach>
 					</table>
-					<a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a>
+					<!-- <a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a> -->
 			</section>
 		</div>
 
