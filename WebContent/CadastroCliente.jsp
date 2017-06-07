@@ -1,11 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
 <%@ page import="java.sql.DriverManager"%>
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
-<%@ page
-	import="com.edu.fafica.SGP.servlet.ServletConnectionBancoCliente"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoCliente"%>
 
 <!DOCTYPE html>
 <html>
@@ -49,7 +47,7 @@
 				<form action="ServletConnectionBancoCliente" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
-							<input type="text" name="name" placeholder="Código" />
+							<input type="text" name="codigo" placeholder="Código" />
 						</div>
 						<div class="6u 12u$(mobile)">
 							<select name="status">

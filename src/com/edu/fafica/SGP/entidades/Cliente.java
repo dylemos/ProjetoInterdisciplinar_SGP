@@ -117,7 +117,9 @@ public class Cliente {
 		setTipoPlano(tipoPlano);
 	}
 		
-	
+	public Cliente(String cpf){
+		setCpf(cpf);
+	}
 
 
 
