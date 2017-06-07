@@ -4,7 +4,7 @@
 <%@ page import="com.edu.fafica.SGP.entidades.Cliente"%>
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>	
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -38,47 +38,50 @@ out.println("<script>document.location.href='index.jsp';</script>");
 				<header>
 					<h2>Cadastro de Cliente</h2>
 				</header>
-					<form action="">
+				<form action="">
 					<!-- <h4>Filtrar por:</h4> -->
-					<input type="search" value="O que você procura?">
-					<input type="submit" value="Pesquisar">
-					<a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a>
-					</form>
-					<br><br>
-<jsp:useBean id="controlador" class="com.edu.fafica.SGP.controladores.ControladorCliente" />	
-						
-						<table>
+					<input type="search" value="O que você procura?"> <input
+						type="submit" value="Pesquisar"> <a
+						href="CadastroCliente.jsp"><input type="button"
+						value="Novo Cadastro" /></a>
+				</form>
+				<br>
+				<br>
+				<jsp:useBean id="controlador"
+					class="com.edu.fafica.SGP.controladores.ControladorCliente" />
 
+				<table>
+
+					<tr>
+						<th>Nome</th>
+						<th>CPF</th>
+						<th>Celular</th>
+						<th>Editar</th>
+						<th>Deletar</th>
+					</tr>
+					<c:forEach var="i" items="${controlador.listarClientes()}">
 						<tr>
-							<th>Nome</th>
-							<th>CPF</th>
-							<th>Celular</th>
-							<th>Editar</th>
-							<th>Deletar</th>
-						</tr>
-						<c:forEach var="i" items="${controlador.listarClientes()}">
-						<tr>
-       						<td>${i.nomeCliente}</td>
-      						<td>${i.cpf}</td>
-      						<td>${i.celular}</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+							<td>${i.nomeCliente}</td>
+							<td>${i.cpf}</td>
+							<td>${i.celular}</td>
+							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
 							<td><a href="#" class="icon fa fa-times"></a></td>
 						</tr>
-						</c:forEach>
-					</table>
-					<!-- <a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a> -->
-			</section>
-		</div>
+					</c:forEach>
+				</table>
+				<!-- <a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a> -->
+		</section>
+	</div>
 
-		<!-- Scripts -->
-		<script src="assets/js/jquery.min.js"></script>
-		<script src="assets/js/jquery.scrolly.min.js"></script>
-		<script src="assets/js/jquery.scrollzer.min.js"></script>
-		<script src="assets/js/skel.min.js"></script>
-		<script src="assets/js/util.js"></script>
-		<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
-		<script src="assets/js/main.js"></script>
-	
-		<%@ include file="footer.html"%>
-		</body>
+	<!-- Scripts -->
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery.scrolly.min.js"></script>
+	<script src="assets/js/jquery.scrollzer.min.js"></script>
+	<script src="assets/js/skel.min.js"></script>
+	<script src="assets/js/util.js"></script>
+	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
+	<script src="assets/js/main.js"></script>
+
+	<%@ include file="footer.html"%>
+</body>
 </html>

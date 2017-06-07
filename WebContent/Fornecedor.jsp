@@ -38,10 +38,10 @@
 				<header>
 					<h2>Cadastro de Fornecedor</h2>
 				</header>
-				<input type="search" value="Pesquisar Fornecedor" /><br>
-				<br>
-				
-<jsp:useBean id="controlador" class="com.edu.fafica.SGP.controladores.ControladorFornecedor" />	
+				<input type="search" value="Pesquisar Fornecedor" /><br> <br>
+
+				<jsp:useBean id="controlador"
+					class="com.edu.fafica.SGP.controladores.ControladorFornecedor" />
 
 				<table>
 					<tr>
@@ -51,16 +51,16 @@
 						<th>Editar</th>
 						<th>Deletar</th>
 					</tr>
-						<c:forEach var="i" items="${controlador.listarFornecedores()}">
+					<c:forEach var="i" items="${controlador.listarFornecedores()}">
 						<tr>
-       						<td>${i.razaoSocial}</td>
-      						<td>${i.cnpj}</td>
-      						<td>${i.telefone}</td>
-							<td><a href="#"class="icon fa fa-pencil-square-o"></a></td>
+							<td>${i.razaoSocial}</td>
+							<td>${i.cnpj}</td>
+							<td>${i.telefone}</td>
+							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
 							<td><a href="#" class="icon fa fa-times"></a></td>
 						</tr>
-						</c:forEach>
-					</table>
+					</c:forEach>
+				</table>
 
 				<a href="CadastroFornecedor.jsp"><input type="button"
 					value="Novo Cadastro" /></a>
