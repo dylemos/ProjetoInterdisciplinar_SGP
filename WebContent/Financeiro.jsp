@@ -44,18 +44,18 @@
 				<table>
 					<tr>
 						<th>Cliente</th>
+						<th>Tipo</th>
 						<th>Valor</th>
 						<th>Vencimento</th>
-						<th>Tipo</th>
 						<th>Editar</th>
 						<th>Deletar</th>
 					</tr>
 					<c:forEach var="i" items="${controlador.listarContas()}">
 						<tr>
+							<td>${i.statusConta}</td>
 							<td>${i.cpfCliente}</td>
 							<td>${i.total}</td>
 							<td>${i.dataVencimento}</td>
-							<td>${i.tipoConta}</td>
 							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
 							<td><a href="#" class="icon fa fa-times"></a></td>
 						</tr>

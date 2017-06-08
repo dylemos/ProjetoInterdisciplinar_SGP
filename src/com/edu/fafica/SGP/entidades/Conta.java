@@ -149,7 +149,7 @@ public class Conta {
 		return dataVencimento;
 	}
 
-public void setdataVencimento(String dataVencimento) {
+	public void setdataVencimento(String dataVencimento) {
 		
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
@@ -171,7 +171,7 @@ public void setdataVencimento(String dataVencimento) {
 		return dataPago;
 	}
 	
-public void setdataPago(String dataPago) {
+	public void setdataPago(String dataPago) {
 		
 		try {
 			SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
