@@ -60,8 +60,28 @@ public class ServletConnectionBancoFornecedor extends HttpServlet {
 		String uf = request.getParameter("uf");
 		String operadora = request.getParameter("operadora");
 		
-		PrintWriter out = response.getWriter();		
-		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroFornecedor.jsp';</script>";
+		PrintWriter out = response.getWriter();	
+		
+		String html = "<div align='center'>";
+
+		html += "<html>";
+		
+		html += "	<head>";
+		html += "		<meta charset='utf-8'/>";
+		html += "		<title>@Cadastrado</title>";
+		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
+		html += "	</head>";
+		
+		html += "	<body>";
+		html += "		<div align='center'><br/><br/><br/><br/>";
+		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Fornecedor "+nomeFantasia+" CNPJ "+cnpj+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
+		html += "		</div>";
+		html += "	</body>";
+		
+		html += "</html>";
+
+		html += "</div>";
+		
 		out.println(html);		
 		Fornecedor fornecedor = new Fornecedor(razaoSocial, cnpj, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 		try {
