@@ -38,7 +38,8 @@
 				<header>
 					<h2>Cadastro de Fornecedor</h2>
 				</header>
-				<input type="search" value="Pesquisar Fornecedor" /><br> <br>
+				<input type="search" value="CNPJ do Fornecedor" />
+				<input type="submit" value="Pesquisar"><br> <br>
 
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorFornecedor" />

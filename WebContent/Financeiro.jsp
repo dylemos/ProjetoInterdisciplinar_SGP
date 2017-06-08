@@ -38,7 +38,8 @@
 				<header>
 					<h2>Financeiro</h2>
 				</header>
-				<input type="search" value="Pesquisar Financeiro" /><br> <br>
+				<input type="search" value="Pesquisar Financeiro" />
+				<input type="submit" value="Pesquisar"><br> <br>
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorConta" />
 				<table>

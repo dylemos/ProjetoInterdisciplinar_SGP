@@ -41,9 +41,9 @@ out.println("<script>document.location.href='index.jsp';</script>");
 				</header>
 				<form action="ServletConnectionBancoPesqCliente" method="post">
 					<!-- <h4>Filtrar por:</h4> -->
-					<input type="search" name="Pesquisar" value="O que você procura?"> 
+					<input type="search" name="Pesquisar" value="CPF do Cliente desejado"> 
 					<input type="submit" value="Pesquisar">
-					<a href="CadastroCliente.jsp"><input type="button"value="Novo Cadastro" /></a>
+					
 						
 				</form>
 				<br>
@@ -70,7 +70,9 @@ out.println("<script>document.location.href='index.jsp';</script>");
 						</tr>
 					</c:forEach>
 				</table>
-				<!-- <a href="CadastroCliente.jsp"><input type="button" value="Novo Cadastro"/></a> -->
+				
+				<a href="CadastroCliente.jsp"><input type="button"value="Novo Cadastro" /></a>
+				
 		</section>
 	</div>
 

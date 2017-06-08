@@ -38,7 +38,8 @@
 				<header>
 					<h2>Planos de Acesso</h2>
 				</header>
-				<input type="search" value="Pesquisar Planos" /><br> <br>
+				<input type="search" value="Plano" />
+				<input type="submit" value="Pesquisar"><br> <br>
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorPlano" />
 				<table>
