@@ -53,7 +53,25 @@ public class ServletConnectionBancoChamado extends HttpServlet {
 		String dataFechamento = request.getParameter("dataFechamento");
 
 		PrintWriter out = response.getWriter();		
-		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroAtendimento.jsp';</script>";
+		
+		String html = " ";
+		
+		html += "<html>";
+		
+		html += "	<head>";
+		html += "		<meta charset='utf-8'/>";
+		html += "		<title>@Cadastrado</title>";
+		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
+		html += "	</head>";
+		
+		html += "	<body>";
+		html += "		<div align='center'><br/><br/><br/><br/>";
+		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Chamado do Cliente "+nome+" para "+tipoChamado+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
+		html += "		</div>";
+		html += "	</body>";
+		
+		html += "</html>";
+		
 		out.println(html);		
 		Chamado chamado = new Chamado(cpfCliente, tipoChamado, descProblema, statusChamado, dataAbertura, dataFechamento);
 		try {

@@ -53,7 +53,25 @@ public class ServletConnectionBancoPlano extends HttpServlet {
 		double valorPlano = Double.parseDouble(valor);
 		
 		PrintWriter out = response.getWriter();		
-		String html = "<h2 style='transition-delay: 20s'>Cadastrado com Sucesso</h2><script>document.location.href='CadastroPlanos.jsp';</script>";
+		
+		String html = " ";
+		
+		html += "<html>";
+		
+		html += "	<head>";
+		html += "		<meta charset='utf-8'/>";
+		html += "		<title>@Cadastrado</title>";
+		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
+		html += "	</head>";
+		
+		html += "	<body>";
+		html += "		<div align='center'><br/><br/><br/><br/>";
+		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Plano "+nomePlano+" Valor R$"+valorPlano+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
+		html += "		</div>";
+		html += "	</body>";
+		
+		html += "</html>";
+		
 		out.println(html);
 		Plano plano = new Plano(nomePlano, uploadTaxa, downloadTaxa, valorPlano);
 		try {
