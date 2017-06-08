@@ -31,7 +31,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 
 		<section id="top" class="two">
 			<div class="container">
-			<% out.println("Olá " + session.getValue("loginUsuario") + " Bem Vindo ao SGP - Sistema de Gestão para Provedores de Internet");%>
+			<% out.println("Olá " + session.getValue("loginUsuario").toString().toUpperCase() + " Bem Vindo ao SGP - Sistema de Gestão para Provedores de Internet");%>
 				<br><br><span class="image bg_inicio"><img src="images/bg_inicio.jpg"
 					alt="" /></span> <br>
 				<br>
