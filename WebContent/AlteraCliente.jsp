@@ -3,12 +3,18 @@
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
-<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoCliente"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqCliente"%>
+<%@ page import="com.edu.fafica.SGP.entidadesDAO.ClienteDAO"%>
+<%@ page import="com.edu.fafica.SGP.entidades.Cliente"%>
+<%-- <%@ page import="java.util.ArrayList"%>
+<%@ page import="java.util.LinkedList"%>
+<%@ page import="java.util.HashSet"%> --%>
+<%@ page import="java.util.*"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>SGP - Cadastro de Clientes</title>
+<title>SGP - Alterar Cliente</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -20,6 +26,7 @@
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
+
 	<%@ include file="menu.html"%>
 	<%
 		//Verifica se está logado
@@ -29,20 +36,53 @@
 			out.println("<script>document.location.href='index.jsp';</script>");
 		}
 	%>
+  				<%
+ 				ServletConnectionBancoPesqCliente svt = new ServletConnectionBancoPesqCliente();
+  				String msg = (request.getParameter("msg"));
+  				//Cliente cliente = new Cliente();
+  				Object cliente = request.getAttribute("listaLigada");
+  				//System.out.println(cliente);
+  				ArrayList<Object> listCliente = new ArrayList<Object>();
+  				listCliente.add(cliente);
+  				//LinkedList linkedList = new LinkedList(); //deu certo
+  				//linkedList.add(msg); //deu certo
+  				//String msg = request.getParameter("lista");
+  				//out.println(msg);
+				//ClienteDAO clienteDAO = new ClienteDAO();
+				//application.setAttribute("clienteDAO.listaLigada", clienteDAO.listaLigada);
+				//list.add(request.getAttribute("lista"));
+				//Object obj = (request.getAttribute("lista"));
+				//ArrayList lista = new ArrayList();
+				//HashSet<Object> list = new HashSet<Object>();
+				//list.add(msg);				
+				//System.out.println(list.toString());
+				//for (Object i : list) {
+				//System.out.println(listCliente);
+				//for (Cliente i : linkedList)
+				for (int i = 0; i < listCliente.size(); i++ ) 
+				{
+					//System.out.println(listCliente.get(i));
+				%>
+
+
+<%--  				<%String cpf = (request.getParameter("Pesquisar"));%>
+ 				<jsp:useBean id="controlador"
+					class="com.edu.fafica.SGP.entidadesDAO.ClienteDAO" />
+				<c:forEach var="i" items="${controlador.procurarClienteNoBancoDeDados(cpf)}">
+				</c:forEach> --%>	
 	<!-- Main -->
 	<div id="main">
-		<!-- Cadastro de Cliente -->
 		<section id="top" class="two">
 			<div class="container">
 
 				<header>
-					<h2>Cadastro de Cliente</h2>
+					<h2>Alterar Cliente</h2>
 				</header>
 
-				<form action="ServletConnectionBancoCliente" method="post">
+				<form action="" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
-							<input type="text" name="codigo" placeholder="Código" />
+							<input type="text" name="codigo" placeholder="Código" value="Código"/>
 						</div>
 						<div class="6u 12u$(mobile)">
 							<select name="status">
@@ -143,10 +183,13 @@
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
 					</div>
 				</form>
+   				<%
+					}
+					%>		
 				<div class="container">
 		</section>
 	</div>
-
+<%-- </c:forEach> --%>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

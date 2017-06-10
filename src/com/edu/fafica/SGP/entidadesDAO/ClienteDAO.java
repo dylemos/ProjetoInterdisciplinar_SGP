@@ -122,15 +122,88 @@ public class ClienteDAO {
 
 	}
 
-
+/*	Cliente cliente = new Cliente();
+	public ArrayList<Cliente> list = new ArrayList<Cliente>();
+	public LinkedList listaLigada = new LinkedList();
+	public Object objCliente;*/
+	
 	public Cliente procurarClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception {
 
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Cliente cliente = new Cliente();
+		
+		String sql = "";
+		sql += "select * from cliente ";
+		sql += "where cpf = " + "'" + cpf + "';";
 
 		try {
 
-			if(listarClientesNoBancoDeDados().contains(cpf)){
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+
+			if(rs.next()) {
+
+				int codigo = rs.getInt(1);
+				String status = rs.getString(2);
+				String nome = rs.getString(3);
+				String rg  = rs.getString(4);
+				String cpfCliente = rs.getString(5);
+				java.sql.Date dataNasc = rs.getDate(6);
+				java.sql.Date dataCadastro = rs.getDate(7);
+				String email = rs.getString(8);	
+				String telefone = rs.getString(9);
+				String celular = rs.getString(10);
+				int vencimento = rs.getInt(11);
+				String rua = rs.getString(12);
+				String numero = rs.getString(13);
+				String bairro = rs.getString(14);
+				String cidade = rs.getString(15);
+				String uf = rs.getString(16);
+				String cep = rs.getString(17);
+				String login = rs.getString(18);
+				String senha = rs.getString(19);
+				String plano = rs.getString(20);
+				String operadora = rs.getString(21);
+
+				cliente = new Cliente(status, nome, login, senha, rg, cpfCliente, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, dataNasc, dataCadastro, plano, vencimento);
+				cliente.setId(codigo);
+				
+/*				listaLigada.add(codigo);
+				listaLigada.add(status);
+				listaLigada.add(nome);
+				listaLigada.add(rg);
+				listaLigada.add(cpfCliente);
+				listaLigada.add(dataNasc);
+				listaLigada.add(dataCadastro);
+				listaLigada.add(email);
+				listaLigada.add(telefone);
+				listaLigada.add(celular);
+				listaLigada.add(vencimento);
+				listaLigada.add(rua);
+				listaLigada.add(numero);
+				listaLigada.add(bairro);
+				listaLigada.add(cidade);
+				listaLigada.add(uf);
+				listaLigada.add(cep);
+				listaLigada.add(login);
+				listaLigada.add(senha);
+				listaLigada.add(plano);
+				listaLigada.add(operadora);
+				
+				
+			    for (int i = 0; i < listaLigada.size(); i++) {
+			        System.out.println(listaLigada.get(i));
+			      }
+			    
+				list.add(cliente);*/
+				
+				System.out.println("\nCliente localizado no Banco de Dados:");
+				System.out.println(cliente.toStringCompleta());
+				//System.out.println(listaLigada);
+				
+			}
+				
+			/*if(listarClientesNoBancoDeDados().contains(cpf)){
 
 				String sql = "select * from cliente where cpf=?";
 
@@ -174,12 +247,11 @@ public class ClienteDAO {
 
 			}else{
 				System.out.println("Cliente Não Cadastrado no Banco de Dados!");
-			}
+			}*/
 
 		} catch (Exception e) {
 			System.out.println("Erro: "+e.getMessage());
 		}
-
 		return cliente;
 	}
 
