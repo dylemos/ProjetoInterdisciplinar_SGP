@@ -81,7 +81,7 @@ public class ServletConnectionBancoPesqCliente extends HttpServlet {
 				listaLigada.add(cliente.getTipoPlano());
 				listaLigada.add(cliente.getOperadora());
 				
-				System.out.println(listaLigada);
+				//System.out.println(listaLigada);
 				//getServletContext().setAttribute("clienteDAO.list", clienteDAO.list);
 				request.setAttribute("listaLigada", listaLigada);
 				//response.sendRedirect("AlteraCliente.jsp?msg=" + clienteDAO.list);
