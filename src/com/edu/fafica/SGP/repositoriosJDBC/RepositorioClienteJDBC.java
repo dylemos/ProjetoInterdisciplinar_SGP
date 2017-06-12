@@ -22,8 +22,9 @@ public class RepositorioClienteJDBC implements IRepositorioCliente{
 	}
 
 	@Override
-	public void atualizarCliente(Cliente cliente) throws Exception, ClienteCpfInvalidoException, Exception {
+	public Cliente atualizarCliente(Cliente cliente) throws Exception, ClienteCpfInvalidoException, Exception {
 		this.clienteDAO.atualizarClienteNoBancoDeDados(cliente);
+		return null;
 	}
 
 	@Override

@@ -42,7 +42,7 @@ public class RepositorioClienteList implements IRepositorioCliente {
 	}
 
 	@Override
-	public void atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
+	public Cliente atualizarCliente(Cliente cliente) throws SQLException, ClienteNaoEncontradoException {
 		try {
 			this.listaClienteRepositorio.add(cliente);
 			System.out.println(cliente.toStringBasica());
@@ -52,6 +52,7 @@ public class RepositorioClienteList implements IRepositorioCliente {
 			System.out.println(cliente.getNomeCliente()+e.getMessage());
 			System.out.println();
 		}
+		return null;
 	}
 
 	

@@ -51,9 +51,10 @@
 					<div class="row">
 						<div class="6u 12u$(mobile)">
 							<label><h5>Código</h5></label>
+							<%-- <label name="codigo"><%=array[0]%></label> --%>
 							<input type="text" name="codigo" placeholder="Código" value="<%=array[0]%>"/>
 						</div>
-						<div class="6u 12u$(mobile)">
+						<div class="6u$ 12u$(mobile)">
 							<label><h5>Status</h5></label>
 							<select name="status">
 								<option>Ativo</option>

@@ -45,6 +45,7 @@ public class ServletConnectionBancoAlteraCliente extends HttpServlet {
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
 		
+		String id = request.getParameter("codigo");
 		String status = request.getParameter("status");
 		String nome = request.getParameter("nome");
 		String cpf = request.getParameter("cpf");
@@ -65,30 +66,12 @@ public class ServletConnectionBancoAlteraCliente extends HttpServlet {
 		String date_nascimento = request.getParameter("date_nascimento");
 		String date_cadastro = request.getParameter("date_cadastro");
 		
+		int idCliente = Integer.parseInt(id);
 		int vencimentoPlano = Integer.parseInt(vencimento);
 		
 		PrintWriter out = response.getWriter();		
-		
-		String html = " ";
-		
-		html += "<html>";
-		
-		html += "	<head>";
-		html += "		<meta charset='utf-8'/>";
-		html += "		<title>@Cadastrado</title>";
-		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
-		html += "	</head>";
-		
-		html += "	<body>";
-		html += "		<div align='center'><br/><br/><br/><br/>";
-		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Cliente "+nome+" CPF "+cpf+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
-		html += "		</div>";
-		html += "	</body>";
-		
-		html += "</html>";
-		
-		out.println(html);		
-		Cliente cliente = new Cliente(status, nome, login, senha, rg, cpf, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, date_nascimento, date_cadastro, vencimentoPlano);
+				
+		Cliente cliente = new Cliente(idCliente, status, nome, login, senha, rg, cpf, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, date_nascimento, date_cadastro, vencimentoPlano);
 		try {
 			FachadaSGP.getUniqueInstance().atualizarCliente(cliente);
 		} catch (Exception e) {
