@@ -43,7 +43,7 @@ public class ServletConnectionBancoAlteraCliente extends HttpServlet {
 		}
 		
 		response.setContentType("text/html");
-		response.setCharacterEncoding("utf-8");
+		response.setCharacterEncoding("ISO-8859-1");
 		
 		String id = request.getParameter("codigo");
 		String status = request.getParameter("status");
