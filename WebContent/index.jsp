@@ -28,7 +28,7 @@
 				<br /> <br />
 				<form name="form1" method="post"
 					action="ServletConnectionBancoLogarAdmin">
-					<table width="180" border="0" cellpadding="0" cellspacing="1">
+					<table>
 						<tr>
 							<td width="55">Login:</td>
 							<td width="122"><input name="login" type="text" id="login"></td>

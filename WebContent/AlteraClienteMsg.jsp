@@ -1,25 +1,21 @@
-<%@page import="java.util.ArrayList"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.edu.fafica.SGP.entidades.Fornecedor"%>
-<%@ page import="java.util.List"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<!DOCTYPE HTML>
+
+<!DOCTYPE html>
 <html>
 <head>
-<title>SGP - Cadastro de Fornecedor</title>
+<title>SGP - Alterar Cliente</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
 <link rel="stylesheet" href="assets/css/main.css" />
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script
+<!-- <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
 <script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
 </head>
 <body>
+
 	<%@ include file="menu.html"%>
 	<%
 		//Verifica se está logado
@@ -31,43 +27,16 @@
 	%>
 	<!-- Main -->
 	<div id="main">
-		<!-- Cadastro de Fornecedor -->
-		<section id="fornecedor" class="four">
+		<section id="top" class="two">
 			<div class="container">
-
-				<header>
-					<h2>Cadastro de Fornecedor</h2>
-				</header>
-				<input type="search" value="CNPJ do Fornecedor" />
-				<input type="submit" value="Pesquisar"><br> <br>
-
-				<jsp:useBean id="controlador"
-					class="com.edu.fafica.SGP.controladores.ControladorFornecedor" />
-
-				<table>
-					<tr>
-						<th>Razão Social</th>
-						<th>CNPJ</th>
-						<th>Telefone</th>
-						<th>Editar</th>
-						<th>Deletar</th>
-					</tr>
-					<c:forEach var="i" items="${controlador.listarFornecedores()}">
-						<tr>
-							<td>${i.razaoSocial}</td>
-							<td>${i.cnpj}</td>
-							<td>${i.telefone}</td>
-							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
-						</tr>
-					</c:forEach>
-				</table>
-
-				<a href="CadastroFornecedor.jsp"><input type="button"
-					value="Novo Cadastro" /></a>
-		</div>
+				<br><br><br><br>
+				<h3>Cliente Alterado com Sucesso!</h3>
+				<a href="Cliente.jsp"><button type="button" class="btn btn-primary" data-dismiss="modal">Continuar</button></a>
+				<br><br><br><br><br><br>
+			</div>
 		</section>
 	</div>
+	<%-- </c:forEach> --%>
 	<!-- Scripts -->
 	<script src="assets/js/jquery.min.js"></script>
 	<script src="assets/js/jquery.scrolly.min.js"></script>

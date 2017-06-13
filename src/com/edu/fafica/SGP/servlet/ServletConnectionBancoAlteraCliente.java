@@ -69,8 +69,18 @@ public class ServletConnectionBancoAlteraCliente extends HttpServlet {
 		int idCliente = Integer.parseInt(id);
 		int vencimentoPlano = Integer.parseInt(vencimento);
 		
-		PrintWriter out = response.getWriter();		
-				
+		PrintWriter out = response.getWriter();			
+		
+		String html = " ";
+		
+		html += "<html>";
+		html += "<body>";
+		html += "<script>document.location.href='AlteraClienteMsg.jsp';</script>";
+		html += "</body>";
+		html += "</html>";
+		
+		out.println(html);	
+		
 		Cliente cliente = new Cliente(idCliente, status, nome, login, senha, rg, cpf, telefone, celular, operadora, email, rua, numero, bairro, cidade, uf, cep, date_nascimento, date_cadastro, vencimentoPlano);
 		try {
 			FachadaSGP.getUniqueInstance().atualizarCliente(cliente);
@@ -78,7 +88,7 @@ public class ServletConnectionBancoAlteraCliente extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Cadastrado no Banco de Dados!");
+		System.out.println("Alterado no Banco de Dados!");
 		
 		
 	}

@@ -64,7 +64,7 @@ public class ClienteDAO {
 			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Atualizado no Banco de Dados! \n");
 			
 			/*// Criando a String SQL
-			String sql = "update cliente set  status =?,nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where cpf = ?";
+			String sql = "update cliente set  status =?,nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where ID_CLIENTE = ?";
 
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
@@ -93,10 +93,10 @@ public class ClienteDAO {
 			preStatement.setString(19,cliente.getTipoPlano());
 			preStatement.setString(20,cliente.getOperadora());
 
-			preStatement.setString(21, cliente.getCpf());
+			preStatement.setInt(21, cliente.getId());
 
 			// Executando atualização
-			preStatement.executeUpdate();
+			preStatement.executeQuery();
 
 			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Atualizado no Banco de Dados! \n");*/
 

@@ -72,19 +72,9 @@ public class ServletConnectionBancoCliente extends HttpServlet {
 		String html = " ";
 		
 		html += "<html>";
-		
-		html += "	<head>";
-		html += "		<meta charset='utf-8'/>";
-		html += "		<title>@Cadastrado</title>";
-		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
-		html += "	</head>";
-		
-		html += "	<body>";
-		html += "		<div align='center'><br/><br/><br/><br/>";
-		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Cliente "+nome+" CPF "+cpf+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
-		html += "		</div>";
-		html += "	</body>";
-		
+		html += "<body>";
+		html += "<script>document.location.href='CadastraClienteMsg.jsp';</script>";
+		html += "</body>";
 		html += "</html>";
 		
 		out.println(html);		

@@ -37,7 +37,7 @@
 				<form action="ServletConnectionBancoPlanoFinanceiro" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
-							<input type="number" name="codigo" placeholder="Código" />
+							<input type="number" name="codigo" placeholder="Código" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<select name="tipoConta">

@@ -72,7 +72,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 				</table>
 				
 				<a href="CadastroCliente.jsp"><input type="button"value="Novo Cadastro" /></a>
-				
+			</div>	
 		</section>
 	</div>
 

@@ -50,12 +50,11 @@
 				<form action="ServletConnectionBancoAlteraCliente" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
-							<label><h5>Código</h5></label>
-							<%-- <label name="codigo"><%=array[0]%></label> --%>
-							<input type="text" name="codigo" placeholder="Código" value="<%=array[0]%>"/>
+							<label><b>Código</b></label>
+							<input type="text" name="codigo" placeholder="Código" value="<%=array[0]%>" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
-							<label><h5>Status</h5></label>
+							<label>Status</label>
 							<select name="status">
 								<option>Ativo</option>
 								<option>Inativo</option>
@@ -167,7 +166,7 @@
 					</div>
 				</form>
 		
-				<div class="container">
+				</div>
 		</section>
 	</div>
 <%-- </c:forEach> --%>

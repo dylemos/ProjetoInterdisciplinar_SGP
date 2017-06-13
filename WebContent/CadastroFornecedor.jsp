@@ -37,7 +37,7 @@
 				<form action="ServletConnectionBancoFornecedor" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
-							<input type="number" name="codigo" placeholder="Código" />
+							<input type="number" name="codigo" placeholder="Código" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<input type="text" name="razaoSocial" placeholder="Razao Social" />
@@ -97,6 +97,7 @@
 						<button type="submit" class="btn btn-primary" data-dismiss="modal">Salvar</button>
 					</div>
 				</form>
+		</div>
 		</section>
 	</div>
 	<!-- Scripts -->

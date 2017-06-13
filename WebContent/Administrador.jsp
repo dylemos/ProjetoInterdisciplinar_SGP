@@ -63,6 +63,7 @@
 
 				<a href="CadastroAdministrador.jsp"><input type="button"
 					value="Novo Cadastro" /></a>
+	</div>
 		</section>
 	</div>
 	<!-- Scripts -->
