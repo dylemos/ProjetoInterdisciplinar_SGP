@@ -55,16 +55,18 @@
 						<th>Razão Social</th>
 						<th>CNPJ</th>
 						<th>Telefone</th>
-						<th>Editar</th>
-						<th>Deletar</th>
+						<th>Email</th>
+<!-- 						<th>Editar</th>
+						<th>Deletar</th> -->
 					</tr>
 					<c:forEach var="i" items="${controlador.listarFornecedores()}">
 						<tr>
 							<td>${i.razaoSocial}</td>
 							<td>${i.cnpj}</td>
 							<td>${i.telefone}</td>
-							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
+							<td>${i.email}</td>
+<!-- 							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td> -->
 						</tr>
 					</c:forEach>
 				</table>
