@@ -5,6 +5,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqPlano"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -38,8 +39,13 @@
 				<header>
 					<h2>Planos de Acesso</h2>
 				</header>
-				<input type="search" value="Plano" />
-				<input type="submit" value="Pesquisar"><br> <br>
+				<form action="ServletConnectionBancoPesqPlano" method="post">
+					<!-- <h4>Filtrar por:</h4> -->
+					<input type="search" name="Pesquisar" value="Nome do Plano"> 
+					<input type="submit" value="Pesquisar">
+					<a href="CadastroPlanos.jsp"><input type="button"value="Novo Cadastro" /></a>
+				</form>
+				<br><br><br>
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorPlano" />
 				<table>
@@ -48,8 +54,8 @@
 						<th>Upload</th>
 						<th>Download</th>
 						<th>Valor</th>
-						<th>Editar</th>
-						<th>Deletar</th>
+<!-- 						<th>Editar</th>
+						<th>Deletar</th> -->
 					</tr>
 					<c:forEach var="i" items="${controlador.listarPlanos()}">
 						<tr>
@@ -57,14 +63,11 @@
 							<td>${i.upload}</td>
 							<td>${i.download}</td>
 							<td>${i.valor}</td>
-							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
+<!-- 							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td> -->
 						</tr>
 					</c:forEach>
 				</table>
-
-				<a href="CadastroPlanos.jsp"><input type="button"
-					value="Novo Cadastro" /></a>
 		</div>
 		</section>
 	</div>

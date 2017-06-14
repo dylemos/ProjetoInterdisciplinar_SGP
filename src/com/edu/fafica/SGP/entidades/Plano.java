@@ -20,6 +20,14 @@ public class Plano {
 		setValor(valor);
 	}
 	
+	public Plano(int id, String nomePlano, int upload, int download, Double valor) {
+		setId(id);
+		setNomePlano(nomePlano);
+		setUpload(upload);
+		setDownload(download);
+		setValor(valor);
+	}
+	
 	public String toString() {
 		
 		String planoDetalhe = "{ Plano | ID: "+getId()+" | Tipo do Plano: "+getNomePlano()+" | DownLoad: "+getDownload()+

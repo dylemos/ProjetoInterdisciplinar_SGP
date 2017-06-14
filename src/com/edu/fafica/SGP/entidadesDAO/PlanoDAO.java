@@ -46,7 +46,7 @@ public class PlanoDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "update plano set  NOME=?, UPLOAD=? , DOWNLOAD=?, VALOR=? where NOME=?";
+			String sql = "update plano set  NOME=?, UPLOAD=? , DOWNLOAD=?, VALOR=? where IDPLANO=?";
 				
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
@@ -58,7 +58,7 @@ public class PlanoDAO {
 			preStatement.setInt(3, plano.getDownload());
 			preStatement.setDouble(4, plano.getValor());
 			
-			preStatement.setString(5, plano.getNomePlano());
+			preStatement.setInt(5, plano.getId());
 			
 			// Executando atualização
 			preStatement.executeUpdate();
@@ -108,25 +108,22 @@ public class PlanoDAO {
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Plano plano = new Plano();
 		
+		String sql = "";
+		sql += "select * from plano ";
+		sql += "where nome = " + "'" + nomePlano + "';";
+		
 		try {
 			
-
-			if(listarPlanosNoBancoDeDados().contains(nomePlano)){
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			
+			if(rs.next()){
 				
-				String sql = "select * from plano where NOME=?";
-
-				PreparedStatement preStatement = conn.prepareStatement(sql);
-				preStatement.setString(1, nomePlano);
-				
-				ResultSet resultSet = preStatement.executeQuery();
-				
-				while (resultSet.next()) {
-					
-					int codigo = resultSet.getInt(1);
-					String nome = resultSet.getString(2);
-					int upload  = resultSet.getInt(3);
-					int download = resultSet.getInt(4);
-					Double valor = resultSet.getDouble(5);
+					int codigo = rs.getInt(1);
+					String nome = rs.getString(2);
+					int upload  = rs.getInt(3);
+					int download = rs.getInt(4);
+					Double valor = rs.getDouble(5);
 					
 					plano = new Plano(nome, upload, download, valor);
 					plano.setId(codigo);
@@ -136,10 +133,6 @@ public class PlanoDAO {
 				
 				}
 				
-			}else{
-				System.out.println("Plano Não Cadastrado no Banco de Dados!");
-			}
-			
 			} catch (Exception e) {
 				System.out.println("Erro: "+e.getMessage());
 			}
