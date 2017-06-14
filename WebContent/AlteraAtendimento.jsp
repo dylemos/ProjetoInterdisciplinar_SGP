@@ -1,9 +1,13 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page import="java.sql.DriverManager"%>
+<%@ page import="java.sql.Connection"%>
+<%@ page import="java.sql.ResultSet"%>
+<%@ page import="java.sql.Statement"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqChamado"%>
 <!DOCTYPE HTML>
 <html>
 <head>
-<title>SGP - Atendimento</title>
+<title>SGP - Altera Atendimento</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/bootstrap.min.css">
@@ -24,6 +28,12 @@ if(session.getValue("loginUsuario") != null || session.getValue("senhaUsuario") 
 out.println("<script>document.location.href='index.jsp';</script>");
 }
 %>
+  				<%
+ 				ServletConnectionBancoPesqChamado svt = new ServletConnectionBancoPesqChamado();
+  				String msg = (request.getParameter("msg")).replace("[","").replace("]","");
+  				String array[] = new String[9];
+  				array = msg.split(", ");
+				%>
 	<!-- Main -->
 	<div id="main">
 		<!-- Central de Atendimento -->
@@ -31,14 +41,14 @@ out.println("<script>document.location.href='index.jsp';</script>");
 			<div class="container">
 
 				<header>
-					<h2>Central de Atendimento</h2>
+					<h2>Alterar Atendimento</h2>
 				</header>
 
-				<form action="ServletConnectionBancoChamado" method="post">
+				<form action="ServletConnectionBancoAlteraChamado" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
 							<label>Código</label>
-							<input type="number" name="codigo" placeholder="Código" readonly/>
+							<input type="number" name="codigo" placeholder="Código" value="<%=array[0]%>" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>Tipo do Atendimento</label>
@@ -47,6 +57,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 								<option>Instalação</option>
 								<option>Cancelamento</option>
 								<option>transferência</option>
+								<option selected><%=array[3]%></option>
 							</select>
 						</div>
 						<div class="6u 12u$(mobile)">
@@ -56,23 +67,31 @@ out.println("<script>document.location.href='index.jsp';</script>");
 								<option>Em Atendimento</option>
 								<option>Cancelado</option>
 								<option>Fechado</option>
+								<option selected><%=array[6]%></option>
 							</select>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>CPF do Cliente</label>
-							<input type="text" name="cpfcliente" placeholder="CPF do Cliente" />
+							<input type="text" name="cpfcliente" placeholder="CPF do Cliente" value="<%=array[1]%>"/>
 						</div>
 						<div class="6u 12u$(mobile)">
 							<label>Nome do Cliente</label>
-							<input type="text" name="cliente" placeholder="Nome do Cliente" />
+							<input type="text" name="cliente" placeholder="Nome do Cliente" value="<%=array[2]%>"/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>Data de Cadastro</label>
-							<input type="date" name="dataAbertura"/>
+							<input type="date" name="date_cadastro" value="<%=array[7]%>"/>
+						</div>
+						<div class="6u$ 12u$(mobile)">
+							<label>Data do Fechamento</label>
+							<input type="date" name="date_fechamento" value="<%=array[8]%>"/>
 						</div>
 						<div class="12u$">
 							<label>Observações</label>
-							<textarea name="message" placeholder="Mensagem"></textarea>
+							<input type="text" name="obs" placeholder="Mensagem" value="<%=array[4]%>" readonly/>
+							<br><label>Observações Finais</label>
+							<input type="text" name="obs2" placeholder="Mensagem" value="<%=array[5]%>" readonly/>
+							<textarea name="descProblema2" placeholder="Mensagem"></textarea>
 						</div>
 					</div>
 					<div class="modal-footer">

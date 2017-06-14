@@ -54,8 +54,6 @@ public class ServletConnectionBancoPesqCliente extends HttpServlet {
 		try {
 			ClienteDAO clienteDAO = new ClienteDAO();
 			Cliente cliente = clienteDAO.procurarClienteNoBancoDeDados(cpf);
-			//HashSet<Cliente> lista = pesq.listarClientesNoBancoDeDados();
-			//Cliente cliente = new Cliente();
 			
 			if(cliente.getCpf() != null 	&& !cliente.getCpf().isEmpty()){
 				LinkedList listaLigada = new LinkedList();
@@ -81,31 +79,13 @@ public class ServletConnectionBancoPesqCliente extends HttpServlet {
 				listaLigada.add(cliente.getTipoPlano());
 				listaLigada.add(cliente.getOperadora());
 				
-				//System.out.println(listaLigada);
-				//getServletContext().setAttribute("clienteDAO.list", clienteDAO.list);
 				request.setAttribute("listaLigada", listaLigada);
-				//response.sendRedirect("AlteraCliente.jsp?msg=" + clienteDAO.list);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("AlteraCliente.jsp?msg=" + listaLigada);
 				dispatcher.forward(request, response);
-				//out.println("<script>document.location.href='AlterarCliente.jsp';</script>");
-
-/*				String html = " ";
-				
-				
-
-									for (Cliente cliente : lista) {
-										if(cliente.getCpf().equals(cpf)){
-											html += "<h2>"+cliente.toStringBasica()+"</h2>";
-										}
-									}
-		
-				
-				out.println(html);*/
 
 			}else{
 				out.println("Não Encontrado");
-				//out.println("Login ou senha inválidos. <script>document.location.href='index.jsp';</script>");
 			}
 			
 			//FachadaSGP.getUniqueInstance().cadastrarUserAdmin(userAdmin);

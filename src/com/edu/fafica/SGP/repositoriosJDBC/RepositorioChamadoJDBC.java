@@ -33,8 +33,19 @@ public class RepositorioChamadoJDBC implements IRepositorioChamado {
 	}
 
 	@Override
-	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-		this.chamadoDAO.procurarChamadoNoBancoDeDados(id);
+	public Chamado procurarChamado(String cpfCliente) {
+		try {
+			this.chamadoDAO.procurarChamadoNoBancoDeDados(cpfCliente);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ChamadoNaoEncontradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		return null;
 	}
 

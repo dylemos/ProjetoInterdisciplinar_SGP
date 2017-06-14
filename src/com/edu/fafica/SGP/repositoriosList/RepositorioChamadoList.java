@@ -69,12 +69,12 @@ public class RepositorioChamadoList implements IRepositorioChamado{
 	}
 
 	@Override
-	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+	public Chamado procurarChamado(String cpfCliente) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
 
 		try {
 			
 			for (Chamado chamado : listaChamadoRepositorio) {
-				if(chamado.getId() == id){
+				if(chamado.getCpfCliente() == cpfCliente){
 					System.out.println("Chamado Encontrado:");
 					System.out.println(chamado.toString());
 					System.out.println();

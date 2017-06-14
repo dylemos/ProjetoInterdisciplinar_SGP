@@ -215,8 +215,8 @@ public class FachadaSGP {
 		 this.controladorChamado.removerChamado(id);
 	}
 	
-	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-		return this.controladorChamado.procurarChamado(id);
+	public Chamado procurarChamado(String cpfCliente) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+		return this.controladorChamado.procurarChamado(cpfCliente);
 	}
 	
 	public HashSet<Chamado> listarChamados() throws ClassNotFoundException {

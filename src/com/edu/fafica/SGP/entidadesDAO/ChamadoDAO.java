@@ -66,14 +66,28 @@ public class ChamadoDAO {
 	}
 
 
-	public void atualizarChamadoNoBancoDeDados(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
+	public Chamado atualizarChamadoNoBancoDeDados(Chamado chamado) throws SQLException, ChamadoNaoEncontradoException, ClassNotFoundException {
 		
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		
 		try {
 			
-			// Criando a String SQL
-			String sql = "update chamado set  CPF_CLIENTE=?, TIPOCHAMADO=? , DESCPROBLEMA=?, STATUS=? DT_ABERTURA=? DT_FECHAMENTO=? where DESCPROBLEMA=?";
+			Statement statement = conn.createStatement();
+
+			String query = "";
+
+			query += "update chamado set ";
+			query += "CPF_CLIENTE='"+chamado.getCpfCliente()+"',TIPOCHAMADO='"+chamado.getTipoChamado()+"',DESCPROBLEMA='"+chamado.getDescProblema()+"',STATUS='"+chamado.getStatusChamado()+"',DT_ABERTURA='"+chamado.getDataAbertura()+"',DT_FECHAMENTO='"+chamado.getDataFechamento()+"'";
+			query += " where  ID_CHAMADO = " + "" + chamado.getId() + ";";
+			statement.execute(query);
+			System.out.println("\n Cliente "+chamado.getId()+" Atualizado no Banco de Dados! \n");
+			
+		} catch (Exception e) {
+			System.out.println("\nErro : "+e.getMessage()+"\n");
+		}
+		return chamado;
+/*			// Criando a String SQL
+			String sql = "update chamado set  CPF_CLIENTE=?, TIPOCHAMADO=? , DESCPROBLEMA=?, STATUS=? DT_ABERTURA=? DT_FECHAMENTO=? where ID_CHAMADO=?";
 				
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
@@ -96,7 +110,7 @@ public class ChamadoDAO {
 			
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
-		}
+		}*/
 		
 	}
 
@@ -107,10 +121,46 @@ public class ChamadoDAO {
 	}
 
 
-	public Chamado procurarChamadoNoBancoDeDados(int id)
-			throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
-		// TODO Auto-generated method stub
-		return null;
+	public Chamado procurarChamadoNoBancoDeDados(String cpfCliente) throws ClassNotFoundException, ChamadoNaoEncontradoException, Exception{
+		
+	Connection conn = SGP_MySQL.getInstance().conectarBD();
+	Chamado chamado = new Chamado();
+	
+	String sql = "";
+	sql += "select ID_CHAMADO, CPF_CLIENTE, cliente.NOME, TIPOCHAMADO, DESCPROBLEMA, DESCPROBLEMA2, chamado.STATUS, DT_ABERTURA, DT_FECHAMENTO from chamado ";
+	sql += "join cliente on cliente.CPF = chamado.CPF_CLIENTE ";
+	sql += "where chamado.cpf_cliente = " + "'" + cpfCliente + "';";
+
+	try {
+
+		Statement st = conn.createStatement();
+		ResultSet rs = st.executeQuery(sql);
+
+		if(rs.next()) {
+
+			int codigo = rs.getInt(1);
+			String cpfClienteChamado = rs.getString(2);
+			String nomeCliente = rs.getString(3);
+			String tipoChamado = rs.getString(4);
+			String descProblema = rs.getString(5);
+			String descProblema2 = rs.getString(6);
+			String statusChamado = rs.getString(7);
+			java.sql.Date dataAbertura = rs.getDate(8);
+			java.sql.Date dataFechamento = rs.getDate(9);
+
+			chamado = new Chamado(cpfClienteChamado, nomeCliente, tipoChamado, descProblema, descProblema2, statusChamado, dataAbertura, dataFechamento);
+			chamado.setId(codigo);
+			
+			System.out.println("\nCliente localizado no Banco de Dados:");
+			System.out.println(chamado.toString());
+			//System.out.println(listaLigada);
+			
+		}
+			
+	} catch (Exception e) {
+		System.out.println("Erro: "+e.getMessage());
+	}
+	return chamado;
 	}
 
 

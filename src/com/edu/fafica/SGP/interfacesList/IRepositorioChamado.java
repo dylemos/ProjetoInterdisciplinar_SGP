@@ -15,7 +15,7 @@ public interface IRepositorioChamado {
 
 	public void removerChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
 
-	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
+	public Chamado procurarChamado(String cpfCliente) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException;
 
 	public HashSet<Chamado> listarChamados() throws ClassNotFoundException;
 }

@@ -7,8 +7,10 @@ public class Chamado {
 	
 	private int id;
 	private String cpfCliente;				//referência a Cliente
+	private String nomeCliente;
 	private String tipoChamado;
 	private String descProblema;
+	private String descProblema2;
 	private String statusChamado;
 	private Date dataAbertura;
 	private Date dataFechamento;
@@ -20,6 +22,14 @@ public class Chamado {
 		setStatusChamado(statusChamado);
 		setdataAbertura(dataAbertura);
 		setDataFechamento(dataFechamento);
+	}
+
+	public Chamado(String cpfCliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura) {
+		setCpfCliente(cpfCliente);
+		setTipoChamado(tipoChamado);
+		setDescProblema(descProblema);
+		setStatusChamado(statusChamado);
+		setdataAbertura(dataAbertura);
 	}
 
 	public Chamado() {
@@ -34,6 +44,30 @@ public class Chamado {
 		setStatusChamado(statusChamado);
 		setDataAbertura(dataAbertura);
 		setDataFechamento(dataFechamento);
+	}
+	
+	public Chamado(String cpfCliente, String nomeCliente, String tipoChamado, String descProblema, String descProblema2, String statusChamado,
+			java.sql.Date dataAbertura, java.sql.Date dataFechamento) {
+		setCpfCliente(cpfCliente);
+		setNomeCliente(nomeCliente);
+		setTipoChamado(tipoChamado);
+		setDescProblema(descProblema);
+		setDescProblema(descProblema2);
+		setStatusChamado(statusChamado);
+		setDataAbertura(dataAbertura);
+		setDataFechamento(dataFechamento);
+	}
+	
+	public Chamado(int id, String cpfCliente, String nomeCliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento, String descProblema2) {
+		setId(id);
+		setCpfCliente(cpfCliente);
+		setNomeCliente(nomeCliente);
+		setTipoChamado(tipoChamado);
+		setDescProblema(descProblema);
+		setStatusChamado(statusChamado);
+		setdataAbertura(dataAbertura);
+		setDataFechamento(dataFechamento);
+		setDataFechamento(descProblema2);
 	}
 
 	public String toString() {				
@@ -58,6 +92,14 @@ public class Chamado {
 
 	public void setCpfCliente(String cpfCliente) {
 		this.cpfCliente = cpfCliente;
+	}
+	
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 
 	public String getTipoChamado() {
@@ -130,7 +172,13 @@ public class Chamado {
 		this.descProblema = descProblema;
 	}
 
-	
+	public String getDescProblema2() {
+		return descProblema2;
+	}
+
+	public void setDescProblema2(String descProblema2) {
+		this.descProblema2 = descProblema2;
+	}	
 	
 
 }

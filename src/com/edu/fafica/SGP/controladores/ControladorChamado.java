@@ -115,7 +115,7 @@ public class ControladorChamado {
 
 	
 
-	public Chamado procurarChamado(int id) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
+	public Chamado procurarChamado(String cpfCliente) throws SQLException, ChamadoNaoEncontradoException, ChamadoIdInvalidoException {
 		
 /*List
 		try {
@@ -134,7 +134,7 @@ public class ControladorChamado {
 */
 		
 		//JDBC
-		this.repositorioChamado.procurarChamado(id);
+		this.repositorioChamado.procurarChamado(cpfCliente);
 		
 		return null;
 	}

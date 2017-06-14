@@ -12,13 +12,14 @@ import javax.servlet.http.HttpServletResponse;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.exceptions.ChamadoJaCadastradoException;
+import com.edu.fafica.SGP.exceptions.ChamadoNaoEncontradoException;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
-@WebServlet("/ServletConnectionBancoChamado")
-public class ServletConnectionBancoChamado extends HttpServlet {
+@WebServlet("/ServletConnectionBancoAlteraChamado")
+public class ServletConnectionBancoAlteraChamado extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ServletConnectionBancoChamado() {
+    public ServletConnectionBancoAlteraChamado() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -43,14 +44,19 @@ public class ServletConnectionBancoChamado extends HttpServlet {
 		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		
+		String id = request.getParameter("codigo");
 		String tipoChamado = request.getParameter("tipo");
 		String statusChamado = request.getParameter("status");
 		String cpfCliente = request.getParameter("cpfcliente");
-		String nome = request.getParameter("cliente");
+		String nomeCliente = request.getParameter("cliente");
 		String descProblema = request.getParameter("message");
-		String dataAbertura = request.getParameter("dataAbertura");
-		//String dataFechamento = request.getParameter("dataFechamento");
+		String dataAbertura = request.getParameter("date_cadastro");
+		String dataFechamento = request.getParameter("date_fechamento");
+		String descProblema2 = request.getParameter("descProblema2");
+		
+		int idChamado = Integer.parseInt(id);
 
 		PrintWriter out = response.getWriter();		
 		
@@ -58,15 +64,18 @@ public class ServletConnectionBancoChamado extends HttpServlet {
 		
 		html += "<html>";
 		html += "<body>";
-		html += "<script>document.location.href='CadastraAtendimentoMsg.jsp';</script>";
+		html += "<script>document.location.href='AlteraAtendimentoMsg.jsp';</script>";
 		html += "</body>";
 		html += "</html>";
 		
 		out.println(html);	
-		Chamado chamado = new Chamado(cpfCliente, tipoChamado, descProblema, statusChamado, dataAbertura);
+		Chamado chamado = new Chamado(idChamado, cpfCliente, nomeCliente, tipoChamado, descProblema, statusChamado, dataAbertura, dataFechamento, descProblema2);
 		try {
-			FachadaSGP.getUniqueInstance().cadastrarChamado(chamado);
-		} catch (ClassNotFoundException | SQLException | ChamadoJaCadastradoException e) {
+			FachadaSGP.getUniqueInstance().atualizarChamado(chamado);
+		} catch (ClassNotFoundException | SQLException | ChamadoNaoEncontradoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
