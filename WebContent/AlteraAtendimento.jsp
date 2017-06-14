@@ -33,6 +33,10 @@ out.println("<script>document.location.href='index.jsp';</script>");
   				String msg = (request.getParameter("msg")).replace("[","").replace("]","");
   				String array[] = new String[9];
   				array = msg.split(", ");
+  				
+  				for(int i = 0; i < array.length; i++){
+  					System.out.println(i + " " + array[i]);
+  				} 
 				%>
 	<!-- Main -->
 	<div id="main">
@@ -72,25 +76,26 @@ out.println("<script>document.location.href='index.jsp';</script>");
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>CPF do Cliente</label>
-							<input type="text" name="cpfcliente" placeholder="CPF do Cliente" value="<%=array[1]%>"/>
+							<input type="text" name="cpfcliente" placeholder="CPF do Cliente" value="<%=array[1]%>" readonly/>
 						</div>
 						<div class="6u 12u$(mobile)">
 							<label>Nome do Cliente</label>
-							<input type="text" name="cliente" placeholder="Nome do Cliente" value="<%=array[2]%>"/>
+							<input type="text" name="cliente" placeholder="Nome do Cliente" value="<%=array[2]%>" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>Data de Cadastro</label>
-							<input type="date" name="date_cadastro" value="<%=array[7]%>"/>
+							<input type="date" name="dataAbertura" value="<%=array[7]%>" readonly/>
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<label>Data do Fechamento</label>
-							<input type="date" name="date_fechamento" value="<%=array[8]%>"/>
+							<input type="date" name="dataFechamento" value="<%=array[8]%>"/>
 						</div>
 						<div class="12u$">
 							<label>Observações</label>
 							<input type="text" name="obs" placeholder="Mensagem" value="<%=array[4]%>" readonly/>
 							<br><label>Observações Finais</label>
 							<input type="text" name="obs2" placeholder="Mensagem" value="<%=array[5]%>" readonly/>
+							<br>
 							<textarea name="descProblema2" placeholder="Mensagem"></textarea>
 						</div>
 					</div>

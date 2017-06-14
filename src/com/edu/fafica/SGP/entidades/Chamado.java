@@ -52,22 +52,29 @@ public class Chamado {
 		setNomeCliente(nomeCliente);
 		setTipoChamado(tipoChamado);
 		setDescProblema(descProblema);
-		setDescProblema(descProblema2);
+		setDescProblema2(descProblema2);
 		setStatusChamado(statusChamado);
 		setDataAbertura(dataAbertura);
 		setDataFechamento(dataFechamento);
 	}
 	
-	public Chamado(int id, String cpfCliente, String nomeCliente, String tipoChamado, String descProblema, String statusChamado, String dataAbertura, String dataFechamento, String descProblema2) {
+	public Chamado(int id, String cpfCliente, String tipoChamado, String descProblema2, String statusChamado, String dataAbertura, String dataFechamento) {
 		setId(id);
 		setCpfCliente(cpfCliente);
-		setNomeCliente(nomeCliente);
 		setTipoChamado(tipoChamado);
-		setDescProblema(descProblema);
+		setDescProblema2(descProblema2);
 		setStatusChamado(statusChamado);
 		setdataAbertura(dataAbertura);
 		setDataFechamento(dataFechamento);
-		setDataFechamento(descProblema2);
+	}
+	
+	public Chamado(int id, String cpfCliente, String tipoChamado, String descProblema2, String statusChamado, String dataFechamento) {
+		setId(id);
+		setCpfCliente(cpfCliente);
+		setTipoChamado(tipoChamado);
+		setDescProblema2(descProblema2);
+		setStatusChamado(statusChamado);
+		setDataFechamento(dataFechamento);
 	}
 
 	public String toString() {				

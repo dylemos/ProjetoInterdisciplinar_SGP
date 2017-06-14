@@ -66,6 +66,7 @@ public class ServletConnectionBancoPesqChamado extends HttpServlet {
 				listaLigada.add(chamado.getDataAbertura());
 				listaLigada.add(chamado.getDataFechamento());
 				
+				System.out.println(listaLigada);
 				request.setAttribute("listaLigada", listaLigada);
 				
 				RequestDispatcher dispatcher = request.getRequestDispatcher("AlteraAtendimento.jsp?msg=" + listaLigada);

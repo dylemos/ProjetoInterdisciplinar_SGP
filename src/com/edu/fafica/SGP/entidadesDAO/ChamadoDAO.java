@@ -77,7 +77,7 @@ public class ChamadoDAO {
 			String query = "";
 
 			query += "update chamado set ";
-			query += "CPF_CLIENTE='"+chamado.getCpfCliente()+"',TIPOCHAMADO='"+chamado.getTipoChamado()+"',DESCPROBLEMA='"+chamado.getDescProblema()+"',STATUS='"+chamado.getStatusChamado()+"',DT_ABERTURA='"+chamado.getDataAbertura()+"',DT_FECHAMENTO='"+chamado.getDataFechamento()+"'";
+			query += "CPF_CLIENTE='"+chamado.getCpfCliente()+"',TIPOCHAMADO='"+chamado.getTipoChamado()+"',DESCPROBLEMA2='"+chamado.getDescProblema2()+"',STATUS='"+chamado.getStatusChamado()+"',DT_FECHAMENTO='"+chamado.getDataFechamento()+"'";
 			query += " where  ID_CHAMADO = " + "" + chamado.getId() + ";";
 			statement.execute(query);
 			System.out.println("\n Cliente "+chamado.getId()+" Atualizado no Banco de Dados! \n");

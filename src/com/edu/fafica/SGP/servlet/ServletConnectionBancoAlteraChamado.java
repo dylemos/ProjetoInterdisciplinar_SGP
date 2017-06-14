@@ -50,10 +50,7 @@ public class ServletConnectionBancoAlteraChamado extends HttpServlet {
 		String tipoChamado = request.getParameter("tipo");
 		String statusChamado = request.getParameter("status");
 		String cpfCliente = request.getParameter("cpfcliente");
-		String nomeCliente = request.getParameter("cliente");
-		String descProblema = request.getParameter("message");
-		String dataAbertura = request.getParameter("date_cadastro");
-		String dataFechamento = request.getParameter("date_fechamento");
+		String dataFechamento = request.getParameter("dataFechamento");
 		String descProblema2 = request.getParameter("descProblema2");
 		
 		int idChamado = Integer.parseInt(id);
@@ -69,7 +66,7 @@ public class ServletConnectionBancoAlteraChamado extends HttpServlet {
 		html += "</html>";
 		
 		out.println(html);	
-		Chamado chamado = new Chamado(idChamado, cpfCliente, nomeCliente, tipoChamado, descProblema, statusChamado, dataAbertura, dataFechamento, descProblema2);
+		Chamado chamado = new Chamado(idChamado, cpfCliente, tipoChamado, descProblema2, statusChamado, dataFechamento);
 		try {
 			FachadaSGP.getUniqueInstance().atualizarChamado(chamado);
 		} catch (ClassNotFoundException | SQLException | ChamadoNaoEncontradoException e) {
