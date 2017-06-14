@@ -118,34 +118,32 @@ public class FornecedorDAO  {
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		Fornecedor fornecedor = new Fornecedor();
 		
+		String sql = "";
+		sql += "select * from fornecedor ";
+		sql += "where cnpj = " + "'" + cnpj + "';";
+		
 		try {
 			
-			if(listarFornecedoresNoBancoDeDados().contains(cnpj)){
-				
-				String sql = "select * from fornecedor where cnpj=?";
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
 
-				PreparedStatement preStatement = conn.prepareStatement(sql);
-				preStatement.setString(1, cnpj);
+			if(rs.next()) {
 				
-				ResultSet resultSet = preStatement.executeQuery();
-				
-				while (resultSet.next()) {
-					
-					int codigo = resultSet.getInt(1);
-					String nomeFantasia = resultSet.getString(2);
-					String razaoSocial  = resultSet.getString(3);
-					String cnpjFornecedor = resultSet.getString(4);
-					String ie = resultSet.getString(5);
-					String rua = resultSet.getString(6);
-					String numero = resultSet.getString(7);
-					String bairro = resultSet.getString(8);
-					String cidade = resultSet.getString(9);
-					String uf = resultSet.getString(10);
-					String cep = resultSet.getString(11);
-					String email = resultSet.getString(12);	
-					String telefone = resultSet.getString(13);
-					String celular = resultSet.getString(14);
-					String operadora = resultSet.getString(15);
+					int codigo = rs.getInt(1);
+					String nomeFantasia = rs.getString(2);
+					String razaoSocial  = rs.getString(3);
+					String cnpjFornecedor = rs.getString(4);
+					String ie = rs.getString(5);
+					String rua = rs.getString(6);
+					String numero = rs.getString(7);
+					String bairro = rs.getString(8);
+					String cidade = rs.getString(9);
+					String uf = rs.getString(10);
+					String cep = rs.getString(11);
+					String email = rs.getString(12);	
+					String telefone = rs.getString(13);
+					String celular = rs.getString(14);
+					String operadora = rs.getString(15);
 					
 					fornecedor = new Fornecedor(razaoSocial, cnpjFornecedor, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 					fornecedor.setId(codigo);
@@ -155,10 +153,6 @@ public class FornecedorDAO  {
 				
 				}
 				
-			}else{
-				System.out.println("Fornecedor Não Cadastrado no Banco de Dados!");
-			}
-			
 			} catch (Exception e) {
 				System.out.println("Erro: "+e.getMessage());
 			}

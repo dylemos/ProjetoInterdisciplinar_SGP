@@ -49,7 +49,7 @@ public class UserAdminDAO {
 		try {
 			
 			// Criando a String SQL
-			String sql = "update userAdmin set  STATUS=?, NOME=?, LOGIN=? , SENHA=? where NOME= ?";
+			String sql = "update userAdmin set  STATUS=?, NOME=?, LOGIN=? , SENHA=? where CPF= ?";
 				
 			// Criar o PreparedStatement, objeto para executar a query
 			PreparedStatement preStatement;
@@ -61,7 +61,7 @@ public class UserAdminDAO {
 			preStatement.setString(3, userAdmin.getLogin());
 			preStatement.setString(4, userAdmin.getSenha());
 			
-			preStatement.setString(5, userAdmin.getNomeUserAdmin());
+			preStatement.setString(5, userAdmin.getCpf());
 			
 			// Executando atualização
 			preStatement.executeUpdate();
@@ -112,38 +112,32 @@ public class UserAdminDAO {
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
 		UserAdmin userAdmin = new UserAdmin();
 		
+		String sql = "";
+		sql += "select * from useradmin ";
+		sql += "where cpf = " + "'" + cpf + "';";
+		
 		try {
 			
-			if(listarUserAdminsNoBancoDeDados().contains(cpf)){
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+			
+			if(rs.next()){
 				
-				String sql = "select * from USERADMIN where CPF=?";
-
-				PreparedStatement preStatement = conn.prepareStatement(sql);
-				preStatement.setString(1, cpf);
+				int codigo = rs.getInt(1);
+				String status = rs.getString(2);
+				String nome = rs.getString(3);
+				String cpfAdmin = rs.getString(4);
+				String login = rs.getString(5);
+				String senha = rs.getString(6);
 				
-				ResultSet resultSet = preStatement.executeQuery();
-				
-				while (resultSet.next()) {
-					
-					int codigo = resultSet.getInt(1);
-					String status = resultSet.getString(2);
-					String nome = resultSet.getString(3);
-					String cpfUA  = resultSet.getString(4);
-					String login = resultSet.getString(5);
-					String senha = resultSet.getString(6);
-					
-					userAdmin = new UserAdmin(status, nome, cpfUA, login, senha);
-					userAdmin.setId(codigo);
+				userAdmin = new UserAdmin(status, nome, cpfAdmin, login, senha);
+				userAdmin.setId(codigo);
 					
 					System.out.println("\nUserAdmin localizado no Banco de Dados:");
 					System.out.println(userAdmin.toString());
 				
 				}
 				
-			}else{
-				System.out.println("UserAdmin Não Cadastrado no Banco de Dados!");
-			}
-			
 			} catch (Exception e) {
 				System.out.println("Erro: "+e.getMessage());
 			}

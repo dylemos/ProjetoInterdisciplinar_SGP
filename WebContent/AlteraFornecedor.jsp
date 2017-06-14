@@ -3,12 +3,12 @@
 <%@ page import="java.sql.Connection"%>
 <%@ page import="java.sql.ResultSet"%>
 <%@ page import="java.sql.Statement"%>
-<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqCliente"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqFornecedor"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<title>SGP - Alterar Cliente</title>
+<title>SGP - Altera Fornecedor</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="stylesheet" href="assets/css/bootstrap.min.css"/>
@@ -30,9 +30,9 @@
 		}
 	%>
   				<%
- 				ServletConnectionBancoPesqCliente svt = new ServletConnectionBancoPesqCliente();
+ 				ServletConnectionBancoPesqFornecedor svt = new ServletConnectionBancoPesqFornecedor();
   				String msg = (request.getParameter("msg")).replace("[","").replace("]","");
-  				String array[] = new String[21];
+  				String array[] = new String[15];
   				array = msg.split(", ");
 				%>
 	<!-- Main -->
@@ -42,120 +42,76 @@
 			<div class="container">
 
 				<header>
-					<h2>Alterar Cliente</h2>
+					<h2>Alterar Fornecedor</h2>
 				</header>
 
-				<form action="ServletConnectionBancoAlteraCliente" method="post">
+				<form action="ServletConnectionBancoAlteraFornecedor" method="post">
 					<div class="row">
 						<div class="6u 12u$(mobile)">
 							<label><b>Código</b></label>
 							<input type="text" name="codigo" placeholder="Código" value="<%=array[0]%>" readonly/>
 						</div>
-						<div class="6u 12u$(mobile)">
-							<label>Status</label>
-							<select name="status">
-								<option>Ativo</option>
-								<option>Inativo</option>
-								<option selected><%=array[1]%></option>
-							</select>
-						</div>
-
-						<div class="6u 12u$(mobile)">
-							<label>Nome</label>
-							<input type="text" name="nome" placeholder="Nome" value="<%=array[2]%>"/>
-						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Cpf</label>
-							<input type="text" class="cpf" name="cpf" placeholder="CPF" value="<%=array[4]%>"/>
+							<label><b>Razao Social</b></label>
+							<input type="text" name="razaoSocial" placeholder="Razao Social" value="<%=array[1]%>"/>
 						</div>
-
 						<div class="6u 12u$(mobile)">
-							<label>Identidade</label>
-							<input type="text" name="rg" placeholder="Identidade" value="<%=array[3]%>"/>
+							<label><b>Nome Fantasia</b></label>
+							<input type="text" name="nomeFantasia" placeholder="Nome Fantasia" value="<%=array[14]%>"/>
 						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Email</label>
-							<input type="email" name="email" placeholder="Email" value="<%=array[7]%>"/>
+							<label><b>CNPJ</b></label>
+							<input type="text" name="cnpj" placeholder="CNPJ" value="<%=array[2]%>"/>
 						</div>
-
 						<div class="6u 12u$(mobile)">
-							<label>Celular</label>
-							<input type="text" name="celular" placeholder="Celular" value="<%=array[9]%>"/>
+							<label><b>Inscrição Estadual</b></label>
+							<input type="text" name="ie" placeholder="Inscrição Estadual" value="<%=array[3]%>"/>
 						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Operadora</label>
-							<select name="operadora" >
+							<label><b>Email</b></label>
+							<input type="email" name="email" placeholder="Email" value="<%=array[10]%>"/>
+						</div>
+						<div class="6u 12u$(mobile)">
+							<label><b>Telefone</b></label>
+							<input type="number" name="telefone" placeholder="Telefone" value="<%=array[11]%>"/>
+						</div>
+						<div class="6u$ 12u$(mobile)">
+							<label><b>Celular</b></label>
+							<input type="number" name="celular" placeholder="Celular" value="<%=array[12]%>"/>
+						</div>
+						<div class="6u 12u$(mobile)">
+							<label><b>Operadora</b></label>
+							<select name="operadora">
 								<option>Claro</option>
 								<option>Tim</option>
 								<option>Oi</option>
-								<option>Vivo</option>
-								<option selected><%=array[20]%></option>
+								<option selected><%=array[13]%></option>
 							</select>
 						</div>
-
-						<div class="6u 12u$(mobile)">
-							<label>Telefone</label>
-							<input type="text" name="telefone" placeholder="Telefone" value="<%=array[8]%>"/>
-						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Cep</label>
-							<input type="text" name="cep" placeholder="Cep" value="<%=array[16]%>"/>
+							<label><b>Cep</b></label>
+							<input type="number" name="cep" placeholder="Cep" value="<%=array[9]%>"/>
 						</div>
-
 						<div class="6u 12u$(mobile)">
-							<label>Logradouro</label>
-							<input type="text" name="endereco" placeholder="Logradouro" value="<%=array[11]%>"/>
+							<label><b>Logradouro</b></label>
+							<input type="text" name="endereco" placeholder="Endereço" value="<%=array[4]%>"/>
 						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Número</label>
-							<input type="text" name="numero" placeholder="Nº" value="<%=array[12]%>"/>
+							<label><b>Número</b></label>
+							<input type="text" name="numero" placeholder="Nº" value="<%=array[5]%>"/>
 						</div>
-
 						<div class="6u 12u$(mobile)">
-							<label>Bairro</label>
-							<input type="text" name="bairro" placeholder="Bairro" value="<%=array[13]%>"/>
+							<label><b>Bairro</b></label>
+							<input type="text" name="bairro" placeholder="Bairro" value="<%=array[6]%>"/>
 						</div>
-
 						<div class="6u$ 12u$(mobile)">
-							<label>Cidade</label>
-							<input type="text" name="cidade" placeholder="Cidade" value="<%=array[14]%>"/>
+							<label><b>Cidade</b></label>
+							<input type="text" name="cidade" placeholder="Cidade" value="<%=array[7]%>"/>
 						</div>
-
 						<div class="6u 12u$(mobile)">
-							<label>Estado</label>
-							<input type="text" name="uf" placeholder="Estado" value="<%=array[15]%>"/>
-						</div>
-
-						<div class="6u$ 12u$(mobile)">
-							<label>Vencimento</label>
-							<input type="text" name="vencimento"
-								placeholder="Data de Vencimento" value="<%=array[10]%>"/>
-						</div>
-
-						<div class="6u 12u$(mobile)">
-							<label>Login</label>
-							<input type="text" name="login" placeholder="Login" value="<%=array[17]%>"/>
-						</div>
-
-						<div class="6u$ 12u$(mobile)">
-							<label>Senha</label>
-							<input type="password" name="senha" placeholder="Senha" value="<%=array[18]%>"/>
-						</div>
-
-						<div class="6u 12u$(mobile)">
-							<label>Data de Nascimento</label>
-							<input type="date" name="date_nascimento" value="<%=array[5]%>"/>
-						</div>
-
-						<div class="6u$ 12u$(mobile)">
-							<label>Data de Cadastro</label>
-							<input type="date" name="date_cadastro" value="<%=array[6]%>"/>
-						</div>
+							<label><b>Estado</b></label>
+							<input type="text" name="uf" placeholder="Estado" value="<%=array[8]%>"/>
+						</div>						
 					</div>
 					<div class="modal-footer">
 						<a href="Cliente.jsp"><button type="button"

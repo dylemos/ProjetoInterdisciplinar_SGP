@@ -5,6 +5,7 @@
 <%@ page import="java.util.List"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page import="com.edu.fafica.SGP.servlet.ServletConnectionBancoPesqFornecedor"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -38,8 +39,13 @@
 				<header>
 					<h2>Cadastro de Fornecedor</h2>
 				</header>
-				<input type="search" value="CNPJ do Fornecedor" />
-				<input type="submit" value="Pesquisar"><br> <br>
+				<form action="ServletConnectionBancoPesqFornecedor" method="post">
+					<!-- <h4>Filtrar por:</h4> -->
+					<input type="search" name="Pesquisar" value="CNPJ do Fornecedor"> 
+					<input type="submit" value="Pesquisar">
+					<a href="CadastroFornecedor.jsp"><input type="button"value="Novo Cadastro" /></a>
+				</form>
+				<br> <br>
 
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorFornecedor" />
@@ -63,8 +69,6 @@
 					</c:forEach>
 				</table>
 
-				<a href="CadastroFornecedor.jsp"><input type="button"
-					value="Novo Cadastro" /></a>
 		</div>
 		</section>
 	</div>

@@ -38,31 +38,36 @@
 				<header>
 					<h2>Cadastro de Administradores</h2>
 				</header>
-				<input type="search" value="Pesquisar Administradores" /><br>
+				<form action="ServletConnectionBancoPesqAdmin" method="post">
+					<!-- <h4>Filtrar por:</h4> -->
+					<input type="search" name="Pesquisar" value="Cpf do Administrador"> 
+					<input type="submit" value="Pesquisar">
+					<a href="CadastroAdministrador.jsp"><input type="button"value="Novo Cadastro" /></a>
+				</form>
+				<br>
 				<br>
 				<jsp:useBean id="controlador"
 					class="com.edu.fafica.SGP.controladores.ControladorUserAdmin" />
 				<table>
 					<tr>
-						<th>Nome</th>
 						<th>Status</th>
+						<th>Nome</th>
+						<th>Cpf</th>
 						<th>Login</th>
-						<th>Editar</th>
-						<th>Deletar</th>
+<!-- 						<th>Editar</th>
+						<th>Deletar</th> -->
 					</tr>
 					<c:forEach var="i" items="${controlador.listarUserAdmins()}">
 						<tr>
-							<td>${i.nomeUserAdmin}</td>
 							<td>${i.status}</td>
+							<td>${i.nomeUserAdmin}</td>
+							<td>${i.cpf}</td>
 							<td>${i.login}</td>
-							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
+<!-- 							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td> -->
 						</tr>
 					</c:forEach>
 				</table>
-
-				<a href="CadastroAdministrador.jsp"><input type="button"
-					value="Novo Cadastro" /></a>
 	</div>
 		</section>
 	</div>

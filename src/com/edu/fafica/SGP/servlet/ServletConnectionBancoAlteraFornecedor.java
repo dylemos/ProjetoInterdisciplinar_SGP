@@ -15,11 +15,11 @@ import com.edu.fafica.SGP.exceptions.FornecedorCNPJInvalidoException;
 import com.edu.fafica.SGP.exceptions.FornecedorJaCadastradoException;
 import com.edu.fafica.SGP.singletonFachada.FachadaSGP;
 
-@WebServlet("/ServletConnectionBancoFornecedor")
-public class ServletConnectionBancoFornecedor extends HttpServlet {
+@WebServlet("/ServletConnectionBancoAlteraFornecedor")
+public class ServletConnectionBancoAlteraFornecedor extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
-    public ServletConnectionBancoFornecedor() {
+    public ServletConnectionBancoAlteraFornecedor() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,41 +44,46 @@ public class ServletConnectionBancoFornecedor extends HttpServlet {
 		
 		response.setContentType("text/html");
 		response.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
 		
+		String id = request.getParameter("codigo");
 		String razaoSocial = request.getParameter("razaoSocial");
-		String nomeFantasia = request.getParameter("nomeFantasia");
 		String cnpj = request.getParameter("cnpj");
 		String ie = request.getParameter("ie");
-		String email = request.getParameter("email");
-		String telefone = request.getParameter("telefone");
-		String celular = request.getParameter("celular");
-		String cep = request.getParameter("cep");
 		String rua = request.getParameter("endereco");
 		String numero = request.getParameter("numero");
 		String bairro = request.getParameter("bairro");
 		String cidade = request.getParameter("cidade");
 		String uf = request.getParameter("uf");
+		String cep = request.getParameter("cep");
+		String email = request.getParameter("email");
+		String telefone = request.getParameter("telefone");
+		String celular = request.getParameter("celular");
 		String operadora = request.getParameter("operadora");
+		String nomeFantasia = request.getParameter("nomeFantasia");
 		
-		PrintWriter out = response.getWriter();	
+		int idCliente = Integer.parseInt(id);
+		
+		PrintWriter out = response.getWriter();			
 		
 		String html = " ";
 		
 		html += "<html>";
 		html += "<body>";
-		html += "<script>document.location.href='CadastraFornecedorMsg.jsp';</script>";
+		html += "<script>document.location.href='AlteraFornecedorMsg.jsp';</script>";
 		html += "</body>";
 		html += "</html>";
 		
-		out.println(html);		
-		Fornecedor fornecedor = new Fornecedor(razaoSocial, cnpj, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
+		out.println(html);	
+		
+		Fornecedor fornecedor = new Fornecedor(idCliente, razaoSocial, cnpj, ie, rua, numero, bairro, cidade, uf, cep, email, telefone, celular, operadora, nomeFantasia);
 		try {
-			FachadaSGP.getUniqueInstance().cadastrarFornecedor(fornecedor);
-		} catch (ClassNotFoundException | SQLException | FornecedorJaCadastradoException | FornecedorCNPJInvalidoException e) {
+			FachadaSGP.getUniqueInstance().atualizarFornecedor(fornecedor);
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("Cadastrado no Banco de Dados!");
+		System.out.println("Alterado no Banco de Dados!");
 		
 		
 	}

@@ -21,6 +21,15 @@ public class UserAdmin {
 		setSenha(senha);
 	}
 	
+	public UserAdmin(int id, String status, String nomeUserAdmin, String cpf, String login, String senha) {
+		setId(id);
+		setStatus(status);
+		setNomeUserAdmin(nomeUserAdmin);
+		setCpf(cpf);
+		setLogin(login);
+		setSenha(senha);
+	}
+	
 
 	public String toString() {
 		

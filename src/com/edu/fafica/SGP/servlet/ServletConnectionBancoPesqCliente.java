@@ -15,7 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Cliente;
 import com.edu.fafica.SGP.entidadesDAO.ClienteDAO;
-import com.edu.fafica.SGP.exceptions.UserAdminNaoEncontradoException;
+import com.edu.fafica.SGP.exceptions.ClienteNaoEncontradoException;
 
 @WebServlet("/ServletConnectionBancoPesqCliente")
 public class ServletConnectionBancoPesqCliente extends HttpServlet {
@@ -112,7 +112,7 @@ public class ServletConnectionBancoPesqCliente extends HttpServlet {
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} catch (UserAdminNaoEncontradoException e) {
+		} catch (ClienteNaoEncontradoException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (Exception e) {

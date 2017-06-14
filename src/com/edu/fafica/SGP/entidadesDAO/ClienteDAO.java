@@ -63,43 +63,6 @@ public class ClienteDAO {
 			statement.execute(query);
 			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Atualizado no Banco de Dados! \n");
 			
-			/*// Criando a String SQL
-			String sql = "update cliente set  status =?,nome =?,rg=? ,cpf=?,dt_nascimento=?,dt_cadastro=?,email=?,telefone=?,celular=?,dt_vencimento=?,rua=?,numero=?,bairro=?,cidade=?,uf=?,cep=?,login=?,senha=?,tipoplano=?,operadora=? where ID_CLIENTE = ?";
-
-			// Criar o PreparedStatement, objeto para executar a query
-			PreparedStatement preStatement;
-
-
-			preStatement = conn.prepareStatement(sql);
-
-			preStatement.setString(1, cliente.getStatus());
-			preStatement.setString(2, cliente.getNomeCliente());
-			preStatement.setString(3, cliente.getRg());
-			preStatement.setString(4, cliente.getCpf());
-			preStatement.setDate(5, (Date) cliente.getDataNascimento());
-			preStatement.setDate(6, (Date) cliente.getDataCadasatro());
-			preStatement.setString(7, cliente.getEmail());
-			preStatement.setString(8, cliente.getTelefone());
-			preStatement.setString(9,cliente.getCelular());
-			preStatement.setInt(10, cliente.getVencimentoPlano());
-			preStatement.setString(11,cliente.getRua());
-			preStatement.setString(12,cliente.getNumero());
-			preStatement.setString(13,cliente.getBairro());
-			preStatement.setString(14, cliente.getCidade());
-			preStatement.setString(15,cliente.getUf());
-			preStatement.setString(16,cliente.getCep());
-			preStatement.setString(17,cliente.getLogin());
-			preStatement.setString(18,cliente.getSenha());
-			preStatement.setString(19,cliente.getTipoPlano());
-			preStatement.setString(20,cliente.getOperadora());
-
-			preStatement.setInt(21, cliente.getId());
-
-			// Executando atualização
-			preStatement.executeQuery();
-
-			System.out.println("\n Cliente "+cliente.getNomeCliente()+" Atualizado no Banco de Dados! \n");*/
-
 		} catch (Exception e) {
 			System.out.println("\nErro : "+e.getMessage()+"\n");
 		}
@@ -133,11 +96,6 @@ public class ClienteDAO {
 
 	}
 
-/*	Cliente cliente = new Cliente();
-	public ArrayList<Cliente> list = new ArrayList<Cliente>();
-	public LinkedList listaLigada = new LinkedList();
-	public Object objCliente;*/
-	
 	public Cliente procurarClienteNoBancoDeDados(String cpf) throws SQLException, ClienteNaoEncontradoException, ClienteCpfInvalidoException, Exception {
 
 		Connection conn = SGP_MySQL.getInstance().conectarBD();

@@ -39,6 +39,24 @@ public class Fornecedor {
 		setNomeFantasia(nomeFantasia);
 	}
 	
+	public Fornecedor(int id, String razaoSocial, String cnpj, String ie, String rua,String numero	,String bairro	,String cidade	,String uf	,String cep, String email, String telefone, String celular, String operadora, String nomeFantasia) {
+		setId(id);
+		setRazaoSocial(razaoSocial);
+		setCnpj(cnpj);
+		setIe(ie);
+		setRua(rua);
+		setNumero(numero);
+		setBairro(bairro);
+		setCidade(cidade);
+		setUf(uf);
+		setCep(cep);
+		setEmail(email);
+		setTelefone(telefone);
+		setCelular(celular);
+		setOperadora(operadora);
+		setNomeFantasia(nomeFantasia);
+	}
+	
 	
 	public String toString() {
 		

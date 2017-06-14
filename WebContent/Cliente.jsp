@@ -43,8 +43,7 @@ out.println("<script>document.location.href='index.jsp';</script>");
 					<!-- <h4>Filtrar por:</h4> -->
 					<input type="search" name="Pesquisar" value="CPF do Cliente desejado"> 
 					<input type="submit" value="Pesquisar">
-					
-						
+					<a href="CadastroCliente.jsp"><input type="button"value="Novo Cadastro" /></a>
 				</form>
 				<br>
 				<br>
@@ -54,24 +53,24 @@ out.println("<script>document.location.href='index.jsp';</script>");
 				<table>
 
 					<tr>
-						<th>Nome</th>
 						<th>CPF</th>
+						<th>Nome</th>
 						<th>Celular</th>
-						<th>Editar</th>
-						<th>Deletar</th>
+						<th>Status</th>
+<!-- 						<th>Editar</th>
+						<th>Deletar</th> -->
 					</tr>
 					<c:forEach var="i" items="${controlador.listarClientes()}">
 						<tr>
-							<td>${i.nomeCliente}</td>
 							<td>${i.cpf}</td>
+							<td>${i.nomeCliente}</td>
 							<td>${i.celular}</td>
-							<td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
-							<td><a href="#" class="icon fa fa-times"></a></td>
+							<td>${i.status}</td>
+							<!-- <td><a href="#" class="icon fa fa-pencil-square-o"></a></td>
+							<td><a href="#" class="icon fa fa-times"></a></td> -->
 						</tr>
 					</c:forEach>
 				</table>
-				
-				<a href="CadastroCliente.jsp"><input type="button"value="Novo Cadastro" /></a>
 			</div>	
 		</section>
 	</div>
