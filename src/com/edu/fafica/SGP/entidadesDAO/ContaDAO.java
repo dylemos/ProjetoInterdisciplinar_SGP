@@ -6,6 +6,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.HashSet;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
 import com.edu.fafica.SGP.entidades.Conta;
@@ -22,17 +24,23 @@ public class ContaDAO {
 	public Conta cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException, Exception {
 		
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
+		int qtdParcela = 0;
+		qtdParcela = conta.getQtdParcelas();
 		
 		try {
 			
 			Statement statement = conn.createStatement();
 			
+			for (int i = 1; i <= qtdParcela; i++) {
+				//if (conta.getDataVencimento() == dtVencimento){
 			String query = "";
 			
 			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, QTD_PARCELAS)";
-			query += "values('"+conta.getId()+"','"+conta.getTipoConta()+"','"+conta.getStatusConta()+"', '"+conta.getCpfCliente()+"', '"+conta.getValor()+"', '"+conta.getDesconto()+"', '"+conta.getTotal()+"', '"+conta.getDataAbertura()+"', '"+conta.getDataVencimento()+"', '"+conta.getQtdParcelas()+"')";
+			query += "values('"+conta.getId()+"','"+conta.getTipoConta()+"','"+conta.getStatusConta()+"', '"+conta.getCpfCliente()+"', '"+conta.getValor()+"', '"+conta.getDesconto()+"', '"+conta.getTotal()+"', '"+conta.getDataAbertura()+"', '"+conta.getDataVencimento()+"', '"+ i +"/"+conta.getQtdParcelas()+"')";
 			statement.execute(query);
 			System.out.println("\n Conta "+conta.getId()+" Cadastrado no Banco de Dados! \n");
+				//}
+			}
 			
 			return conta;
 			
