@@ -41,8 +41,8 @@ out.println("<script>document.location.href='index.jsp';</script>");
 						</div>
 						<div class="6u$ 12u$(mobile)">
 							<select name="status">
-								<option>Ativo</option>
-								<option>Inativo</option>
+								<option>ATIVO</option>
+								<option>INATIVO</option>
 							</select>
 						</div>
 						<div class="6u 12u$(mobile)">

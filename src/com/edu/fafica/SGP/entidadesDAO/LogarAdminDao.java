@@ -24,7 +24,8 @@ public class LogarAdminDao {
 		UserAdmin userAdmin = new UserAdmin();
 		sql += "select nome from useradmin ";
 		sql += "where login = " + "'" + login + "'";
-		sql += " and senha = " + "'" + senha + "';";
+		sql += " and senha = " + "'" + senha + "'";
+		sql += " and STATUS = 'ATIVO';";
 
 		try {
 			Statement st = conn.createStatement();

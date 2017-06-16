@@ -54,8 +54,8 @@
 						<div class="6u 12u$(mobile)">
 							<label>Status</label>
 							<select name="status">
-								<option>Ativo</option>
-								<option>Inativo</option>
+								<option>ATIVO</option>
+								<option>INATIVO</option>
 								<option selected><%=array[1]%></option>
 							</select>
 						</div>
