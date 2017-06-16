@@ -74,12 +74,12 @@ public class RepositorioContaList implements IRepositorioConta{
 	}
 
 	@Override
-	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
+	public Conta procurarConta(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
 
 		try {
 			
 			for (Conta conta : listaContaRepositorio) {
-				if(conta.getId() == id){
+				if(conta.getCpfCliente() == cpf){
 					System.out.println("Conta Encontrada:");
 					System.out.println(conta.toString());
 					System.out.println();

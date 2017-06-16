@@ -17,7 +17,7 @@ public interface IRepositorioConta {
 
 	public void removerConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException;
 
-	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException;
+	public Conta procurarConta(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException, ClassNotFoundException;
 
 	public HashSet<Conta> listarContas() throws ClassNotFoundException;
 }

@@ -7,6 +7,7 @@ public class Conta {
 	
 	private int id;
 	private String cpfCliente;				//referência a Cliente
+	private String nomeCliente;
 	private String tipoConta;			//referência a TipoConta
 	private String statusConta;			//referência a StatusConta
 	private Double valor;				 
@@ -15,13 +16,13 @@ public class Conta {
 	private Date dataAbertura;
 	private Date dataVencimento;
 	private Date dataPago;
-	private int qtdParcelas;
+	private String qtdParcelas;
 	
 	public Conta() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, java.sql.Date dataAbertura, java.sql.Date dataVencimento, java.sql.Date dataPago, int qtdParcelas) {
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, java.sql.Date dataAbertura, java.sql.Date dataVencimento, java.sql.Date dataPago, String qtdParcelas) {
 		setCpfCliente(cpfCliente);
 		setTipoConta(tipoConta);
 		setStatusConta(statusConta);
@@ -33,8 +34,22 @@ public class Conta {
 		setDataPago(dataPago);
 		setQtdParcelas(qtdParcelas);
 	}
+	
+	public Conta(String cpfCliente, String nomeCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, java.sql.Date dataAbertura, java.sql.Date dataVencimento, java.sql.Date dataPago, String qtdParcelas) {
+		setCpfCliente(cpfCliente);
+		setNomeCliente(nomeCliente);
+		setTipoConta(tipoConta);
+		setStatusConta(statusConta);
+		setValor(valor);
+		setDesconto(desconto);
+		setTotal(total);
+		setDataAbertura(dataAbertura);
+		setDataVencimento(dataVencimento);
+		setDataPago(dataPago);
+		setQtdParcelas(qtdParcelas);
+	}
 
-	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String dataPago, int qtdParcelas) {
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String dataPago, String qtdParcelas) {
 		setCpfCliente(cpfCliente);
 		setTipoConta(tipoConta);
 		setStatusConta(statusConta);
@@ -47,7 +62,7 @@ public class Conta {
 		setQtdParcelas(qtdParcelas);
 	}
 	
-	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, int qtdParcelas) {
+	public Conta(String cpfCliente, String tipoConta, String statusConta, Double valor, Double desconto, Double total, String dataAbertura, String dataVencimento, String qtdParcelas) {
 		setCpfCliente(cpfCliente);
 		setTipoConta(tipoConta);
 		setStatusConta(statusConta);
@@ -81,6 +96,14 @@ public class Conta {
 
 	public void setCpfCliente(String cpfCliente) {
 		this.cpfCliente = cpfCliente;
+	}
+	
+	public String getNomeCliente() {
+		return nomeCliente;
+	}
+
+	public void setNomeCliente(String nomeCliente) {
+		this.nomeCliente = nomeCliente;
 	}
 
 	public String getTipoConta() {
@@ -189,11 +212,11 @@ public class Conta {
 		this.dataPago = dataPago;
 	}
 	
-	public int getQtdParcelas() {
+	public String getQtdParcelas() {
 		return qtdParcelas;
 	}
 
-	public void setQtdParcelas(int qtdParcelas) {
+	public void setQtdParcelas(String qtdParcelas) {
 		this.qtdParcelas = qtdParcelas;
 	}
 

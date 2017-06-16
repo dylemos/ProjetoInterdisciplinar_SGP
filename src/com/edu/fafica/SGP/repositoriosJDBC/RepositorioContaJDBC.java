@@ -32,8 +32,8 @@ public class RepositorioContaJDBC implements IRepositorioConta{
 	}
 
 	@Override
-	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
-		this.cDAO.procurarContaNoBancoDeDados(id);
+	public Conta procurarConta(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException, ClassNotFoundException {
+		this.cDAO.procurarContaNoBancoDeDados(cpf);
 		return null;
 	}
 

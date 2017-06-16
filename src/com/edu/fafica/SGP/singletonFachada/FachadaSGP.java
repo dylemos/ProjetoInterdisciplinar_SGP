@@ -192,8 +192,8 @@ public class FachadaSGP {
 		this.controladorConta.removerConta(id);
 	}
 	
-	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
-		return this.controladorConta.procurarConta(id);
+	public Conta procurarConta(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
+		return this.controladorConta.procurarConta(cpf);
 	}
 
 	public HashSet<Conta> listarContas() throws ClassNotFoundException{

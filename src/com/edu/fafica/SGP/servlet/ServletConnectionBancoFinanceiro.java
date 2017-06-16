@@ -52,12 +52,11 @@ public class ServletConnectionBancoFinanceiro extends HttpServlet {
 		String total = request.getParameter("total");
 		String dataAbertura = request.getParameter("dataAbertura");
 		String dataVencimento = request.getParameter("dataVencimento");
-		String qtdParcelas = request.getParameter("parcelas");
+		String qtdParcelasConta = request.getParameter("parcelas");
 		
 		double valorConta = Double.parseDouble(valor);
 		double descontoConta = Double.parseDouble(desconto);
 		double totalConta = Double.parseDouble(total);
-		int qtdParcelasConta = Integer.parseInt(qtdParcelas);
 
 //		cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, dataPago, qtdParcelasConta
 		PrintWriter out = response.getWriter();		

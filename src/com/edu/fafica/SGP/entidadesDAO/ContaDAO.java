@@ -10,6 +10,7 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.HashSet;
 import com.edu.fafica.SGP.banco.SGP_MySQL;
+import com.edu.fafica.SGP.entidades.Chamado;
 import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
@@ -39,7 +40,7 @@ public class ContaDAO {
 			cs.setDouble(6, conta.getTotal());
 			cs.setDate(7, (Date) conta.getDataAbertura());
 			cs.setDate(8, (Date) conta.getDataVencimento());
-			cs.setInt(9, conta.getQtdParcelas());
+			cs.setString(9, conta.getQtdParcelas());
 			
 			cs.execute();
 			
@@ -74,9 +75,49 @@ public class ContaDAO {
 
 	}
 
-	public Conta procurarContaNoBancoDeDados(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
-		// TODO Auto-generated method stub
-		return null;
+	public Conta procurarContaNoBancoDeDados(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException, ClassNotFoundException {
+		
+		Connection conn = SGP_MySQL.getInstance().conectarBD();
+		Conta conta = new Conta();
+		
+		String sql = "";
+		sql += "select ID_CONTA, CPF_CLIENTE, CLIENTE.NOME, TIPOCONTA, STATUSCONTA, VALOR, DESCONTO, TOTAL, DT_ABERTURA, CONTA.DT_VENCIMENTO, DT_PAGO, QTD_PARCELAS from conta ";
+		sql += "join cliente on cliente.CPF = conta.CPF_CLIENTE ";
+		sql += "where conta.cpf_cliente = " + "'" + cpf + "';";
+
+		try {
+
+			Statement st = conn.createStatement();
+			ResultSet rs = st.executeQuery(sql);
+
+			if(rs.next()) {
+
+				int codigo = rs.getInt(1);
+				String cpfClienteConta = rs.getString(2);
+				String nomeCliente = rs.getString(3);
+				String tipoConta = rs.getString(4);
+				String statusConta = rs.getString(5);
+				Double valor = rs.getDouble(6);
+				Double desconto = rs.getDouble(7);
+				Double total = rs.getDouble(8);
+				java.sql.Date dataAbertura = rs.getDate(9);
+				java.sql.Date dataVencimento = rs.getDate(10);
+				java.sql.Date dataPago = rs.getDate(11);
+				String qtdParcelas = rs.getString(12);
+
+				conta = new Conta(cpfClienteConta, nomeCliente, tipoConta, statusConta, valor, desconto, total, dataAbertura, dataVencimento, dataPago, qtdParcelas);
+				conta.setId(codigo);
+				
+				System.out.println("\nCliente localizado no Banco de Dados:");
+				System.out.println(conta.toString());
+				//System.out.println(listaLigada);
+				
+			}
+				
+		} catch (Exception e) {
+			System.out.println("Erro: "+e.getMessage());
+		}
+		return conta;
 	}
 
 	public HashSet<Conta> listarContasNoBancoDeDados()  throws ClassNotFoundException{
@@ -107,7 +148,7 @@ try {
 				java.sql.Date dataAbertura = resultSet.getDate(8);
 				java.sql.Date dataVencimento = resultSet.getDate(9);
 				java.sql.Date dataPago = resultSet.getDate(10);
-				int qtdParcelas = resultSet.getInt(11);
+				String qtdParcelas = resultSet.getString(11);
 				
 				
 				conta = new Conta(cpfCliente, tipoConta, statusConta, valor, desconto, total, dataAbertura, dataVencimento, dataPago, qtdParcelas);

@@ -108,13 +108,13 @@ public class ControladorConta {
 
 	
 	
-	public Conta procurarConta(int id) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
+	public Conta procurarConta(String cpf) throws SQLException, ContaNaoEncontradaException, ContaIdInvalidoException {
 
 		try {
 			
 			for (Conta conta : listaConta) {
-				if(conta.getId() == id){
-					this.repositorioConta.procurarConta(id);
+				if(conta.getCpfCliente() == cpf){
+					this.repositorioConta.procurarConta(cpf);
 					return conta;
 				}
 			}
