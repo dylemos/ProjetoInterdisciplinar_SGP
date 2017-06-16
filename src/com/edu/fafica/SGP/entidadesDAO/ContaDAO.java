@@ -14,6 +14,7 @@ import com.edu.fafica.SGP.entidades.Conta;
 import com.edu.fafica.SGP.exceptions.ContaIdInvalidoException;
 import com.edu.fafica.SGP.exceptions.ContaJaCadastradaException;
 import com.edu.fafica.SGP.exceptions.ContaNaoEncontradaException;
+import com.mysql.jdbc.CallableStatement;
 
 public class ContaDAO {
 	
@@ -24,23 +25,35 @@ public class ContaDAO {
 	public Conta cadastrarContaNoBancoDeDados(Conta conta) throws SQLException, ContaJaCadastradaException, Exception {
 		
 		Connection conn = SGP_MySQL.getInstance().conectarBD();
-		int qtdParcela = 0;
-		qtdParcela = conta.getQtdParcelas();
+/*		int qtdParcela = 0;
+		qtdParcela = conta.getQtdParcelas();*/
 		
 		try {
 			
-			Statement statement = conn.createStatement();
+			java.sql.CallableStatement cs = conn.prepareCall("{call sp_conta_insert(?,?,?,?,?,?,?,?,?)}");
+			cs.setString(1, conta.getTipoConta());
+			cs.setString(2, conta.getStatusConta());
+			cs.setString(3, conta.getCpfCliente());
+			cs.setDouble(4, conta.getValor());
+			cs.setDouble(5, conta.getDesconto());
+			cs.setDouble(6, conta.getTotal());
+			cs.setDate(7, (Date) conta.getDataAbertura());
+			cs.setDate(8, (Date) conta.getDataVencimento());
+			cs.setInt(9, conta.getQtdParcelas());
+			
+			cs.execute();
+			
+			System.out.println("\n Conta "+conta.getId()+" Cadastrado no Banco de Dados! \n");
+			/*Statement statement = conn.createStatement();
 			
 			for (int i = 1; i <= qtdParcela; i++) {
-				//if (conta.getDataVencimento() == dtVencimento){
 			String query = "";
 			
 			query += "insert into conta(ID_CONTA, TIPOCONTA, STATUSCONTA, CPF_CLIENTE, VALOR, DESCONTO, TOTAL, DT_ABERTURA, DT_VENCIMENTO, QTD_PARCELAS)";
 			query += "values('"+conta.getId()+"','"+conta.getTipoConta()+"','"+conta.getStatusConta()+"', '"+conta.getCpfCliente()+"', '"+conta.getValor()+"', '"+conta.getDesconto()+"', '"+conta.getTotal()+"', '"+conta.getDataAbertura()+"', '"+conta.getDataVencimento()+"', '"+ i +"/"+conta.getQtdParcelas()+"')";
 			statement.execute(query);
 			System.out.println("\n Conta "+conta.getId()+" Cadastrado no Banco de Dados! \n");
-				//}
-			}
+			}*/
 			
 			return conta;
 			

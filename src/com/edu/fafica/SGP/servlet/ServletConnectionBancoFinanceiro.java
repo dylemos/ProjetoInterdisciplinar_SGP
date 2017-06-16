@@ -65,22 +65,12 @@ public class ServletConnectionBancoFinanceiro extends HttpServlet {
 		String html = " ";
 		
 		html += "<html>";
-		
-		html += "	<head>";
-		html += "		<meta charset='utf-8'/>";
-		html += "		<title>@Cadastrado</title>";
-		html += "		<link rel='stylesheet' type='text/css' href='estilo.css' />";
-		html += "	</head>";
-		
-		html += "	<body>";
-		html += "		<div align='center'><br/><br/><br/><br/>";
-		html += "			<h2 style='transition-delay: 10s;'>Cadastrado com Sucesso</h2><br/><br/><h3>Tipo Conta "+tipoConta+" Valor R$"+totalConta+"</h3><script>document.location.href='CadastroCliente.jsp';</script>";
-		html += "		</div>";
-		html += "	</body>";
-		
+		html += "<body>";
+		html += "<script>document.location.href='CadastraFinanceiroMsg.jsp';</script>";
+		html += "</body>";
 		html += "</html>";
- 
-		out.println(html);		
+		
+		out.println(html);	
 		Conta conta = new Conta(cpfCliente, tipoConta, statusConta, valorConta, descontoConta, totalConta, dataAbertura, dataVencimento, qtdParcelasConta);
 		try {
 			FachadaSGP.getUniqueInstance().cadastrarConta(conta);
